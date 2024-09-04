@@ -36,4 +36,30 @@ import { Heading } from '@/shared/ui/text/heading'
         position: relative;
     }
 }
-</style>
+
+@media screen and (max-width: 768px) {
+    .section-implantation {
+        h2 {
+            margin: 100px 0 40px;
+        }
+
+        .section-implantation__items {
+            padding-left: 45px;
+        }
+    }
+}
+
+@media screen and (max-width: 375px) {
+    .section-implantation {
+        .section-implantation__items {
+            padding-left: 20px;
+
+            .item {
+                img {
+                    height: 250px;
+                    width: auto;
+                }
+            }
+        }
+    }
+}</style>

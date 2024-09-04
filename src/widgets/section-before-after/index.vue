@@ -61,6 +61,56 @@ import { Button } from '@/shared/ui/button';
     }
 }
 
+@media screen and (max-width: 768px) {
+    .section-before-after {
+        h2 {
+            margin: 100px 0 40px;
+        }
+
+        .section__tittle-with-buttons {
+            .btn__slide {
+                display: none;
+            }
+        }
+
+        .before-after__slider {
+            .slider__content {
+                gap: 10px;
+
+                .slider__item {
+                    border-radius: 17px;
+
+                    img {
+                        border-radius: 17px;
+                        max-height: 338px;
+                    }
+                }
+            }
+        }
+    }
+
+}
+
+@media screen and (max-width: 375px) {
+    .section-before-after {
+        .before-after__slider {
+            .slider__content {
+                gap: 10px;
+
+                .slider__item {
+                    border-radius: 30px;
+
+                    img {
+                        border-radius: 30px;
+                        max-height: 260px;
+                    }
+                }
+            }
+        }
+    }
+
+}
+
 .section__tittle-with-buttons {
     display: flex;
     flex-direction: row;

@@ -73,4 +73,12 @@ import { Button } from '@/shared/ui/button';
 .reservation__item_select {
     margin-left: 10px
 }
+
+@media screen and (max-width: 768px) {
+    .reservation {
+        flex-direction: column;
+        gap: 25px;
+        padding: 20px;
+    }
+}
 </style>

@@ -4,7 +4,7 @@ import { Heading } from '@/shared/ui/text/heading'
 import { Paragraph } from '@/shared/ui/text/paragraph';
 </script>
 <template>
-    <section class="section-seven">
+    <section class="section-solution">
         <Container tagName="div" size="m">
             <Heading tagName="h2" regular size="xl">вне зависимости от состояния здоровья ваша проблема с зубами будет
                 решена!
@@ -17,7 +17,7 @@ import { Paragraph } from '@/shared/ui/text/paragraph';
                 <li>зубы подлежат удалению</li>
                 <li>острый пародонтит</li>
             </ul>
-            <div class="section-seven__content">
+            <div class="section-solution__content">
                 <div class="content__item">
                     <div class="item__description">
                         <div class="text">
@@ -57,7 +57,7 @@ import { Paragraph } from '@/shared/ui/text/paragraph';
     </section>
 </template>
 <style lang="scss">
-.section-seven {
+.section-solution {
     h2{
         margin: 200px 0 70px;
     }
@@ -69,7 +69,6 @@ import { Paragraph } from '@/shared/ui/text/paragraph';
             border-bottom: 2px solid rgba(119, 126, 144, 0.05);
             padding: 3px 18px 3px 0px;
             color: #747B8F;
-
 
             &:hover {
                 border-bottom: 2px solid rgb(35, 38, 47);
@@ -84,7 +83,7 @@ import { Paragraph } from '@/shared/ui/text/paragraph';
         color: #23262F;
     }
 
-    .section-seven__content {
+    .section-solution__content {
         .content__item {
             margin-top: 60px;
             padding: 25px 0;
