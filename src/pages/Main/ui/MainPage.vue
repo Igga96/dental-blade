@@ -1,40 +1,51 @@
 <script setup lang="ts">
 import { Header } from '@/widgets/header';
+import { Footer } from '@/widgets/footer'
 import { Container } from '@/shared/ui/container'
 import { Heading } from '@/shared/ui/text/heading'
 import { Paragraph } from '@/shared/ui/text/paragraph';
 import { Icon } from '@/shared/ui/icons';
 import { Circle } from '@/shared/ui/circle';
 import { Booking } from '@/features/booking';
-
-
+import { Button } from '@/shared/ui/button';
+import { Reviews } from '@/widgets/section-reviews'
+import { Questions } from '@/widgets/section-questions'
+import { Map } from '@/widgets/section-map'
+import {BeforeAfter} from '@/widgets/section-before-after'
+import {Doctors} from '@/widgets/section-doctors'
+import {Implantation} from '@/widgets/section-implantation'
+import {Solution} from '@/widgets/section-solution'
 
 </script>
 <template>
-  <Container tagName="div" size="m"></Container>
   <section class="section-first">
-    <Header></Header>
-    <Container tagName="div" size="m">
-      <Heading tagName="h2" regular size="xxl">
-        <Circle tagName="button" color="accent" size="xl">
-          <Icon type="heart" color="white"></Icon>
-        </Circle>улыбка
-        вашей мечты со скидкой 30%
-      </Heading>
-      <Paragraph tagName="p" medium large size="m">
-        Воспользуйтесь нашим предложением на отбеливание зубов и сияйте уверенностью каждый день!
-      </Paragraph>
-      <div>
-        <button>Узнать подробнее</button>
-        <Circle tagName="button" color="accent" size="m">
-          <icon type="arrow" color="white"></icon>
-        </Circle>
-      </div>
-    </Container>
+    <div class="section-first__content">
+      <Header></Header>
+      <Container tagName="div" size="m">
+        <div class="text"></div>
+        <Heading tagName="h2" regular size="xxl">
+          <Circle tagName="button" color="accent" size="m">
+            <Icon type="heart" color="white"></Icon>
+          </Circle>
+          улыбка вашей мечты со скидкой 30%
+        </Heading>
+
+        <Paragraph tagName="p" color="white" medium large size="m">
+          Воспользуйтесь нашим предложением на отбеливание зубов и сияйте уверенностью каждый день!
+        </Paragraph>
+        <div class="section-first__button">
+          <Button tagName="button" size="s" color="accent">Узнать подробнее</Button>
+          <Circle tagName="button" color="accent" size="m">
+            <icon type="arrow" color="white"></icon>
+          </Circle>
+        </div>
+      </Container>
+    </div>
   </section>
   <Container>
     <Booking></Booking>
   </Container>
+
   <section class="section-second">
     <Container tagName="div" size="m">
       <Heading tagName="h2" regular size="xl">один визит в клинику
@@ -43,9 +54,10 @@ import { Booking } from '@/features/booking';
         <div class="section-second__items-large">
           <router-link to="" class="section-second__item">
             <div class="service__block">
-              <Heading tagName="h3" regular size="l">лечение
+              <Heading tagName="h3" regular size="l" color="dark">лечение
                 зубов</Heading>
-              <p>восстановление формы, функции пораженного зуба и установка пломбы</p>
+              <Paragraph tagName="p" color="dark-gray" size="xs">восстановление формы, функции пораженного зуба и
+                установка пломбы</Paragraph>
               <img src='' alt="1">
             </div>
             <div class="section-second__item_circle">
@@ -57,7 +69,8 @@ import { Booking } from '@/features/booking';
           <router-link to="" class="section-second__item">
             <div class="service__block">
               <Heading tagName="h3" regular size="l">установка брекетов</Heading>
-              <p>установка брекетов для коррекции положения зубов и прикуса</p>
+              <Paragraph tagName="p" color="dark-gray" size="xs">установка брекетов для коррекции положения зубов и
+                прикуса</Paragraph>
               <img src="" alt="2">
             </div>
             <div class="section-second__item_circle">
@@ -72,7 +85,8 @@ import { Booking } from '@/features/booking';
             <div class="service__block">
               <Heading tagName="h3" regular size="l">чистка
                 зубов</Heading>
-              <p>гигиена профессиональная чистка зубов и нейтрализация зубного камня </p>
+              <Paragraph tagName="p" color="dark-gray" size="xs">гигиена профессиональная чистка зубов и нейтрализация
+                зубного камня </Paragraph>
               <img src="" alt="3">
             </div>
             <div class="section-second__item_circle">
@@ -85,7 +99,8 @@ import { Booking } from '@/features/booking';
             <div class="service__block">
               <Heading tagName="h3" regular size="l">уставновка
                 виниров</Heading>
-              <p>восстановление эстетических и функциональных свойств зубов </p>
+              <Paragraph tagName="p" color="dark-gray" size="xs">восстановление эстетических и функциональных свойств
+                зубов </Paragraph>
               <img src="" alt="4">
             </div>
             <div class="section-second__item_circle">
@@ -99,7 +114,8 @@ import { Booking } from '@/features/booking';
           <router-link to="" class="section-second__item">
             <div class="service__block">
               <Heading tagName="h3" regular size="l">хирургия</Heading>
-              <p>передовые методы хирургического вмешательства для решения сложных заболеваний полости рта</p>
+              <Paragraph tagName="p" color="dark-gray" size="xs">передовые методы хирургического вмешательства для решения
+                сложных заболеваний полости рта</Paragraph>
               <img src="" alt="5">
             </div>
             <div class="section-second__item_circle">
@@ -111,8 +127,8 @@ import { Booking } from '@/features/booking';
           <router-link to="" class="section-second__item">
             <div class="service__block">
               <Heading tagName="h3" regular size="l">имплантация</Heading>
-              <p>классическая, одноэтапная,
-                базальная имплантация зубов, имплантация «All – on – 4», имплантация «All – on – 6»</p>
+              <Paragraph tagName="p" color="dark-gray" size="xs">классическая, одноэтапная,
+                базальная имплантация зубов, имплантация «All – on – 4», имплантация «All – on – 6»</Paragraph>
               <img src="" alt="6">
             </div>
             <div class="section-second__item_circle">
@@ -138,386 +154,218 @@ import { Booking } from '@/features/booking';
             <Circle tagName="button" color="white" size="m">
               <icon type="coloredProtection" color="accent"></icon>
             </Circle>
-            <span>2000</span>
-            <p>успешных операций в год</p>
+            <Paragraph tagName="span" size="l" color="dark">2000</Paragraph>
+            <Paragraph tagName="p" size="l" color="dark-gray">успешных операций в год</Paragraph>
           </div>
           <div class="utp">
             <Circle tagName="button" color="white" size="m">
               <icon type="coloredUser" color="accent"></icon>
             </Circle>
-            <span>44</span>
-            <p>квалифицированных
-              специалиста</p>
+            <Paragraph tagName="span" size="l" color="dark">44</Paragraph>
+            <Paragraph tagName="p" size="l" color="dark-gray">квалифицированных
+              специалиста</Paragraph>
           </div>
         </div>
-        <iframe src="#" frameborder="0">
-        </iframe>
+        <div class="section-third__video">
+          <iframe src="" frameborder="0">
+          </iframe>
+        </div>
         <div class="utp__items">
           <div class="utp">
             <Circle tagName="button" color="white" size="m">
               <icon type="coloredHeart" color="accent"></icon>
             </Circle>
-            <span>10 000 +</span>
-            <p>клиентов, которые
-              доверят нашей клинике</p>
+            <Paragraph tagName="span" size="l" color="dark">10 000 +</Paragraph>
+            <Paragraph tagName="p" size="l" color="dark-gray">клиентов, которые
+              доверят нашей клинике</Paragraph>
           </div>
           <div class="utp">
             <Circle tagName="button" color="white" size="m">
               <icon type="coloredTooth" color="accent"></icon>
             </Circle>
-            <span>7 лет</span>
-            <p>работаем по технологии All-on-4</p>
+            <Paragraph tagName="span" size="l" color="dark">7 лет</Paragraph>
+            <Paragraph tagName="p" size="l" color="dark-gray">работаем по технологии All-on-4</Paragraph>
           </div>
         </div>
       </div>
     </Container>
   </section>
-  <section class="section-doctors">
-    <Container>
-      <div class="section__tittle-with-buttons">
-        <Heading tagName="h2" regular size="xl">Наши врачи</Heading>
-        <div class="btn__slide">
-          <button>prev</button>
-          <button>next</button>
-        </div>
-      </div>
-      <div class="doctors-slider">
-        <div class="doctors-slider__content">
-          <a class="item">
-            <div class="item__info">
-              <Heading tagName="h4" size="xs" regular>Фроленков Александр Сергеевич</Heading>
-              <p>cтоматолог-терапевт, эндодонтист, врач высшей квалификационной категории</p>
-              <p>
-                <span> высшая категория</span>
-                <span>стаж 20 лет</span>
-              </p>
-            </div>
-          </a>
-          <a class="item">
-            <div class="item__info">
-              <Heading tagName="h4" size="xs" regular>Фроленков Александр Сергеевич</Heading>
-              <p>cтоматолог-терапевт, эндодонтист, врач высшей квалификационной категории</p>
-              <p>
-                <span> высшая категория</span>
-                <span>стаж 20 лет</span>
-              </p>
-            </div>
-          </a>
-          <a class="item">
-            <div class="item__info">
-              <Heading tagName="h4" size="xs" regular>Фроленков Александр Сергеевич</Heading>
-              <p>cтоматолог-терапевт, эндодонтист, врач высшей квалификационной категории</p>
-              <p>
-                <span> высшая категория</span>
-                <span>стаж 20 лет</span>
-              </p>
-            </div>
-          </a>
-          <a class="item">
-            <div class="item__info">
-              <Heading tagName="h4" size="xs" regular>Фроленков Александр Сергеевич</Heading>
-              <p>cтоматолог-терапевт, эндодонтист, врач высшей квалификационной категории</p>
-              <p>
-                <span> высшая категория</span>
-                <span>стаж 20 лет</span>
-              </p>
-            </div>
-          </a>
-        </div>
-      </div>
-    </Container>
-  </section>
+  <Doctors></Doctors>
   <section class="section-about">
     <Container tagName="div" size="m">
       <div class="section-about__content">
         <div class="section-about__text">
-          <Heading tagName="h2" regular size="xl">о нашей
+          <Heading tagName="h2" regular size="xl">о нашей <br>
             клинике</Heading>
-          <p>У нас работают стоматологи высшей категории, доценты и профессора — врачи с высоким уровнем профессионализма
-            и личной ответственности, способные действовать в команде и постоянно совершенствоваться. </p>
+          <Paragraph tagName="p" color="dark-gray" size="l">У нас работают стоматологи высшей категории, доценты и
+            профессора — врачи с высоким уровнем профессионализма
+            и личной ответственности, способные действовать в команде и постоянно совершенствоваться. </Paragraph>
           <div class="utp">
-            <Circle tagName="button" color="accent" size="m">
-              <icon type="shield&tick" color="dark"></icon>
+            <Circle tagName="button" color="light-blue-second" size="m">
+              <icon type="shield&tick" color="none"></icon>
             </Circle>
-            <p>cтрогие стандарты
-              безопасности и высокое качество </p>
+            <Paragraph tagName="p" color="dark-gray" size="m">cтрогие стандарты
+              безопасности и высокое качество </Paragraph>
           </div>
           <div class="utp">
-            <Circle tagName="button" color="accent" size="m">
-              <icon type="user&heart" color="dark"></icon>
+            <Circle tagName="button" color="light-blue-second" size="m">
+              <icon type="user&heart" color="none"></icon>
             </Circle>
-            <p>гарантия на все виды стоматологических услуг</p>
+            <Paragraph tagName="p" color="dark-gray" size="m">гарантия на все виды стоматологических услуг</Paragraph>
           </div>
           <div class="utp">
-            <Circle tagName="button" color="accent" size="m">
-              <icon type="sheldue" color="dark"></icon>
+            <Circle tagName="button" color="light-blue-second" size="m">
+              <icon type="sheldue" color="none"></icon>
             </Circle>
-            <p>точность и эффективность</p>
+            <Paragraph tagName="p" color="dark-gray" size="m">точность и эффективность</Paragraph>
           </div>
         </div>
         <div class="section-about__video">
-          <iframe src="#" frameborder="0">
+          <iframe src="" frameborder="1">
           </iframe>
         </div>
       </div>
     </Container>
   </section>
-  <section class="section-implantation">
-    <Container tagName="div" size="m">
-      <Heading tagName="h2" regular size="xl">у нас имплантация
-        доступна каждому без мнимой экономии!</Heading>
-      <div class="section-six__items">
-        <div class="item">
-          <p>при 100% оплате скидка</p>
-          <ul>
-            <li>от 6 мес</li>
-            <li>от 300 руб в день</li>
-            <li> оформление на месте</li>
-          </ul>
-          <button>узнать подробнее</button>
-        </div>
-        <div class="item">
-          <p>при 100% оплате скидка</p>
-          <ul>
-            <li>от 6 мес</li>
-            <li>от 300 руб в день</li>
-            <li> оформление на месте</li>
-          </ul>
-          <button>узнать подробнее</button>
-        </div>
-      </div>
-    </Container>
-  </section>
-  <section class="section-seven">
-    <Container tagName="div" size="m">
-      <Heading tagName="h2" regular size="xl">вне зависимости от состояния здоровья ваша проблема с зубами будет решена!
-      </Heading>
-      <ul>
-        <li>Полное отсутствие зубов</li>
-        <li>зубы подвижны или выпадают</li>
-        <li>наличие воспаления</li>
-        <li>атрофия костной ткани</li>
-        <li>зубы подлежат удалению</li>
-        <li>острый пародонтит</li>
-      </ul>
-      <div class="section-seven__content">
-        <div class="item">
-          <div>
-            <div class="text">
-              <Heading tagName="h4" regular size="m">протезирование, лечение и имплантация зубов</Heading>
-              <p><span>врач:</span> Фроленков Александр Сергеевич</p>
-              <p><span>Вводная часть:</span>к специалистам нашей клиники обратилась 39-летняя пациентка Ю. с просьбой в
-                кратчайшие сроки сделать идеально белую голливудскую улыбку.</p>
-              <p><span>Что сделали:</span> установка зубных имплантатов Astra Tech в местах, где отсутствовали зубы;
-                эндодонтическое лечение (подготовка под протезирование); отбеливание зубов системой Zoom 4;</p>
-            </div>
-            <div class="photo">
-              <img src="" alt="">
-              <div>
-                <button></button>
-                <button></button>
-              </div>
-            </div>
-          </div>
-          <div>
-            <p>стоимость:</p>
-            <p>250 000 rub</p>
-          </div>
-        </div>
-      </div>
-    </Container>
-  </section>
-  <section class="section-eight">
-    <Container>
-      <div>
-        <Heading tagName="h2" regular size="xl">результаты до / после</Heading>
-        <div>
-          <button>prev</button>
-          <button>next</button>
-        </div>
-      </div>
-    </Container>
-    <div class="slider">
-      <div><img src="" alt="1"></div>
-      <div><img src="" alt="2"></div>
-      <div><img src="" alt="3"></div>
-      <div><img src="" alt="4"></div>
-      <div><img src="" alt="5"></div>
-    </div>
-  </section>
+  <Implantation></Implantation>
+  <Solution></Solution>
+  <BeforeAfter></BeforeAfter>
   <section class="section-nine">
     <Container tagName="div" size="m">
-      <Heading tagName="h2" regular size="xl">ВАШЕ РЕШЕНИЕ ПРИЙТИ ИДОВЕРИТСЯ НАМ - ЭТО ШАГ К ПОЛНОЦЕННОЙ ЖИЗНИ!
+      <Heading tagName="h2" regular size="xl">ВАШЕ РЕШЕНИЕ ПРИЙТИ И ДОВЕРИТСЯ НАМ - ЭТО ШАГ К ПОЛНОЦЕННОЙ ЖИЗНИ!
       </Heading>
       <div class="section-nine__content">
-        <div>
-          <p>достижения и награды клиники</p>
+        <div class="text">
+          <Heading tagName="h4" size="s" regular>достижения и награды клиники</Heading>
           <ul>
-            <li><img src="" alt="">
-              <p>Врачи – отличники стоматологии</p>
+            <li>
+              <Circle tagName="button" size="s" color="light-blue-second">1</Circle>
+              <Paragraph tagName="p" color="dark" size="s">Врачи – отличники стоматологии</Paragraph>
             </li>
-            <li><img src="" alt="">
-              <p>Авторские методики, одобренные профессиональными ассоциациями</p>
+            <li>
+              <Circle tagName="button" size="s" color="light-blue-second">2</Circle>
+              <Paragraph tagName="p" color="dark" size="s">Авторские методики, одобренные профессиональными ассоциациями
+              </Paragraph>
             </li>
-            <li><img src="" alt="">
-              <p>Официальный партнер Straumann и Nobel Biocare</p>
+            <li>
+              <Circle tagName="button" size="s" color="light-blue-second">3</Circle>
+              <Paragraph tagName="p" color="dark" size="s">Официальный партнер Straumann и Nobel Biocare</Paragraph>
             </li>
           </ul>
-          <p>Мы вкладываемся в развитие клиники, непрерывное обучение специалистов у экспертов мирового класса, в лучшее
-            оборудование и организацию сервиса по высоким европейским стандартам.</p>
+          <Paragraph tagName="p" color="dark-gray" size="s" class="description">Мы вкладываемся в развитие клиники,
+            непрерывное обучение специалистов у экспертов
+            мирового класса, в лучшее
+            оборудование и организацию сервиса по высоким европейским стандартам.
+          </Paragraph>
         </div>
-        <div>
-          <img src="" alt="ico">
+        <div class="images">
+          <img src="@/assets/images/section-nine-background.png" alt="ico">
         </div>
       </div>
     </Container>
   </section>
   <section class="section-technology">
-    <Container tagName="div" size="m">
-      <div>
-        <Heading tagName="h2" regular size="xl">технологии в дентал клиник</Heading>
-        <button>Записаться на прием</button>
-      </div>
-      <div>
-        <div>
-          <span>01</span>
+    <Container>
+      <div class="section__tittle-with-buttons">
+        <Heading tagName="h2" regular size="xl">технологии<br> в дентал клиник</Heading>
+        <div class="btn__not-slide">
+          <Button tagName="button" size="s" color="accent">Записаться на прием</Button>
+          <Circle tagName="button" color="accent" size="s">
+            <icon type="arrow" color="white"></icon>
+          </Circle>
         </div>
-        <p>американские протоколы</p>
-        <p>Мы постоянно инвестируем в современные стоматологические технологии и оборудование, для точной диагностики и
-          эффективного лечения.</p>
       </div>
-      <div>
-        <div>
-          <span>02</span>
-        </div>
-        <p>полный цифровой протокол</p>
-        <p>В нашем центре мы используем цифровой протокол, который применяется на всех этапах диагностики, профилактики
-          и лечения.</p>
-      </div>
-      <div>
-        <div>
-          <span>03</span>
-        </div>
-        <p>безопасностьпроцедур</p>
-        <p>Мы обеспечиваем максимальный контроль качества в ходе многофакторной стерилизации, гарантируя 100% защиту от
-          ВИЧ и гепатита.</p>
-      </div>
-    </Container>
-  </section>
-  <section class="section-reviews">
-    <Container tagName="div" size="m">
-      <Heading tagName="h2" regular size="xl">посмотрите отзывы наших клиентов и убедитесь что Дентал Клиник - лучший
-        выбор</Heading>
-    </Container>
-    <div class="carousel">
-      <div class="carousel__item">
-        <div>
-          <img src="" alt="">
+      <div class="section-technology__items">
+        <div class="item">
           <div>
-            <span>Сергей Иванов</span>
-            <span>24 июля 2024</span>
+            <Circle tagName="button" size="m" color="light-blue-second">1</Circle>
           </div>
+          <Paragraph tagName="p" color="dark" size="xxxl">американские протоколы</Paragraph>
+          <Paragraph tagName="p" color="dark-gray" size="xs">Мы постоянно инвестируем в современные стоматологические
+            технологии и оборудование, для точной диагностики и
+            эффективного лечения.
+          </Paragraph>
         </div>
-        <p>Отличная стоматологическая клиника с высококвалифицированными специалистами и современным оборудованием.
-          Обслуживание на высшем уровне, лечить зубы здесь — одно удовольствие!</p>
-        <span>4</span>
+
+        <div class="item">
+          <div>
+            <Circle tagName="button" size="m" color="light-blue-second">2</Circle>
+          </div>
+          <Paragraph tagName="p" color="dark" size="xxxl">полный цифровой протокол</Paragraph>
+          <Paragraph tagName="p" color="dark-gray" size="xs">В нашем центре мы используем цифровой протокол, который
+            применяется на всех этапах диагностики, профилактики
+            и лечения.
+          </Paragraph>
+        </div>
+        <div class="item">
+          <div>
+            <Circle tagName="button" size="m" color="light-blue-second">3</Circle>
+          </div>
+          <Paragraph tagName="p" color="dark" size="xxxl">безопасность процедур</Paragraph>
+          <Paragraph tagName="p" color="dark-gray" size="xs">Мы обеспечиваем максимальный контроль качества в ходе
+            многофакторной стерилизации, гарантируя 100% защиту от
+            ВИЧ и гепатита.
+          </Paragraph>
+        </div>
       </div>
-    </div>
-  </section>
-  <section class="section__questions">
-    <Container tagName="div" size="m">
-      <Heading tagName="h2" regular size="xl">у нас часто спрашивают?</Heading>
-      <ul>
-        <li>
-          <p><img src="" alt="1">Какие методы обезболивания используются в вашей клинике?</p>
-          <p>///</p>
-        </li>
-        <li>
-          <p><img src="" alt="2">Предоставляете ли вы услуги детской стоматологии?</p>
-          <p>Да, в нашей клинике есть специалисты по детской стоматологии, которые занимаются лечением и профилактикой
-            зубных заболеваний у детей. Мы создаем комфортные условия, чтобы маленькие пациенты не боялись посещать
-            стоматолога.</p>
-        </li>
-        <li>
-          <p><img src="" alt="3">Как записаться на прием в вашу клинику?</p>
-          <p>///</p>
-        </li>
-        <li>
-          <p><img src="" alt="4">Какие виды протезирования зубов вы предлагаете?</p>
-          <p>///</p>
-        </li>
-        <li>
-          <p><img src="" alt="5">Какие виды протезирования зубов вы предлагаете?</p>
-          <p>///</p>
-        </li>
-      </ul>
     </Container>
   </section>
-  <section class="section__map">
-    <div class="blur">
-      <img src="" alt="ico">
-      <p>Москва,
-        Кутузовский пр-кт, 45</p>
-      <p>
-        <span>телефон:</span>
-        <span>+7 (495) 988-99-30</span>
-      </p>
-      <p>
-        <span>время работы:</span>
-        <span>10:00–22.00.</span>
-      </p>
-      <p>
-        <span>email:</span>
-        <span>insmileveneers@gmail.com</span>
-      </p>
-      <button>записаться на прием</button>
-    </div>
-  </section>
-  <footer>
-    <Container tagName="div" size="s">
-      <div class="footer__content-left">
-        <Logo class="header__logo" />
-        <div>
-          <p>Денталмед© 2024, </p>
-          <p>Все права защищены, копирование материалов запрещено</p>
-        </div>
-      </div>
-      <div class="footer__content-right">
-        <div>
-          <a href="">Политика конфеденциальности</a>
-          <a href="">Публичная оферта</a>
-        </div>
-        <div>
-          <a href="">Лицензия</a>
-          <a href="">Нормативная база</a>
-        </div>
-        <ul>
-          <li><a href="">WS</a></li>
-          <li><a href="">TG</a></li>
-          <li><a href="">VK</a></li>
-          <li><a href="">FB</a></li>
-        </ul>
-      </div>
-    </Container>
-  </footer>
+  <Reviews></Reviews>
+  <Questions></Questions>
+  <Map></Map>
+  <Footer></Footer>
 </template>
 <style scoped lang="scss">
-section {
-  border: 1px solid black;
-}
-
 .section-first {
   height: 802px;
   border-top-left-radius: 50px;
   border-top-right-radius: 50px;
+  background: url("@/assets/images/section-first-background.jpg");
+  background-position: center 35%;
+  background-size: 120%;
+  background-color: rgba(35, 38, 47, 0.6);
+  overflow: hidden;
 
-  .container {
+  .section-first__content {
+    padding: 25px 0 0 0;
+    height: 100%;
+    width: 100%;
+    backdrop-filter: blur(5px);
+    background: rgba(35, 38, 47, 0.6);
 
-    h2 {
-      margin: 169px 0 40px;
-      max-width: 608px;
+
+    .container {
+
+      //.text {}
+
+      h2 {
+        margin: 169px 0 40px;
+        max-width: 608px;
+        color: #ffff;
+
+        .circle {
+          border: 1px solid rgba(255, 255, 255, 0.1);
+          background: rgba(255, 255, 255, 0.2);
+          position: relative;
+          top: -10px;
+        }
+
+      }
+
+      p {
+        max-width: 571px;
+      }
+
+
+      .section-first__button {
+        margin-top: 50px;
+
+        .circle {
+          width: 60px;
+          height: 60px;
+        }
+      }
     }
-
   }
 }
 
@@ -541,12 +389,26 @@ section {
     padding: 40px 15px 15px 35px;
     overflow: hidden;
 
+    &:hover {
+      box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .circle {
+      width: 65px;
+      height: 65px;
+    }
+
     .service__block {
       display: flex;
       flex-direction: column;
 
-      p {
+      .heading {
+        color: #23262F;
+      }
+
+      .text {
         margin-top: 25px;
+        font-size: 16px;
       }
 
       img {
@@ -587,7 +449,7 @@ section {
     gap: 10px;
 
     .section-second__item {
-      width: 600px;
+      width: 610px;
       height: 285px;
 
     }
@@ -616,7 +478,8 @@ section {
     .utp__items {
       display: flex;
       flex-direction: column;
-      gap: 10px
+      justify-content: space-between;
+      gap: 10px;
     }
 
 
@@ -627,6 +490,12 @@ section {
       padding: 10px;
       background: rgb(246, 246, 246);
       border-radius: 20px;
+      height: 100%;
+
+      .circle {
+        width: 50px;
+        height: 50px;
+      }
 
       p,
       span {
@@ -635,73 +504,35 @@ section {
 
       span {
         margin-top: 40px;
+        font-size: 30px;
+        font-weight: 700;
+
       }
 
       p {
+        max-width: 194px;
         margin-top: 15px;
+        font-size: 16px;
+        line-height: 24px;
       }
     }
 
-    iframe {
-      border-radius: 20px;
-      background: rgba(35, 38, 47, 0.45), url();
-      width: 100%;
-    }
-  }
-}
-
-.section-doctors {
-  .doctors-slider {
-    width: 100%;
-    overflow: hidden;
-  }
-
-  .doctors-slider__content {
-    display: flex;
-    gap: 10px;
-
-    .item {
-      background: url('@/assets/images/doctors/1.png');
-      background-position: center;
-      width: 385px;
-      height: 541px;
+    .section-third__video {
+      background: url("@/assets/images/section-third-background.jpg");
+      background-repeat: no-repeat;
+      background-size: 100%;
+      background-position: 45% 20%;
+      overflow: hidden;
       border-radius: 30px;
-    }
+      width: 720px;
+      height: 422px;
 
-    .item {
-      .item__info {
+      iframe {
+        overflow: hidden;
         height: 100%;
-        display: flex;
-        flex-direction: column;
-        justify-content: end;
-        padding: 30px;
-
-        p {
-          margin-top: 15px;
-        }
-
-        p,
-        h4 {
-          display: none;
-        }
-
-        &:hover {
-          background: linear-gradient(180.00deg, rgba(0, 0, 0, 0) 23.58%, rgb(28, 30, 39) 123.224%);
-
-
-          p,
-          h4 {
-            display: block;
-          }
-        }
-
-        span {
-          margin-top: 20px;
-          padding: 6px 20px;
-          border-radius: 90px;
-          backdrop-filter: blur(14px);
-          background: rgba(255, 255, 255, 0.1);
-        }
+        width: 100%;
+        border-radius: 20px;
+        background: rgba(35, 38, 47, 0.45);
       }
     }
   }
@@ -713,6 +544,7 @@ section {
     justify-content: space-between;
     flex-direction: row;
     margin-top: 200px;
+    gap: 72px;
 
     .section-about__text {
       h2 {
@@ -730,6 +562,11 @@ section {
         gap: 14.5px;
         margin-top: 20px;
 
+        .circle {
+          width: 55px;
+          height: 55px;
+        }
+
         p {
           max-width: 366px;
           margin: 0;
@@ -738,13 +575,90 @@ section {
     }
 
     .section-about__video {
-      width: 50%;
+      margin-top: 15px;
+      width: 55%;
+      background: url("@/assets/images/section-about-background.jpg");
+      background-size: 130%;
+      background-repeat: no-repeat;
+      background-position: 70% 50%;
+      overflow: hidden;
+      border-radius: 30px;
+      height: 570px;
 
       iframe {
+        overflow: hidden;
         width: 100%;
-        height: 570px;
+        height: 100%;
         border-radius: 30px;
-        background: rgba(35, 38, 47, 0.45), url();
+        background: rgba(35, 38, 47, 0.45);
+      }
+    }
+  }
+}
+
+.section-nine {
+  .section-nine__content {
+    display: flex;
+    justify-content: space-between;
+
+    .text {
+      ul {
+        margin-top: 40px;
+
+        li {
+          display: flex;
+          gap: 20px;
+          align-items: center;
+          margin-top: 20px;
+
+          .circle {
+            width: 55px;
+            height: 55px;
+            font-size: 18px;
+            line-height: 25px;
+            font-weight: 500;
+          }
+        }
+      }
+
+      .description {
+        margin-top: 50px;
+        max-width: 535px;
+      }
+    }
+
+    .images {
+      border-radius: 40px;
+    }
+  }
+}
+
+.section-technology {
+  .section-technology__items {
+    display: flex;
+    gap: 10px;
+
+    .item {
+      border: 1px solid rgba(119, 126, 144, 0.05);
+      border-radius: 40px;
+      padding: 40px 30px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 15px;
+
+      .circle {
+        width: 60px;
+        height: 60px;
+        color: #4963FF;
+        font-size: 24px;
+        line-height: 32px;
+        font-weight: 600;
+        margin-bottom: 15px;
+      }
+
+      p {
+        max-width: 340px;
       }
     }
   }
@@ -770,10 +684,23 @@ section {
       border-radius: 30px;
     }
   }
+
+  .btn__not-slide {
+    display: flex;
+    align-items: end;
+    margin-bottom: 70px;
+
+    .button {
+      white-space: nowrap;
+    }
+
+    .circle {
+      width: 60px;
+      height: 60px;
+    }
+  }
+
 }
-
-
-
 
 section {
 

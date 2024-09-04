@@ -16,6 +16,10 @@ nav {
     display: flex;
     gap: 5px;
 }
+a{
+    color: white;
+    font-size: 14px;
+}
 
 @media screen and (max-width: 768px) {
     nav{

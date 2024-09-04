@@ -7,28 +7,32 @@ import { Burger } from '@/features//header/burger'
 </script>
 <template>
     <header class="header">
-        <Logo class="header__logo" />
-        <Navigation class="header__menu-left" />
-        <div class="header__menu-right">
-            <Search />
-            <Glasses />
-            <Burger class="button-burger" />
+        <Logo />
+        <div class="header__menu">
+            <Navigation class="header__menu-left" />
+            <div class="header__menu-right">
+                <Search />
+                <Glasses />
+                <Burger class="button-burger" />
+            </div>
         </div>
     </header>
 </template>
-<style scoped>
+<style scoped lang="scss">
 .header {
     display: flex;
     width: 100%;
     justify-content: space-between;
     padding: 0 25px;
-    margin-top: 25px;
 }
 
 .button-burger {
     display: none;
 }
-
+.header__menu{
+    display: flex;
+    gap: 122px;
+}
 .header__menu-right {
     display: flex;
     gap: 10px;
@@ -39,10 +43,11 @@ import { Burger } from '@/features//header/burger'
         display: block;
     }
 }
+
 @media screen and (max-width: 375px) {
     .header {
-    padding: 0 20px;
-    margin-top: 25px;
-}
+        padding: 0 20px;
+        margin-top: 25px;
+    }
 }
 </style>

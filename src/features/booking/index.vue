@@ -7,18 +7,18 @@ import { Button } from '@/shared/ui/button';
 <template>
     <div class="reservation">
         <div class="reservation__item">
-            <Circle tagName="button" size="m" color="accent">
+            <Circle tagName="button" size="s" color="gray">
                 <Icon type="tooth" color="gray"></Icon>
             </Circle>
             <div class="reservation__item_select">
                 <p>процедура</p>
                 <select name="Выберите процедуру" id="">
-                    <option value=""></option>
+                    <option value="">выберите процедуру</option>
                 </select>
             </div>
         </div>
         <div class="reservation__item">
-            <Circle tagName="button" size="m" color="accent">
+            <Circle tagName="button" size="s" color="gray">
                 <Icon type="user" color="gray"></Icon>
             </Circle>
             <div class="reservation__item_select">
@@ -29,7 +29,7 @@ import { Button } from '@/shared/ui/button';
             </div>
         </div>
         <div class="reservation__item">
-            <Circle tagName="button" size="m" color="accent">
+            <Circle tagName="button" size="s" color="gray">
                 <Icon type="time" color="gray"></Icon>
             </Circle>
             <div class="reservation__item_select">
@@ -39,24 +39,35 @@ import { Button } from '@/shared/ui/button';
                 </select>
             </div>
         </div>
-        <Button tagName="button" size="s">записаться</Button>
+        <Button tagName="button" size="s" color="accent">записаться</Button>
     </div>
 </template>
-<style scoped>
+<style scoped lang="scss">
 .reservation {
+    position: relative;
+    z-index: 11111111;
     display: flex;
     flex-direction: row;
     justify-content: space-around;
-    background: #FFFF;
-    border: 1px solid green;
-    border-radius: 50px;
     padding: 40px 20px;
-    margin-top: -70px;
+    margin-top: -75px;
+    border: 1px solid rgba(119, 126, 144, 0.05);
+    border-radius: 24px;
+    box-shadow: 0px 40px 64px -32px rgba(15, 15, 15, 0.1);
+    backdrop-filter: blur(32px);
+    background: linear-gradient(30.11deg, rgb(252, 252, 253) 39.724%, rgba(252, 252, 253, 0.83) 98.69%);
+
 }
 
 .reservation__item {
     display: flex;
     align-items: center;
+
+    .circle {
+        cursor: default;
+        width: 55px;
+        height: 55px;
+    }
 }
 
 .reservation__item_select {

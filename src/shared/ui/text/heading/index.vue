@@ -16,6 +16,9 @@ const props = defineProps<Props>()
     </component>
 </template>
 <style scoped>
+h1, h2, h3, h4{
+    font-weight: 400;
+}
 .heading__size-xs {
     font-size: 24px;
     line-height: 32px;

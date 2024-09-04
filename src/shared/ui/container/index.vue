@@ -8,7 +8,6 @@
 <style scoped>
 .container {
     margin: 0 110px;
-    border: 1px solid red
 }
 
 @media screen and (max-width: 768px) {

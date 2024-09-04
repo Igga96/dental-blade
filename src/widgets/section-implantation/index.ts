@@ -1,0 +1,1 @@
+export {default as Implantation} from './index.vue'

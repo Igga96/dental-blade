@@ -14,6 +14,11 @@ type IconType =
     'shield&tick' |
     'user&heart' |
     'sheldue' |
+    'arrowDown' |
+    'WS'|
+    'TG'|
+    'VK'|
+    'FB'|
     'medal' |
     'play' |
     'lock' |

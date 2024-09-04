@@ -4,10 +4,13 @@ import { Circle } from '@/shared/ui/circle'
 </script>
 
 <template>
-        <Circle tagName="button" size="m" color="opacity">
-            <Icon type="burger"></Icon>
-        </Circle>
+    <Circle tagName="button" size="s" color="opacity">
+        <Icon type="burger" color='none'></Icon>
+    </Circle>
 </template>
 <style scoped>
-
+.circle {
+    width: 45px;
+    height: 45px;
+}
 </style>
