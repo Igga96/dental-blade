@@ -3,6 +3,7 @@ import { Container } from '@/shared/ui/container'
 import { Heading } from '@/shared/ui/text/heading'
 import { Paragraph } from '@/shared/ui/text/paragraph';
 import { Button } from '@/shared/ui/button';
+import { Icon } from '@/shared/ui/icons';
 </script>
 <template>
     <section class="section-solution">
@@ -47,8 +48,12 @@ import { Button } from '@/shared/ui/button';
                                 <img src="@/assets/images/mask_group.png" alt="">
                             </div>
                             <div class="buttons">
-                                <Button tagName="button" size="s" color="white" type="circle">prew</Button>
-                                <Button tagName="button" size="s" color="white" type="circle">next</Button>
+                                <Button tagName="button" size="s" color="white" type="circle">
+                                    <Icon type="arrowLeft" color="none"></Icon>
+                                </Button>
+                                <Button tagName="button" size="s" color="white" type="circle">
+                                    <Icon type="arrowRight" color="none"></Icon>
+                                </Button>
                             </div>
                         </div>
                     </div>
@@ -144,4 +149,5 @@ import { Button } from '@/shared/ui/button';
         }
 
     }
-}</style>>
+}
+</style>>

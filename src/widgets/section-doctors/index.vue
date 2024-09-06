@@ -3,6 +3,7 @@ import { Container } from '@/shared/ui/container'
 import { Heading } from '@/shared/ui/text/heading'
 import { Paragraph } from '@/shared/ui/text/paragraph';
 import { Button } from '@/shared/ui/button';
+import { Icon } from '@/shared/ui/icons';
 </script>
 <template>
     <section class="section-doctors">
@@ -10,8 +11,12 @@ import { Button } from '@/shared/ui/button';
             <div class="section__tittle-with-buttons">
                 <Heading tagName="h2" regular size="xl">Наши врачи</Heading>
                 <div class="btn__slide">
-                    <Button tagName="button" size="s" color="white" type="circle">prew</Button>
-                    <Button tagName="button" size="s" color="white" type="circle">next</Button>
+                    <Button tagName="button" size="s" color="white" type="circle">
+                        <Icon type="arrowLeft" color="none"></Icon>
+                    </Button>
+                    <Button tagName="button" size="s" color="white" type="circle">
+                        <Icon type="arrowRight" color="none"></Icon>
+                    </Button>
                 </div>
             </div>
         </Container>
@@ -196,7 +201,7 @@ import { Button } from '@/shared/ui/button';
                     }
 
                     &:hover {
-                        background: linear-gradient(180.00deg, rgba(0, 0, 0, 0),rgb(28, 30, 39) 100.854%);
+                        background: linear-gradient(180.00deg, rgba(0, 0, 0, 0), rgb(28, 30, 39) 100.854%);
 
                         .expierence {
                             flex-direction: column;

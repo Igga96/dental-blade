@@ -24,6 +24,8 @@ type IconType =
     'lock' |
     'smile' |
     'fire' |
-    'tick';
+    'tick'|
+    'arrowLeft'|
+    'arrowRight';
 
 export { type IconType };

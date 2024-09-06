@@ -2,6 +2,7 @@
 import { Container } from '@/shared/ui/container'
 import { Heading } from '@/shared/ui/text/heading'
 import { Button } from '@/shared/ui/button';
+import { Icon } from '@/shared/ui/icons';
 </script>
 <template>
     <section class="section-before-after">
@@ -9,8 +10,12 @@ import { Button } from '@/shared/ui/button';
             <div class="section__tittle-with-buttons">
                 <Heading tagName="h2" regular size="xl">результаты до / после</Heading>
                 <div class="btn__slide">
-                    <Button tagName="button" size="s" color="white" type="circle">prew</Button>
-                    <Button tagName="button" size="s" color="white" type="circle">next</Button>
+                    <Button tagName="button" size="s" color="white" type="circle">
+                        <Icon type="arrowLeft" color="none"></Icon>
+                    </Button>
+                    <Button tagName="button" size="s" color="white" type="circle">
+                        <Icon type="arrowRight" color="none"></Icon>
+                    </Button>
                 </div>
             </div>
         </Container>
