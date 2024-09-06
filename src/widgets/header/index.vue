@@ -23,7 +23,7 @@ import { Burger } from '@/features//header/burger'
     display: flex;
     width: 100%;
     justify-content: space-between;
-    padding: 0 25px;
+    padding: 25px;
 }
 
 .button-burger {

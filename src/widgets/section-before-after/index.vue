@@ -1,9 +1,6 @@
 <script setup lang="ts">
 import { Container } from '@/shared/ui/container'
 import { Heading } from '@/shared/ui/text/heading'
-import { Paragraph } from '@/shared/ui/text/paragraph';
-import { Icon } from '@/shared/ui/icons';
-import { Circle } from '@/shared/ui/circle';
 import { Button } from '@/shared/ui/button';
 </script>
 <template>
@@ -12,8 +9,8 @@ import { Button } from '@/shared/ui/button';
             <div class="section__tittle-with-buttons">
                 <Heading tagName="h2" regular size="xl">результаты до / после</Heading>
                 <div class="btn__slide">
-                    <button>prev</button>
-                    <button>next</button>
+                    <Button tagName="button" size="s" color="white" type="circle">prew</Button>
+                    <Button tagName="button" size="s" color="white" type="circle">next</Button>
                 </div>
             </div>
         </Container>

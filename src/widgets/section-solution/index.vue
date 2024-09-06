@@ -2,6 +2,7 @@
 import { Container } from '@/shared/ui/container'
 import { Heading } from '@/shared/ui/text/heading'
 import { Paragraph } from '@/shared/ui/text/paragraph';
+import { Button } from '@/shared/ui/button';
 </script>
 <template>
     <section class="section-solution">
@@ -45,9 +46,9 @@ import { Paragraph } from '@/shared/ui/text/paragraph';
                             <div class="photos__content">
                                 <img src="@/assets/images/mask_group.png" alt="">
                             </div>
-                            <div>
-                                <button>prew</button>
-                                <button>next</button>
+                            <div class="buttons">
+                                <Button tagName="button" size="s" color="white" type="circle">prew</Button>
+                                <Button tagName="button" size="s" color="white" type="circle">next</Button>
                             </div>
                         </div>
                     </div>
@@ -58,9 +59,10 @@ import { Paragraph } from '@/shared/ui/text/paragraph';
 </template>
 <style lang="scss">
 .section-solution {
-    h2{
+    h2 {
         margin: 200px 0 70px;
     }
+
     ul {
         gap: 10px;
         display: flex;
@@ -128,9 +130,18 @@ import { Paragraph } from '@/shared/ui/text/paragraph';
                     overflow: hidden;
 
                 }
+
+                .buttons {
+                    display: flex;
+                    gap: 10px;
+                    margin-top: 20px;
+
+                    .button {
+                        height: 50px;
+                    }
+                }
             }
         }
 
     }
-}
-</style>>
+}</style>>

@@ -19,8 +19,8 @@ type IconType =
     'TG'|
     'VK'|
     'FB'|
-    'medal' |
     'play' |
+    'whiteProtection' |
     'lock' |
     'smile' |
     'fire' |

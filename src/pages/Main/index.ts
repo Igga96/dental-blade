@@ -1,2 +1,1 @@
-import Home from '@/pages/Home/ui/HomeView.vue'
-export {Home}
+export {default as HomePage} from './ui/index.vue'

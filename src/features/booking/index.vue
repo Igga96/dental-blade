@@ -7,7 +7,7 @@ import { Button } from '@/shared/ui/button';
 <template>
     <div class="reservation">
         <div class="reservation__item">
-            <Circle tagName="button" size="s" color="gray">
+            <Circle tagName="span" size="s" color="gray">
                 <Icon type="tooth" color="gray"></Icon>
             </Circle>
             <div class="reservation__item_select">
@@ -18,7 +18,7 @@ import { Button } from '@/shared/ui/button';
             </div>
         </div>
         <div class="reservation__item">
-            <Circle tagName="button" size="s" color="gray">
+            <Circle tagName="span" size="s" color="gray">
                 <Icon type="user" color="gray"></Icon>
             </Circle>
             <div class="reservation__item_select">
@@ -29,7 +29,7 @@ import { Button } from '@/shared/ui/button';
             </div>
         </div>
         <div class="reservation__item">
-            <Circle tagName="button" size="s" color="gray">
+            <Circle tagName="span" size="s" color="gray">
                 <Icon type="time" color="gray"></Icon>
             </Circle>
             <div class="reservation__item_select">
@@ -39,7 +39,7 @@ import { Button } from '@/shared/ui/button';
                 </select>
             </div>
         </div>
-        <Button tagName="button" size="s" color="accent">записаться</Button>
+        <Button tagName="button" size="s" color="accent" type="none">записаться</Button>
     </div>
 </template>
 <style scoped lang="scss">
@@ -64,7 +64,6 @@ import { Button } from '@/shared/ui/button';
     align-items: center;
 
     .circle {
-        cursor: default;
         width: 55px;
         height: 55px;
     }

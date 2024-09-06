@@ -3,8 +3,8 @@ import { defineProps } from 'vue';
 
 interface Props {
     tagName: 'span' | 'button';
-    color: 'accent' | 'white' | 'light-blue-first' | 'light-blue-second' | 'light-gray' | 'gray' | 'opacity';
-    size:  's' | 'm' | 'l' ;
+    color: 'accent' | 'white' | 'light-blue-first' | 'light-blue-second' | 'light-gray' | 'gray' | 'opacity' | 'opacity-light';
+    size: 's' | 'm' | 'l';
 }
 const props = defineProps<Props>()
 </script>
@@ -17,6 +17,12 @@ const props = defineProps<Props>()
 .circle {
     border-radius: 90px;
     border: none;
+}
+
+span.circle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .circle-accent {
@@ -45,6 +51,11 @@ const props = defineProps<Props>()
 
 .circle-gray {
     background: rgba(37, 35, 47, 0.05);
+}
+
+.circle-opacity-light {
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: rgba(255, 255, 255, 0.2);
 }
 
 .circle__size-s {

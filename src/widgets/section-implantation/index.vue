@@ -5,7 +5,7 @@ import { Heading } from '@/shared/ui/text/heading'
 
 <template>
     <section class="section-implantation">
-        <Container tagName="div" size="m">
+        <Container>
             <Heading tagName="h2" regular size="xl">у нас имплантация
                 доступна каждому без мнимой экономии!</Heading>
         </Container>
