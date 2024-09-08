@@ -21,6 +21,11 @@ export const routes = [
     name: 'prices',
     component: () => import('@/pages/prices/ui/index.vue')
   },
+  {
+    path: '/cases',
+    name: 'cases',
+    component: () => import('@/pages/cases/ui/index.vue')
+  },
 
   {
     path: '/doctors',

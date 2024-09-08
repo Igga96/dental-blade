@@ -1,3 +1,3 @@
-import Prices from '@/pages/Prices/ui/prices.vue'
+import Prices from '@/pages/prices/ui/index.vue'
 
 export {Prices}
