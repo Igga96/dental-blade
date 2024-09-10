@@ -37,7 +37,6 @@ const props = defineProps<Props>()
 .button__color-white {
     background: #ffff;
     border: 1px solid rgb(177, 181, 195);
-    color: #23262F;
 }
 
 .button__size-s {
@@ -53,4 +52,5 @@ const props = defineProps<Props>()
     width: 50px;
     border-radius: 30px;
     padding: 0;
-}</style>
+}
+</style>

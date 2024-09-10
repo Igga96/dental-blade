@@ -1,0 +1,22 @@
+.navigation {
+    .navigation__list {
+        display: flex;
+        gap: 5px;
+
+        .item {
+            padding: 12px 30px;
+            /* border: 1px solid rgba(0, 0, 0, 0.05);*/
+            border-radius: 30px;
+            /* background: rgba(0, 0, 0, 0.15);*/
+            border: 1px solid #F1F2F4;
+            color: black;
+            font-size: 14px;
+        }
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .navigation {
+        display: none;
+    }
+}

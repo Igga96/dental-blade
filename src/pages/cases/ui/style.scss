@@ -1,0 +1,19 @@
+.section-cases {
+    margin-top: 100px;
+    display: flex;
+    gap: 30px;
+
+    .section-cases__content {
+        .content__items {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 32px;
+
+           
+        }
+
+        .pagination {
+            display: flex;
+        }
+    }
+}

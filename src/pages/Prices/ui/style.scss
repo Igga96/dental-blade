@@ -1,0 +1,14 @@
+.section-prices {
+    margin-top: 100px;
+    display: flex;
+    gap: 30px;
+  
+    .section-prices__content {
+      width: 100%;
+      .content__items {
+        display: flex;
+        flex-direction: column;
+        gap: 60px;
+      }
+    }
+  }

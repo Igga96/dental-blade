@@ -24,7 +24,15 @@ export const routes = [
   {
     path: '/cases',
     name: 'cases',
-    component: () => import('@/pages/cases/ui/index.vue')
+    component: () => import('@/pages/cases/ui/index.vue'),
+    children: [
+      {
+        path: 'slug',  // динамический параметр id
+        name: 'caseDetail',
+        component: () => import('@/pages/case/ui/index.vue'),
+        props: true,  // Передаем параметр id как пропс
+      }
+    ]
   },
 
   {

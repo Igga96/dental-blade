@@ -1,0 +1,53 @@
+.sidebar {
+
+    .sidebar__items {
+        padding-left: 20px;
+        width: 360px;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        border-left: 1px solid rgb(241, 242, 244);
+
+
+        .item {
+            color: #747B8F;
+            cursor: pointer;
+            font-size: 18px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+
+            .item__dot {
+                display: none;
+                width: 6px;
+                height: 6px;
+                background-color: #4963FF;
+                border-radius: 50%;
+            }
+
+            &:hover {
+                .item__text {
+                    color: #4963FF;
+                    font-weight: 500;
+                }
+
+                .item__dot {
+                    display: block;
+                }
+            }
+        }
+
+        .item_active {
+            .item__text {
+                color: #4963FF;
+                font-weight: 500;
+            }
+
+            .item__dot {
+                display: inline-block;
+            }
+        }
+
+    }
+
+}

@@ -1,0 +1,38 @@
+
+.cases-item {
+    display: flex;
+    flex-direction: column;
+    width: 421px;
+
+    .cases-item__image{
+        margin-bottom: 30px;
+        max-width: 421px;
+        max-height: 279px;
+    }
+
+    .cases-item__title {
+        margin-bottom: 15px;
+    }
+
+    .cases-item__description {
+        margin-bottom: 40px;
+    }
+
+    .text {
+        max-width: 420px;
+    }
+
+    .cases-item__link {
+        .button {
+            width: 240px;
+            .text{
+                font-weight: 500;
+            }
+            &:hover{
+                .text{
+                    color: white;
+                }
+            }
+        }
+    }
+}

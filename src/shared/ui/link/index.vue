@@ -26,6 +26,4 @@ const props = defineProps<Props>()
       font-size: 14px;
 
   }
-
-  .nav-link__size-xs {}
 </style>
