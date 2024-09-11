@@ -1,4 +1,4 @@
-.breadcumps {
+.breadcrumbs {
     margin-top: 80px;
     font-size: 16px;
     line-height: 24px;
@@ -6,7 +6,7 @@
     display: flex;
     gap: 17.5px;
 
-    a {
+    .breadcrumbs__link  {
         color: #747B8F;
 
         .text {

@@ -18,12 +18,12 @@ export const routes = [
   },
   {
     path: '/prices',
-    name: 'prices',
+    name: 'Стоимость услуг',
     component: () => import('@/pages/prices/ui/index.vue')
   },
   {
     path: '/cases',
-    name: 'cases',
+    name: 'Кейсы',
     component: () => import('@/pages/cases/ui/index.vue'),
     children: [
       {
