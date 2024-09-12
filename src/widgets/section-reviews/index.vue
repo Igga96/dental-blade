@@ -160,11 +160,12 @@ import { Paragraph } from '@/shared/ui/text/paragraph';
 
     .reviews__content {
         padding-left: 110px;
-            display: flex;
-            gap: 10px;
-            overflow: hidden;
-            position: relative;
-            width: 100%;
+        display: flex;
+        gap: 10px;
+        overflow: hidden;
+        position: relative;
+        width: 100%;
+
         .content__items {
             display: flex;
             gap: 10px;
@@ -183,9 +184,10 @@ import { Paragraph } from '@/shared/ui/text/paragraph';
                     display: flex;
                     gap: 20px;
                     margin-bottom: 20px;
-                    .img{
+
+                    .img {
                         border-radius: 80px;
-                        
+
                     }
                 }
 

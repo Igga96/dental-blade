@@ -16,21 +16,21 @@ const { isActive, handleCategoryClick } = useSidebarLogic();
 
 <template>
   <aside class="sidebar">
-    <div class="sidebar__items">
-      <div class="item" :class="isActive(null)" @click="handleCategoryClick(null)">
+    <ul class="sidebar__items">
+      <li class="item" :class="isActive(null)" @click="handleCategoryClick(null)">
         <span class="item__dot"></span>
         <Paragraph tagName="span" size="m" color="dark-gray" class="item__text">
           Все виды
         </Paragraph>
-      </div>
-      <div class="item" v-for="item in props.data" :key="item.id" :class="isActive(item.category)"
+      </li>
+      <li class="item" v-for="item in props.data" :key="item.id" :class="isActive(item.category)"
            @click="handleCategoryClick(item.category)">
         <span class="item__dot"></span>
         <Paragraph tagName="span" size="m" color="dark-gray" class="item__text">
           {{ item.category }}
         </Paragraph>
-      </div>
-    </div>
+      </li>
+    </ul>
   </aside>
 </template>
 

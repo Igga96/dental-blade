@@ -1,13 +1,14 @@
 <script setup lang="ts">
 import { Header } from '@/widgets/header';
 import { Container } from '@/shared/ui/container';
+import { Breadcrumbs } from '@/features/breadcrumbs'
 import { Heading } from '@/shared/ui/text/heading';
 import { Sidebar } from '@/features/sidebar';
 import { Pagination } from '@/features/pagination';
 import { Footer } from '@/widgets/footer';
 import { Map } from '@/widgets/section-map';
 import { Case } from '@/entities/cases/';
-import { Breadcrumbs } from '@/features/breadcrumbs'
+
 
 import { computed } from 'vue';
 import { useStore } from 'vuex';
@@ -51,11 +52,9 @@ const handleCategorySelected = (category: string | null) => {
 <style lang="scss" scoped>
 @import './style.scss';
 
-h2 {
-    margin: 50px 0 32px;
-}
 
 hr {
+    margin-top: 32px;
     color: #B1B5C3;
 }
 </style>

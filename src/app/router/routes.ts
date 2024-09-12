@@ -37,7 +37,7 @@ export const routes = [
 
   {
     path: '/doctors',
-    name: 'doctors',
+    name: 'Наши специалисты',
     component: () => import('@/pages/doctors/ui/index.vue')
   },
 ]

@@ -1,0 +1,587 @@
+openapi: 3.0.0
+info:
+  title: Dental Clinic API
+  description: API для стоматологической клиники
+  version: 1.0.0
+servers:
+ - url: http://localhost:8080/api/v1
+   description: Dev server
+
+paths:
+  /doctors:
+    get:
+      summary: Получить список всех врачей
+      tags:
+        - Doctors
+      responses:
+        '200':
+          description: Успешный ответ
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Doctor'
+    post:
+      summary: Добавить нового врача
+      tags:
+        - Doctors
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Doctor'
+      responses:
+        '201':
+          description: Врач успешно добавлен
+  /doctors/{id}:
+    get:
+      summary: Получить информацию о враче по ID
+      tags:
+        - Doctors
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Успешный ответ
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Doctor'
+        '404':
+          description: Врач не найден
+    put:
+      summary: Обновить информацию о враче
+      tags:
+        - Doctors
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Doctor'
+      responses:
+        '200':
+          description: Информация о враче обновлена
+        '404':
+          description: Врач не найден
+    delete:
+      summary: Удалить врача по ID
+      tags:
+        - Doctors
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        '204':
+          description: Врач успешно удален
+        '404':
+          description: Врач не найден
+  /services:
+    get:
+      summary: Получить список всех услуг
+      tags:
+        - Services
+      responses:
+        '200':
+          description: Успешный ответ
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Service'
+    post:
+      summary: Добавить новую услугу
+      tags:
+        - Services
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Service'
+      responses:
+        '201':
+          description: Услуга успешно добавлена
+  /services/{id}:
+    get:
+      summary: Получить информацию об услуге по ID
+      tags:
+        - Services
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Успешный ответ
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Service'
+        '404':
+          description: Услуга не найдена
+    put:
+      summary: Обновить информацию об услуге
+      tags:
+        - Services
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Service'
+      responses:
+        '200':
+          description: Информация об услуге обновлена
+        '404':
+          description: Услуга не найдена
+    delete:
+      summary: Удалить услугу по ID
+      tags:
+        - Services
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        '204':
+          description: Услуга успешно удалена
+        '404':
+          description: Услуга не найдена
+  /cases:
+    get:
+      summary: Получить список всех кейсов
+      tags:
+        - Cases
+      responses:
+        '200':
+          description: Успешный ответ
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Case'
+    post:
+      summary: Добавить новый кейс
+      tags:
+        - Cases
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Case'
+      responses:
+        '201':
+          description: Кейс успешно добавлен
+  /cases/{id}:
+    get:
+      summary: Получить информацию о кейсе по ID
+      tags:
+        - Cases
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Успешный ответ
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Case'
+        '404':
+          description: Кейс не найден
+    put:
+      summary: Обновить информацию о кейсе
+      tags:
+        - Cases
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Case'
+      responses:
+        '200':
+          description: Информация о кейсе обновлена
+        '404':
+          description: Кейс не найден
+    delete:
+      summary: Удалить кейс по ID
+      tags:
+        - Cases
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        '204':
+          description: Кейс успешно удален
+        '404':
+          description: Кейс не найден
+  /users:
+    get:
+      summary: Получить список всех пользователей
+      tags:
+        - Users
+      responses:
+        '200':
+          description: Успешный ответ
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/User'
+    post:
+      summary: Добавить нового пользователя
+      tags:
+        - Users
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/User'
+      responses:
+        '201':
+          description: Пользователь успешно добавлен
+  /users/{id}:
+    get:
+      summary: Получить информацию о пользователе по ID
+      tags:
+        - Users
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Успешный ответ
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
+        '404':
+          description: Пользователь не найден
+    put:
+      summary: Обновить информацию о пользователе
+      tags:
+        - Users
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/User'
+      responses:
+        '200':
+          description: Информация о пользователе обновлена
+        '404':
+          description: Пользователь не найден
+    delete:
+      summary: Удалить пользователя по ID
+      tags:
+        - Users
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        '204':
+          description: Пользователь успешно удален
+        '404':
+          description: Пользователь не найден
+  /appointments:
+    get:
+      summary: Получить список всех записей на прием
+      tags:
+        - Appointments
+      responses:
+        '200':
+          description: Успешный ответ
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Appointment'
+    post:
+      summary: Создать новую запись на прием
+      tags:
+        - Appointments
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Appointment'
+      responses:
+        '201':
+          description: Запись успешно создана
+  /appointments/{id}:
+    get:
+      summary: Получить информацию о записи по ID
+      tags:
+        - Appointments
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Успешный ответ
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Appointment'
+        '404':
+          description: Запись не найдена
+    put:
+      summary: Обновить информацию о записи
+      tags:
+        - Appointments
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Appointment'
+      responses:
+        '200':
+          description: Информация о записи обновлена
+        '404':
+          description: Запись не найдена
+    delete:
+      summary: Удалить запись по ID
+      tags:
+        - Appointments
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        '204':
+          description: Запись успешно удалена
+        '404':
+          description: Запись не найдена
+components:
+  schemas:
+    Doctor:
+      type: object
+      properties:
+        id:
+          type: integer
+          example: 1
+        first_name:
+          type: string
+          example: Александр
+        last_name:
+          type: string
+          example: Ковалев
+        middle_name:
+          type: string
+          example: Александрович
+        specialty:
+          type: string
+          example: Ортопед
+        experience_years:
+          type: integer
+          example: 21
+        worktime_start:
+          type: integer 
+          example: 09:00 
+        worktime_end:
+          type: integer 
+          example: 18:00 
+        education:
+          type: array
+          items:
+            $ref: '#/components/schemas/Education'
+        advanced_training:
+          type: array
+          items:
+            $ref: '#/components/schemas/Training'
+        image_path:
+          type: string
+          example: url/Assets/images/doctors/
+          description: URL или путь к изображению врача
+    Education:
+      type: object
+      properties:
+        year:
+          type: integer
+          example: 2005
+        name:
+          type: string
+          example: Стоматология ортопедическая
+        university:
+          type: string
+          example: РНИМУ имени Н. И. Пирогова
+    Training:
+      type: object
+      properties:
+        year:
+          type: integer
+          example: 2015
+        name:
+          type: string
+          example: Ортопедическая стоматология
+    Service:
+      type: object
+      properties:
+        id:
+          type: integer
+          example: 1
+        category:
+          type: string
+          example: Хирургия
+        name:
+          type: string
+          example: Удаление зуба
+        description:
+          type: string
+          example: Извлечение зуба с помощью щипцов
+        price:
+          type: number
+          example: 5000
+          format: float
+    Case:
+      type: object
+      properties:
+        id:
+          type: integer
+          example: 1
+        category:
+          type: string
+          example: Детская стоматология
+        name:
+          type: string
+          example: Лечение кариеса у ребенка 7 лет под местной анестезией
+        description:
+          type: string
+          example: Ребенку 7 лет. Пришли с целью санации. Проведено лечение кариеса в кресле под местной анест...
+        image_path:
+          type: string
+          example: url/Assets/images/cases/
+          description: URL или путь к папке с изображениями кейса
+    User:
+      type: object
+      properties:
+        id:
+          type: integer
+          example: 1
+        login:
+          type: string
+          example: Ivanov_ivan@gmail.com 
+        password: 
+          type: string
+          example: cc03e747a6afbbcbf8be7668acfebee5
+        first_name:
+          type: string
+          example: Иван
+        last_name:
+          type: string
+          example: Иванов
+        middle_name:
+          type: string
+          example: Иванович
+        email:
+          type: string
+          example: Ivanov_ivan@gmail.com
+        phone:
+          type: string
+          example: 79930726053
+        image_path:
+          type: string
+          example: url/Assets/images/users/
+          description: URL или путь к изображению пользователя
+    Appointment:
+      type: object
+      properties:
+        id:
+          type: integer
+          example: 1
+        doctor_name:
+          type: string
+          description: Имя врача
+          example: Александр
+        appointment_date:
+          type: string
+          format: date
+          description: Дата приема
+        appointment_time:
+          type: string
+          example: 09:00
+          format: time
+          description: Время приема
+        patient_name:
+          type: string
+          example: Иван
+          description: Имя пациента
+        patient_phone:
+          type: string
+          example: 79930726053
+          description: Номер телефона пациента
+        patient_email:
+          type: string
+          example: Ivanov_ivan@gmail.com
+          description: Электронная почта пациента

@@ -48,11 +48,8 @@ const handleCategorySelected = (category: string | null) => {
 <style scoped lang="scss">
 @import './style.scss';
 
-h2 {
-  margin: 50px 0 32px;
-}
-
 hr {
   color: #B1B5C3;
+  margin-top: 32px;
 }
 </style>

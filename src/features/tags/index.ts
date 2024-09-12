@@ -1,0 +1,1 @@
+export {default as Tags} from './ui/index.vue'

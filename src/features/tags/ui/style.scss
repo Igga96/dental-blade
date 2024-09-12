@@ -1,0 +1,35 @@
+.tags {
+    .tags__list {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 28px 20px;
+
+        .item {
+            border-radius: 100px;
+            background: white;
+            padding: 4px 20px;
+            cursor: pointer;
+           /* .text{
+                font-weight: 700;
+            }*/
+
+            &:hover {
+                background: #23262F;
+
+                .text {
+                    color: white;
+                    font-weight: 700;
+                }
+            }
+        }
+
+        .item_active {
+            background: #23262F;
+
+            .text {
+                color: white;
+                font-weight: 700;
+            }
+        }
+    }
+}

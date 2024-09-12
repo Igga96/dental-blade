@@ -28,18 +28,26 @@ import { Icon } from '@/shared/ui/icons';
                 </div>
             </div>
             <ul class="social-links">
-                <li><a href="">
+                <li>
+                <a href="">
                         <Icon type="WS" color="none"></Icon>
-                    </a></li>
-                <li><a href="">
+                    </a>
+                    </li>
+                <li>
+                <a href="">
                         <Icon type="TG" color="none"></Icon>
-                    </a></li>
-                <li><a href="">
+                    </a>
+                    </li>
+                <li>
+                <a href="">
                         <Icon type="VK" color="none"></Icon>
-                    </a></li>
-                <li><a href="">
+                    </a>
+                    </li>
+                <li>
+                    <a href="">
                         <Icon type="FB" color="none"></Icon>
-                    </a></li>
+                    </a>
+                </li>
             </ul>
             <Paragraph tagName="p" color="dark-gray" size="xs" class="footer__content_text-bottom">
                 Стоимость процедур определяется после консультации на приеме.
@@ -64,7 +72,8 @@ footer {
 
         a {
             color: #747B8F;
-            &:hover{
+
+            &:hover {
                 color: #B1B5C3;
             }
         }
@@ -161,6 +170,7 @@ footer {
         .footer__content {
             .footer__content-center {
                 gap: 40px;
+
                 .docs {
                     gap: 0;
                     flex-direction: column;
