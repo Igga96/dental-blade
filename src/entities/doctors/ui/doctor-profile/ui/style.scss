@@ -1,0 +1,33 @@
+.doctor-profile {
+    .title {
+        font-weight: 500;
+        margin-bottom: 20px;
+    }
+
+    .profile-list {
+        display: flex;
+        gap: 20px;
+        flex-wrap: wrap;
+
+        .item {
+            list-style: disc;
+            display: flex;
+            gap: 10px;
+            align-items: center;
+
+            .item__percent {
+                padding: 8px 15px;
+                background: #F6F6F6;
+                border-radius: 4px;
+                display: block;
+                width: 58px;
+                height: 40px;
+            }
+
+            .text {
+                line-height: 24px;
+                font-size: 14px;
+            }
+        }
+    }
+}

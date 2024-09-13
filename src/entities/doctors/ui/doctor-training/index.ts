@@ -1,0 +1,1 @@
+export {default as DoctorTraining} from './ui/index.vue'

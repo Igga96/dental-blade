@@ -19,7 +19,7 @@ const navItems = reactive([
     <header class="header">
         <Logo class="header__logo" />
         <div class="header__menu">
-            <Navigation :data="navItems" class="menu-left" />
+            <Navigation :navItems="navItems" class="menu-left" />
             <div class="menu-right">
                 <Search />
                 <Glasses />

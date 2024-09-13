@@ -1,0 +1,21 @@
+.doctor-education {
+    .title {
+        font-weight: 500;
+        margin-bottom: 20px;
+    }
+
+    .education-list {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+
+        .item {
+            list-style: disc;
+            margin-left: 20px;
+            .text {
+                line-height: 24px;
+                font-size: 16px;
+            }
+        }
+    }
+}

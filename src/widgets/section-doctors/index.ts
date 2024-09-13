@@ -1,1 +1,0 @@
-export {default as Doctors} from './index.vue'

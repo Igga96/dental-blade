@@ -6,6 +6,7 @@ export interface DoctorItem {
   category: string;
   specialty: { id: number; name: string; }[];
   experienceYears: number;
+  treatmentProfile: { id: number, name: string, percent: number }[]
   education: { id: number; edStart: string; edEnd: string; name: string; }[];
   advancedTraining: { id: number; year: string; name: string; }[];
   sheldue: { date: string; startTime: string, endTime: string }[];

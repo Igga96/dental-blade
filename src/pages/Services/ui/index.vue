@@ -11,7 +11,7 @@ import { Reviews } from '@/widgets/section-reviews'
 import { Questions } from '@/widgets/section-questions'
 import { Map } from '@/widgets/section-map'
 import { BeforeAfter } from '@/widgets/section-before-after'
-import { Doctors } from '@/widgets/section-doctors'
+import { DoctorsSlider } from '@/widgets/doctors-slider'
 import { Implantation } from '@/widgets/section-implantation'
 import { Solution } from '@/widgets/section-solution'
 
@@ -19,7 +19,7 @@ import { Solution } from '@/widgets/section-solution'
 </script>
 <template>
   <section class="section-first">
-    <Header></Header>
+    <Header/>
     <Container>
       <div class="section-first__content">
         <div class="content__left">
@@ -610,13 +610,13 @@ import { Solution } from '@/widgets/section-solution'
       </div>
     </Container>
   </section>
-  <Implantation></Implantation>
-  <Doctors></Doctors>
-  <Solution></Solution>
-  <Reviews></Reviews>
-  <Questions></Questions>
-  <Map></Map>
-  <Footer></Footer>
+  <Implantation/>
+  <DoctorsSlider/>
+  <Solution/>
+  <Reviews/>
+  <Questions/>
+  <Map/>
+  <Footer/>
 </template>
 <style scoped lang="scss">
 .section-first {

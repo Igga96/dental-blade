@@ -31,7 +31,7 @@ import { Button } from '@/shared/ui/button';
                         </p>
                     </div>
                     <div class="blur__button">
-                        <Button tagName="button" size="s" color="white"></Button>
+                        <Button tagName="button" type="none" size="s" color="white"></Button>
                         <Circle tagName="button" color="white" size="m">
                             <Icon type="arrow" color="dark"></Icon>
                         </Circle>

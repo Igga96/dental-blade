@@ -1,0 +1,1 @@
+export {default as DoctorReviews} from './ui/index.vue'

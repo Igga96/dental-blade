@@ -1,0 +1,22 @@
+.doctor-training {
+    .title {
+        font-weight: 500;
+        margin-bottom: 20px;
+    }
+
+    .training-list {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+
+        .item {
+            list-style: disc;
+            margin-left: 20px;
+
+            .text {
+                line-height: 24px;
+                font-size: 16px;
+            }
+        }
+    }
+}

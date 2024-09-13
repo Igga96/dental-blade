@@ -20,6 +20,11 @@ export const doctorsModule = {
                     { id: 1, name: 'Десткий стоматолог' }
                 ],
                 experienceYears: 13,
+                treatmentProfile: [
+                    { id: 0, name: 'гиперестезия', percent: 20 },
+                    { id: 0, name: 'удаление зуба', percent: 35 },
+                    { id: 0, name: 'кариес', percent: 45 },
+                ],
                 education: [
                     { id: 0, edStart: '2008', edEnd: '2014', name: 'Лечебный факультет Кировского государственного медицинского университета' },
                     { id: 1, edStart: '2014', edEnd: '2015', name: 'Интернатура: рентгенология. Специальность по диплому: врач-рентгенолог' },
@@ -49,10 +54,15 @@ export const doctorsModule = {
                     { id: 1, name: 'Хирург' }
                 ],
                 experienceYears: 18,
+                treatmentProfile: [
+                    { id: 0, name: 'абсцесс', percent: 20 },
+                    { id: 0, name: 'гипоплазия', percent: 35 },
+                    { id: 0, name: 'кариес', percent: 45 },
+                ],
                 education: [
                     { id: 0, edStart: '2008', edEnd: '2014', name: 'Лечебный факультет Кировского государственного медицинского университета' },
                     { id: 1, edStart: '2014', edEnd: '2015', name: 'Интернатура: рентгенология. Специальность по диплому: врач-рентгенолог' },
-                    { id: 2, edStart: '2014', edEnd: '2015', name: 'время врач-рентгенолог клиники «Доступная медицина»' },
+                    { id: 2, edStart: 'с ноября 2020', edEnd: 'по настоящее время', name: 'врач-рентгенолог клиники «Доступная медицина»' },
                 ],
                 advancedTraining: [
                     { id: 0, year: '2016', name: "«Компьютерная томография» ГБОУ ВПО РНИМУ им. Н.И. Пирогова Минздрава России" },
@@ -78,10 +88,15 @@ export const doctorsModule = {
                     { id: 1, name: 'Пародонтолог' }
                 ],
                 experienceYears: 25,
+                treatmentProfile: [
+                    { id: 0, name: 'пульпит зуба', percent: 13 },
+                    { id: 0, name: 'периодонит', percent: 33 },
+                    { id: 0, name: 'кариес', percent: 25 },
+                ],
                 education: [
                     { id: 0, edStart: '2008', edEnd: '2014', name: 'Лечебный факультет Кировского государственного медицинского университета' },
                     { id: 1, edStart: '2014', edEnd: '2015', name: 'Интернатура: рентгенология. Специальность по диплому: врач-рентгенолог' },
-                    { id: 2, edStart: '2014', edEnd: '2015', name: 'время врач-рентгенолог клиники «Доступная медицина»' },
+                    { id: 2, edStart: '2015', edEnd: '2016', name: 'время врач-рентгенолог клиники «Доступная медицина»' },
                 ],
                 advancedTraining: [
                     { id: 0, year: '2016', name: "«Компьютерная томография» ГБОУ ВПО РНИМУ им. Н.И. Пирогова Минздрава России" },
@@ -108,6 +123,11 @@ export const doctorsModule = {
                     { id: 2, name: 'Пародонтолог' }
                 ],
                 experienceYears: 10,
+                treatmentProfile: [
+                    { id: 0, name: 'абсцесс', percent: 10 },
+                    { id: 0, name: 'гипоплазия', percent: 30 },
+                    { id: 0, name: 'кариес', percent: 50 },
+                ],
                 education: [
                     { id: 0, edStart: '2008', edEnd: '2014', name: 'Лечебный факультет Кировского государственного медицинского университета' },
                     { id: 1, edStart: '2014', edEnd: '2015', name: 'Интернатура: рентгенология. Специальность по диплому: врач-рентгенолог' },
@@ -139,6 +159,7 @@ export const doctorsModule = {
 
             return filteredDoctors.map(doctor => ({
                 ...doctor,
+                fullName: `${doctor.lastName} ${doctor.firstName} ${doctor.middleName}`,
                 specialties: doctor.specialty.map(s => s.name).join(', '),
                 experienceText: `стаж ${doctor.experienceYears} лет`,
             }));
@@ -146,6 +167,18 @@ export const doctorsModule = {
         uniqueSpecialties(state: DoctorsState) {
             const specialties = state.doctorsData.flatMap(doctor => doctor.specialty.map(s => s.name));
             return [...new Set(specialties)];
+        },
+        getDoctorById: (state: DoctorsState) => (id: number) => {
+            const doctor = state.doctorsData.find(doctor => doctor.id === id);
+            if (doctor) {
+                return {
+                    ...doctor,
+                    fullName: `${doctor.lastName} ${doctor.firstName} ${doctor.middleName}`,
+                    specialties: doctor.specialty.map(s => s.name).join(', '),
+                    experienceText: `стаж ${doctor.experienceYears} лет`,
+                };
+            }
+            return null;
         },
     },
     mutations: {

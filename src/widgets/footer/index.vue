@@ -123,7 +123,7 @@ footer {
                 grid-column: 1;
                 grid-row: 1;
             }
-
+ 
             .social-links {
                 order: 2;
                 grid-column: 2;

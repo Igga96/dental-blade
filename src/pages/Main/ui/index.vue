@@ -12,7 +12,7 @@ import { Reviews } from '@/widgets/section-reviews'
 import { Questions } from '@/widgets/section-questions'
 import { Map } from '@/widgets/section-map'
 import { BeforeAfter } from '@/widgets/section-before-after'
-import { Doctors } from '@/widgets/section-doctors'
+import { DoctorsSlider } from '@/widgets/doctors-slider'
 import { Implantation } from '@/widgets/section-implantation'
 import { Solution } from '@/widgets/section-solution'
 
@@ -20,7 +20,7 @@ import { Solution } from '@/widgets/section-solution'
 <template>
   <section class="section-first">
     <div class="section-first__content">
-      <Header></Header>
+      <Header/>
       <Container tagName="div" size="m">
         <div class="text"></div>
         <Heading tagName="h2" regular size="xxl">
@@ -45,7 +45,7 @@ import { Solution } from '@/widgets/section-solution'
     </div>
   </section>
   <Container>
-    <Booking></Booking>
+    <Booking/>
   </Container>
 
   <section class="section-second">
@@ -192,7 +192,7 @@ import { Solution } from '@/widgets/section-solution'
       </div>
     </Container>
   </section>
-  <Doctors></Doctors>
+  <DoctorsSlider/>
   <section class="section-about">
     <Container tagName="div" size="m">
       <div class="section-about__content">
@@ -229,9 +229,9 @@ import { Solution } from '@/widgets/section-solution'
       </div>
     </Container>
   </section>
-  <Implantation></Implantation>
-  <Solution></Solution>
-  <BeforeAfter></BeforeAfter>
+  <Implantation/>
+  <Solution/>
+  <BeforeAfter/>
   <section class="section-nine">
     <Container tagName="div" size="m">
       <Heading tagName="h2" regular size="xl">ВАШЕ РЕШЕНИЕ ПРИЙТИ И ДОВЕРИТСЯ НАМ - ЭТО ШАГ К ПОЛНОЦЕННОЙ ЖИЗНИ!
@@ -312,10 +312,10 @@ import { Solution } from '@/widgets/section-solution'
       </div>
     </Container>
   </section>
-  <Reviews></Reviews>
-  <Questions></Questions>
-  <Map></Map>
-  <Footer></Footer>
+  <Reviews/>
+  <Questions/>
+  <Map/>
+  <Footer/>
 </template>
 <style scoped lang="scss">
 .section-first {
