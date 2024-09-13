@@ -4,7 +4,7 @@ import { Header } from '@/widgets/header';
 import { Pagination } from '@/features/pagination';
 import { Footer } from '@/widgets/footer';
 import { Container } from '@/shared/ui/container';
-import { Map } from '@/widgets/section-map';
+import { Map } from '@/widgets/map';
 import { Sidebar } from '@/features/sidebar';
 import { Price } from '@/entities/price/';
 import { Breadcrumbs } from '@/features/breadcrumbs'

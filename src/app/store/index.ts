@@ -3,6 +3,7 @@ import { casesModule } from '@/entities/cases/model/cases.store';
 import { pricesModule } from '@/entities/price/model/price.store'
 import { sidebarModule } from '@/features/sidebar/model/sidebar.store';
 import { doctorsModule } from '@/entities/doctors/model/doctors.store'
+import {questionsModule} from '@/entities/questions/model/questions.store'
 
 export const store = createStore({
   modules: {
@@ -10,6 +11,7 @@ export const store = createStore({
     prices: pricesModule,
     sidebar: sidebarModule,
     doctors: doctorsModule,
+    questions: questionsModule,
   },
 });
 

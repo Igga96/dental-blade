@@ -1,14 +1,8 @@
 <script setup lang="ts">
-import { Header } from '@/widgets/header';
-import { Container } from '@/shared/ui/container';
-import { Breadcrumbs } from '@/features/breadcrumbs'
 import { Heading } from '@/shared/ui/text/heading';
 import { Sidebar } from '@/features/sidebar';
 import { Pagination } from '@/features/pagination';
-import { Footer } from '@/widgets/footer';
-import { Map } from '@/widgets/section-map';
 import { Case } from '@/entities/cases/';
-
 
 import { computed } from 'vue';
 import { useStore } from 'vuex';
@@ -27,31 +21,28 @@ const handleCategorySelected = (category: string | null) => {
 </script>
 
 <template>
-    <Header />
-    <Container>
-        <Breadcrumbs />
-        <Heading tagName="h2" regular size="xxl">
-            Кейсы
-        </Heading>
-        <hr>
-        <section class="section-cases">
-            <Sidebar :data="uniqueCategories" :selectedCategory="selectedCategory"
-                @category-selected="handleCategorySelected" />
-            <div class="section-cases__content">
-                <div class="content__items">
-                    <Case :casesData="filteredCases" />
-                </div>
-                <Pagination v-if="shouldShowPagination" />
+    <Heading tagName="h2" regular size="xxl">
+        Кейсы
+    </Heading>
+    <hr>
+    <section class="section-cases">
+        <Sidebar :data="uniqueCategories" :selectedCategory="selectedCategory"
+            @category-selected="handleCategorySelected" />
+        <div class="section-cases__content">
+            <div class="content__items">
+                <Case :casesData="filteredCases" />
             </div>
-        </section>
-    </Container>
-    <Map />
-    <Footer />
+            <Pagination v-if="shouldShowPagination" />
+        </div>
+    </section>
 </template>
 
 <style lang="scss" scoped>
 @import './style.scss';
 
+h2 {
+    margin-top: 50px;
+}
 
 hr {
     margin-top: 32px;

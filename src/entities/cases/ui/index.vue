@@ -19,7 +19,7 @@ const { casesData } = defineProps<Props>();
       <Paragraph tagName="p" size="xxl" color="dark-gray" class="cases-item__description">
         {{ item.description }}
       </Paragraph>
-      <RouterLink :to="item.link" class="cases-item__link">
+      <RouterLink :to="`/cases/${item.id}`" class="cases-item__link">
         <Button tagName="button" size="xs" color="white" type="none">
           <Paragraph tagName="span" size="m" color="dark">
             узнать подробнее

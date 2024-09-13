@@ -9,10 +9,10 @@ import { Circle } from '@/shared/ui/circle';
 import { Button } from '@/shared/ui/button';
 import { Reviews } from '@/widgets/section-reviews'
 import { Questions } from '@/widgets/section-questions'
-import { Map } from '@/widgets/section-map'
+import { Map } from '@/widgets/map'
 import { BeforeAfter } from '@/widgets/section-before-after'
 import { DoctorsSlider } from '@/widgets/doctors-slider'
-import { Implantation } from '@/widgets/section-implantation'
+import { Implantation } from '@/widgets/implantation'
 import { Solution } from '@/widgets/section-solution'
 
 

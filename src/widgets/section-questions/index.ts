@@ -1,1 +1,1 @@
-export {default as Questions} from './index.vue'
+export {default as Questions} from './ui/index.vue'

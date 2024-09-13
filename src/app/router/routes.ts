@@ -24,14 +24,20 @@ export const routes = [
   {
     path: '/cases',
     name: 'Кейсы',
-    component: () => import('@/pages/cases/ui/index.vue'),
+    component: () => import('@/pages/cases/ui/cases-view/ui/index.vue'),
     children: [
       {
-        path: 'id',  // динамический параметр id
-        name: 'caseDetail',
-        component: () => import('@/pages/case/ui/index.vue'),
-        props: true,  // Передаем параметр id как пропс
-      }
+        path: '',
+        name: 'Кейсы',
+        component: () => import('@/pages/cases/ui/cases-list/ui/index.vue'),
+
+      },
+      {
+        path: ':id',
+        name: 'Кейс',
+        component: () => import('@/pages/cases/ui/case-info/ui/index.vue'),
+        props: true
+      },
     ]
   },
 
@@ -41,14 +47,14 @@ export const routes = [
     component: () => import('@/pages/doctors/ui/doctors-view/index.vue'),
     children: [
       {
-        path: '', 
+        path: '',
         name: 'Наши специалисты',
-        component: () => import('@/pages/doctors/ui/doctors-list/index.vue'),  
+        component: () => import('@/pages/doctors/ui/doctors-list/index.vue'),
       },
       {
-        path: ':id', 
+        path: ':id',
         name: 'DoctorsDetail',
-        component: () => import('@/pages/doctors/ui/doctor-info/index.vue'), 
+        component: () => import('@/pages/doctors/ui/doctor-info/index.vue'),
         props: true,
       }
     ]
