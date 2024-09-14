@@ -1,22 +1,22 @@
 <script setup lang="ts">
-import { computed } from 'vue';
-import { useStore } from 'vuex';
+import { defineProps } from 'vue';
 import { Paragraph } from '@/shared/ui/text/paragraph';
+import { useDoctorById } from '@/entities/doctors/model/doctor.model';
 
-interface Props {
+const props = defineProps<{
     doctorId: number;
-}
-const props = defineProps<Props>();
-const store = useStore();
-const doctor = computed(() => store.getters['doctors/getDoctorById'](props.doctorId));
+}>();
+
+const { doctor } = useDoctorById(props.doctorId);
 </script>
+
 <template>
     <article class="doctor-education">
         <Paragraph tagName="p" size="xxl" color="dark" class="title">
             образование
         </Paragraph>
         <ul class="education-list">
-            <li v-for="item in  doctor.education" :key="item.id" class="item">
+            <li v-for="item in doctor.education" :key="item.id" class="item">
                 <Paragraph tagName="p" size="xs" color="dark-gray" class="description">
                     <Paragraph tagName="span" size="xs" color="dark">
                         {{ item.edStart }} - {{ item.edEnd }}
@@ -27,6 +27,7 @@ const doctor = computed(() => store.getters['doctors/getDoctorById'](props.docto
         </ul>
     </article>
 </template>
+
 <style lang="scss" scoped>
 @import './style.scss';
 </style>

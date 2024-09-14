@@ -3,7 +3,7 @@ import { defineProps } from 'vue';
 
 interface Props {
     tagName: 'span' | 'button';
-    color: 'accent' | 'white' | 'light-blue-first' | 'light-blue-second' | 'light-gray' | 'gray' | 'opacity' | 'opacity-light';
+    color: 'accent' | 'white' | 'light-blue-first' | 'light-blue-second' | 'light-gray' | 'gray' | 'opacity' | 'opacity-light'|  'green';
     size: 's' | 'm' | 'l';
 }
 const props = defineProps<Props>()
@@ -56,6 +56,9 @@ span.circle {
 .circle-opacity-light {
     border: 1px solid rgba(255, 255, 255, 0.1);
     background: rgba(255, 255, 255, 0.2);
+}
+.circle-green{
+ background: #58C27D;
 }
 
 .circle__size-s {

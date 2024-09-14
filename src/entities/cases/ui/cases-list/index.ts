@@ -1,0 +1,1 @@
+export {default as CasesList} from './ui/index.vue'

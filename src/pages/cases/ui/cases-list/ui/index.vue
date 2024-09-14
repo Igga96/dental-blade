@@ -2,7 +2,7 @@
 import { Heading } from '@/shared/ui/text/heading';
 import { Sidebar } from '@/features/sidebar';
 import { Pagination } from '@/features/pagination';
-import { Case } from '@/entities/cases/';
+import { CasesList } from '@/entities/cases/ui/cases-list';
 
 import { computed } from 'vue';
 import { useStore } from 'vuex';
@@ -30,7 +30,7 @@ const handleCategorySelected = (category: string | null) => {
             @category-selected="handleCategorySelected" />
         <div class="section-cases__content">
             <div class="content__items">
-                <Case :casesData="filteredCases" />
+                <CasesList :casesData="filteredCases" />
             </div>
             <Pagination v-if="shouldShowPagination" />
         </div>

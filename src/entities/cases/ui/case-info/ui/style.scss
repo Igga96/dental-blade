@@ -1,0 +1,48 @@
+.case-article {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+
+    .article__description {
+        font-size: 16px;
+    }
+
+    .article__coast {
+        .text {
+            font-size: 16px;
+            margin-bottom: 15px;
+        }
+
+        .quantity {
+            font-weight: 700;
+            font-size: 30px;
+            line-height: 33px;
+        }
+    }
+
+    .article__services {
+        .services__title{
+            font-weight: 500;
+        }
+        .services__list {
+            margin-top: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+
+            .item {
+                display: flex;
+                .text{
+                    font-size: 16px;
+                    padding-left: 40px;
+                }
+
+                span.circle {
+                    height: 24px;
+                    width: 24px;
+                    position: absolute;
+                }
+            }
+        }
+    }
+}

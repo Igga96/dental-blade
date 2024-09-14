@@ -1,0 +1,36 @@
+hr {
+    margin: 30px 0 50px;
+}
+
+.case-info {
+    .case-info__content {
+        display: flex;
+        gap: 50px;
+
+        .button {
+            width: 248px;
+            margin-top: 40px;
+        }
+    }
+}
+
+@media screen and (max-width: 768px) {
+    hr {
+        margin: 30px 0;
+    }
+
+
+    .case-info {
+        .case-info__content {
+            flex-direction: column;
+            gap: 110px;
+        }
+    }
+}
+@media screen and (max-width: 375px) {
+    .case-info {
+        .case-info__content {
+            gap: 70px;
+        }
+    }
+}

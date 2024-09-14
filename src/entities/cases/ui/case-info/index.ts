@@ -1,0 +1,1 @@
+export {default as CaseInfo} from './ui/index.vue'

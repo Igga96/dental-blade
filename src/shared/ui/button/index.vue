@@ -18,6 +18,9 @@ const props = defineProps<Props>()
 <style scoped>
 .button {
     border-radius: 90px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     border: none;
     font-size: 18px;
     line-height: 21.78px;

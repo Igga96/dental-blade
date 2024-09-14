@@ -1,14 +1,12 @@
 <script setup lang="ts">
-import { computed } from 'vue';
-import { useStore } from 'vuex';
 import { Paragraph } from '@/shared/ui/text/paragraph';
+import { useDoctorById } from '@/entities/doctors/model/doctor.model';
 
-interface Props {
+const props = defineProps<{
     doctorId: number;
-}
-const props = defineProps<Props>();
-const store = useStore();
-const doctor = computed(() => store.getters['doctors/getDoctorById'](props.doctorId));
+}>();
+
+const { doctor } = useDoctorById(props.doctorId);
 </script>
 
 <template>

@@ -1,0 +1,1 @@
+export {default as CasePhotosSlider} from './ui/index.vue' 
