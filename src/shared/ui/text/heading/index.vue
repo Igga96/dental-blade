@@ -49,7 +49,7 @@ h1, h2, h3, h4{
     line-height: 70px;
 }
 
-/*добавить стили для селектора regular*/
+
 @media screen and (max-width: 768px) {
     .heading__size-xs {
         font-size: 20px;
@@ -77,7 +77,7 @@ h1, h2, h3, h4{
     }
 }
 
-@media screen and (max-width: 375px) {
+@media screen and (max-width: 541px) {
     .heading__size-xxl {
         font-size: 40px;
         line-height: 40px;

@@ -119,7 +119,7 @@ const props = defineProps<Props>()
 
 }
 
-@media screen and (max-width: 375px) {
+@media screen and (max-width: 541px) {
     .text-size-xl {
         font-size: 16px;
         line-height: 24px;

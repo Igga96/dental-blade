@@ -13,26 +13,26 @@ import { Button } from '@/shared/ui/button';
                 <Circle tagName="button" color="accent" size="l" class="map-circle-heart">
                     <Icon type="heart" color="white"></Icon>
                 </Circle>
-                <div class="blur">
-                    <Heading tagName="h4" size="xs" regular>Москва,
+                <div class="contacts">
+                    <Heading class="contacts__address" tagName="h4" size="xs" regular>Москва,
                         Кутузовский пр-кт, 45</Heading>
                     <div class="blur__text">
-                        <p>
-                            <Paragraph tagName="span" size="xl" color="dark">телефон:</Paragraph>
+                        <p class="contacts__phone">
+                            <Paragraph tagName="span" size="xl" color="dark">телефон: </Paragraph>
                             <Paragraph tagName="span" size="xl" color="dark">+7 (495) 988-99-30</Paragraph>
                         </p>
-                        <p>
-                            <Paragraph tagName="span" size="xl" color="dark">время работы:</Paragraph>
+                        <p class="contacts__time">
+                            <Paragraph tagName="span" size="xl" color="dark">время работы: </Paragraph>
                             <Paragraph tagName="span" size="xl" color="dark">10:00–22.00.</Paragraph>
                         </p>
-                        <p>
-                            <Paragraph tagName="span" size="xl" color="dark">email:</Paragraph>
+                        <p class="contacts__email">
+                            <Paragraph tagName="span" size="xl" color="dark">email: </Paragraph>
                             <Paragraph tagName="span" size="xl" color="dark">insmileveneers@gmail.com</Paragraph>
                         </p>
                     </div>
                     <div class="blur__button">
                         <Button tagName="button" type="none" size="s" color="white"></Button>
-                        <Circle tagName="button" color="white" size="m">
+                        <Circle tagName="span" color="white" size="m">
                             <Icon type="arrow" color="dark"></Icon>
                         </Circle>
                     </div>

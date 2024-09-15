@@ -6,7 +6,7 @@ import { useSidebarLogic, Category } from '../model/sidebar.model';
 const props = defineProps<{
   data: Category[];
 }>();
-
+ 
 const emit = defineEmits<{
   (e: 'category-selected', category: string | null): void;
 }>();

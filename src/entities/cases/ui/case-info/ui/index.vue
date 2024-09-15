@@ -10,7 +10,7 @@ const { caseData, formattedCost } = useCaseData();
 
 <template>
   <article class="case-article">
-    <Heading tagName="h2" color="dark" size="l" class="article__title">
+    <Heading tagName="h2" color="dark" regular size="l" class="article__title">
       {{ caseData?.name }}
     </Heading>
     <Paragraph tagName="p" size="xs" color="dark-gray" class="article__description">
@@ -32,7 +32,7 @@ const { caseData, formattedCost } = useCaseData();
       </Paragraph>
       <ul class="services__list"> 
         <li v-for="item in caseData?.priceId" :key="item.id" class="item">
-          <Circle tagName="span" color="green" size="xs">
+          <Circle tagName="span" color="green" size="s">
             <Icon type="tick" color="none" />
           </Circle>
           <Paragraph tagName="p" size="xs" color="dark-gray">

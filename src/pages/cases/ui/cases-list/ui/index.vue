@@ -17,7 +17,6 @@ const selectedCategory = computed(() => store.state.cases.selectedCategory);
 const handleCategorySelected = (category: string | null) => {
     store.dispatch('sidebar/selectCategory', category);
 };
-
 </script>
 
 <template>
@@ -40,12 +39,4 @@ const handleCategorySelected = (category: string | null) => {
 <style lang="scss" scoped>
 @import './style.scss';
 
-h2 {
-    margin-top: 50px;
-}
-
-hr {
-    margin-top: 32px;
-    color: #B1B5C3;
-}
 </style>

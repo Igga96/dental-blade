@@ -35,9 +35,7 @@ const handleCategorySelected = (category: string | null) => {
       <Sidebar :data="uniqueCategories" :selectedCategory="selectedCategory"
         @category-selected="handleCategorySelected" />
       <div class="section-prices__content">
-        <div class="content__items">
-          <Price :pricesData="filteredPrices" />
-        </div>
+        <Price :pricesData="filteredPrices" />
         <Pagination v-if="shouldShowPagination" />
       </div>
     </section>
@@ -47,9 +45,4 @@ const handleCategorySelected = (category: string | null) => {
 </template>
 <style scoped lang="scss">
 @import './style.scss';
-
-hr {
-  color: #B1B5C3;
-  margin-top: 32px;
-}
 </style>

@@ -27,7 +27,7 @@
             top: -38px;
         }
 
-        .blur {
+        .contacts {
             border: 1px solid rgba(119, 126, 144, 0.05);
             border-radius: 30px;
             backdrop-filter: blur(34px);
@@ -44,6 +44,13 @@
             }
 
             .blur__button {
+                display: flex;
+
+                .button {
+                    width: 89%;
+                }
+
+
                 .circle {
                     width: 60px;
                     height: 60px;
@@ -53,6 +60,45 @@
 
             .button::before {
                 content: 'записаться на прием';
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .section-map {
+        display: flex;
+        width: 100%;
+        justify-content: start;
+
+        .section-map__content {
+            position: absolute;
+            margin-top: -120px;
+            display: flex;
+            flex-direction: column;
+            align-items: end;
+
+            .contacts {
+                display: flex;
+                width: calc(100vw - 110px);
+                height: 373px;
+
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 541px) {
+    .section-map {
+
+        .section-map__content {
+
+            .contacts {
+                width: calc(100vw - 60px);
+
+                .button::before {
+                    content: 'записаться';
+                }
             }
         }
     }

@@ -16,10 +16,9 @@
     }
 }
 
-@media screen and (max-width: 375px) {
-    .container {
+@media screen and (max-width: 541px) {
+    .container{
         margin: 0 20px;
     }
-
 }
 </style>

@@ -2,7 +2,7 @@
 import { Paragraph } from '@/shared/ui/text/paragraph';
 import { Button } from '@/shared/ui/button';
 import { RouterLink } from 'vue-router';
-import { CaseItem } from '../model/cases.types';
+import { CaseItem } from '@/entities/cases/model/cases.types';
 import { useStore } from 'vuex';
 
 
@@ -21,7 +21,8 @@ const getTitleImage = (id: number) => {
 
 <template>
   <div class="cases-item" v-for="item in casesData" :key="item.id">
-    <img :src="getTitleImage(item.id)" alt="cases_image" class="cases-item__image" />
+    <div class="cases-item__image" :style="{ backgroundImage: `url(${getTitleImage(item.id)})` }"
+      :aria-label="`${item.name}`" />
     <Paragraph tagName="p" size="xxl" color="dark" class="cases-item__title">
       {{ item.name }}
     </Paragraph>

@@ -49,7 +49,7 @@ import { Heading } from '@/shared/ui/text/heading'
     }
 }
 
-@media screen and (max-width: 375px) {
+@media screen and (max-width: 541px) {
     .section-implantation {
         .section-implantation__items {
             padding-left: 20px;

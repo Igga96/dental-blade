@@ -1,12 +1,20 @@
 .cases-item {
     display: flex;
     flex-direction: column;
-    width: 421px;
+    justify-content: space-between;
+    width: 100%;
 
     .cases-item__image {
         margin-bottom: 30px;
-        max-width: 421px;
-        max-height: 279px;
+        width: 100%;
+        height: 300px;
+        background-size: contain;
+        -moz-background-size: cover;
+        -webkit-background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+        border-radius: 20px;
+
     }
 
     .cases-item__title {
@@ -37,6 +45,44 @@
                 .text {
                     color: white;
                 }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 1440px) {
+    .cases-item {
+        .cases-item__image {
+            min-height: 200px;
+            height: 279px;
+        }
+    }
+}
+
+@media screen and (max-width: 768px) {
+    
+}
+
+@media screen and (max-width: 541px) {
+    .cases-item {
+        width: 100%;
+
+        .cases-item__image {
+            border-radius: 20px;
+            width: 100%;
+        }
+
+        .cases-item__title {
+            width: 100%;
+        }
+
+        .cases-item__description {
+            width: 100%;
+        }
+
+        .cases-item__link {
+            .button {
+                width: 100%;
             }
         }
     }

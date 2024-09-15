@@ -18,7 +18,7 @@ const sortedPricesData = computed(() => sortPricesByCategory(props.pricesData));
             Данные отсутствуют
         </Paragraph>
     </div>
-    <div v-else>
+    <div class="content__items" v-else>
         <div v-for="(prices, category) in sortedPricesData" :key="category" class="item">
             <Heading tagName="h4" regular size="xs" class="item__title">
                 {{ category }}
@@ -27,7 +27,7 @@ const sortedPricesData = computed(() => sortPricesByCategory(props.pricesData));
                 <Paragraph tagName="p" color="dark-gray" size="m">
                     {{ price.name }}
                 </Paragraph>
-                <Paragraph tagName="span" color="dark-gray" size="xl">
+                <Paragraph tagName="span" color="dark-gray" size="xl" class="item__price">
                     {{ price.price }} ₽
                 </Paragraph>
             </div>
