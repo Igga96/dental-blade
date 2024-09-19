@@ -1,0 +1,135 @@
+.section-technology {
+  overflow: hidden;
+
+  h2 {
+    margin: 200px 0 70px;
+    max-width: 625px;
+  }
+
+  .section-technology__items {
+    display: flex;
+    gap: 10px;
+    width: 100%;
+    position: relative;
+    touch-action: pan-y;
+    transition: transform 0.3s ease;
+
+    .item {
+      border: 1px solid rgba(119, 126, 144, 0.05);
+      border-radius: 40px;
+      padding: 40px 30px;
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      min-width: 400px;
+
+      .item__circle {
+        .circle {
+          width: 60px;
+          height: 60px;
+          color: #4963FF;
+          margin-bottom: 15px;
+
+          .text {
+            font-size: 24px;
+            line-height: 32px;
+            font-weight: 600;
+          }
+        }
+      }
+
+      .item__text {
+        max-width: 340px;
+      }
+    }
+  }
+
+  .hidden-button {
+    display: none;
+  }
+
+}
+
+@media screen and (max-width: 768px) {
+  .section-technology {
+    .section__tittle-with-buttons {
+      .btn__not-slide {
+        display: flex;
+        align-items: end;
+        margin-bottom: 40px;
+
+        .button {
+          white-space: nowrap;
+        }
+
+        .circle {
+          width: 60px;
+          height: 60px;
+        }
+      }
+    }
+
+
+    h2 {
+      margin: 100px 0 40px;
+    }
+
+    .section-technology__items {
+      display: flex;
+      gap: 10px;
+
+
+      .item {
+        border-radius: 20px;
+        padding: 25px;
+        min-width: 320px;
+
+        .item__circle {
+          .circle {
+            width: 50px;
+            height: 50px;
+
+            .text {
+              font-size: 20px;
+            }
+          }
+
+          .item__text {
+            max-width: 340px;
+          }
+        }
+      }
+    }
+
+  }
+}
+
+@media screen and (max-width: 541px) {
+  .section-technology {
+    .section__tittle-with-buttons {
+      .btn__not-slide {
+        display: none;
+      }
+    }
+
+    .section-technology__items {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      touch-action: none;
+    }
+
+    .hidden-button {
+      display: flex;
+
+      .button {
+        width: 89%;
+      }
+
+      .circle {
+        width: 60px;
+        height: 60px;
+      }
+    }
+  }
+}

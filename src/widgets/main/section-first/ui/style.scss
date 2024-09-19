@@ -1,0 +1,48 @@
+.section-first {
+    height: 802px;
+    border-top-left-radius: 50px;
+    border-top-right-radius: 50px;
+    background: url("@/assets/images/section-first-background.jpg");
+    background-position: center 35%;
+    background-size: 120%;
+    background-color: rgba(35, 38, 47, 0.6);
+    overflow: hidden;
+
+    .section-first__content {
+        height: 100%;
+        width: 100%;
+        backdrop-filter: blur(5px);
+        background: rgba(35, 38, 47, 0.6);
+
+
+        .container {
+
+            h2 {
+                margin: 149px 0 40px;
+                max-width: 608px;
+                color: #ffff;
+
+                .circle {
+                    position: relative;
+                    top: -10px;
+                }
+
+            }
+
+            p {
+                max-width: 571px;
+            }
+
+
+            .section-first__button {
+                margin-top: 50px;
+                display: flex;
+
+                .circle {
+                    width: 60px;
+                    height: 60px;
+                }
+            }
+        }
+    }
+}

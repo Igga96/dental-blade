@@ -8,10 +8,20 @@ import { Button } from '@/shared/ui/button';
         <Button tagName="button" size="xs" type="none" color="accent">оставить отзыв</Button>
     </div>
 </template>
-<style>
+<style lang="scss" scoped>
 .doctor__rating {
     display: flex;
     flex-direction: column;
     grid-column: 2;
+    .button{
+        width: 208px;
+    }
+}
+@media screen and (max-width: 541px) {
+    .doctor__rating {
+        .button{
+width: 100%;
+        }
+    }
 }
 </style>

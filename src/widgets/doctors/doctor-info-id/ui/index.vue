@@ -17,19 +17,26 @@ const doctor = computed(() => store.getters['doctors/getDoctorById'](doctorId.va
 </script>
 <template>
     <section v-if="doctor" class="section-doctor">
-        <div class="doctor-photo" :style="{ backgroundImage: `url(${doctor.imgPath})` }" :aria-label="`${doctor.fullName}`">
+        <div class="doctor-info doctor-info_left">
+            <div class="doctor-photo" :style="{ backgroundImage: `url(${doctor.imgPath})` }"
+                :aria-label="`${doctor.fullName}`" />
+            <div class="doctor-info__hidden-content">
+                <DoctorInfo :doctorId="doctorId" />
+                <hr>
+                <DoctorProfile :doctorId="doctorId" />
+            </div>
         </div>
-        <article class="doctor-info">
+        <article class="doctor-info doctor-info_right">
             <DoctorInfo :doctorId="doctorId" />
-            <hr>
+            <hr class="line-hidden">
             <DoctorProfile :doctorId="doctorId" />
+            <hr class="line-hidden">
+            <DoctorEducation :doctorId="doctorId" />
+            <hr>
+            <DoctorTraining :doctorId="doctorId" />
+            <hr>
+            <DoctorReviews />
         </article>
-        <hr>
-        <DoctorEducation :doctorId="doctorId" />
-        <hr>
-        <DoctorTraining :doctorId="doctorId" />
-        <hr>
-        <DoctorReviews />
     </section>
     <div v-else>
         <p>Доктор не найден.</p>

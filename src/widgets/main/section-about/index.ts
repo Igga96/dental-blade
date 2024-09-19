@@ -1,0 +1,1 @@
+export {default as SectionAbout} from './ui/index.vue'

@@ -19,3 +19,13 @@
         }
     }
 }
+@media screen and (max-width: 768px) {
+    .doctor-education{
+        margin-top: 50px;
+    }
+}
+@media screen and (max-width: 541px) {
+    .doctor-education{
+        margin: 0;
+    }
+}

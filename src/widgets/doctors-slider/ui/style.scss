@@ -1,28 +1,34 @@
-.section-doctors {
+.doctors-slider {
+    overflow: hidden;
+
     h2 {
         margin: 200px 0 70px;
     }
 
-    .doctors-slider {
+    .slider {
         width: 100%;
         overflow: hidden;
         display: flex;
         position: relative;
         left: 110px;
+        
 
     }
 
     .doctors-slider__content {
         display: flex;
         gap: 10px;
+        touch-action: pan-y;
+            transition: transform 0.3s ease;
 
     }
 }
 
-@media screen and (max-width: 768px) {
-    .section-doctors {
+@media screen and (max-width: 769px) {
+    .doctors-slider {
         h2 {
             margin: 100px 0 40px;
+
         }
 
         .section__tittle-with-buttons {
@@ -31,7 +37,7 @@
             }
         }
 
-        .doctors-slider {
+        .slider {
             width: 100%;
             left: 45px;
         }
@@ -39,9 +45,9 @@
     }
 }
 
-@media screen and (max-width: 375px) {
-    .section-doctors {
-        .doctors-slider {
+@media screen and (max-width: 541px) {
+    .doctors-slider {
+        .slider {
             width: 100%;
             left: 20px;
         }

@@ -1,0 +1,12 @@
+.video-player {
+    background-repeat: no-repeat;
+    overflow: hidden;
+    width: 100%;
+
+    iframe {
+        overflow: hidden;
+        height: 100%;
+        width: 100%;
+        background: rgba(35, 38, 47, 0.45);
+    }
+}

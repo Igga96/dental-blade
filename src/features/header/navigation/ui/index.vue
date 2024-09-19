@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { Paragraph } from '@/shared/ui/text/paragraph';
 import { RouterLink } from 'vue-router';
+
 interface Props {
     navItems: {
         name: string;

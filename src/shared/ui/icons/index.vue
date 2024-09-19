@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { type IconType } from './types';
+
 interface Props {
     type: IconType
     color: 'white' | 'accent' | 'gray' | 'dark' | 'none';

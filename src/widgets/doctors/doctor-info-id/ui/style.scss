@@ -1,0 +1,178 @@
+hr {
+    margin: 30px 0 50px;
+}
+
+.section-doctor {
+    display: flex;
+    gap: 0 50px;
+
+    hr {
+        margin: 40px 0;
+    }
+
+    .doctor-info_left {
+        .doctor-photo {
+            display: block;
+            width: 490px;
+            height: 600px;
+            border-radius: 10px;
+            background-position: 0 10%;
+            background-repeat: no-repeat;
+            background-size: 100%;
+            border-radius: 10px;
+        }
+
+
+        display: flex;
+        gap: 30px;
+
+        .doctor-info__hidden-content {
+            display: none;
+        }
+    }
+
+    .doctor-info_right {
+        width: 100%;
+    }
+
+
+}
+
+@media screen and (max-width: 1441px) {
+    .section-doctor {
+
+        .doctor-info_left {
+            .doctor-photo {
+                display: block;
+                width: 382px;
+                height: 480px;
+                border-radius: 10px;
+                background-position: 0 10%;
+                background-repeat: no-repeat;
+                background-size: 100%;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 1281px) {
+
+    h2 {
+        display: none;
+    }
+
+    .section-doctor {
+
+        .doctor-info_left {
+            .doctor-photo {
+                display: block;
+                width: 307x;
+                height: 412px;
+                border-radius: 10px;
+                background-position: 0 10%;
+                background-repeat: no-repeat;
+                background-size: 100%;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 769px) {
+    hr {
+        margin: 30px 0;
+    }
+
+    .section-doctor {
+        display: flex;
+        flex-direction: column;
+        gap: 0 50px;
+
+        hr {
+            margin: 40px 0;
+        }
+
+        .doctor-info_left {
+            .doctor-photo {
+                width: 282px;
+                height: 299px;
+                margin-bottom: 30px;
+            }
+
+
+
+            .doctor-info__hidden-content {
+                display: flex;
+                flex-direction: column;
+
+                .doctor-info__content {
+                    display: block;
+                }
+
+                .doctor-profile {
+                    display: block;
+                }
+
+                hr {
+                    margin: 30px 0;
+                }
+            }
+        }
+
+        .doctor-info_right {
+            width: 100%;
+
+            .line-hidden {
+                display: none;
+            }
+        }
+
+    }
+}
+
+@media screen and (max-width: 541px) {
+    hr {
+        margin: 30px 0;
+    }
+
+    .section-doctor {
+        display: flex;
+        flex-direction: column;
+        gap: 0 50px;
+
+        hr {
+            margin: 40px 0;
+        }
+
+        .doctor-info_left {
+            .doctor-photo {
+                width: 100%;
+                height: 460px;
+                background-position: 0 30%;
+            }
+
+
+
+            .doctor-info__hidden-content {
+                display: none;
+                flex-direction: column;
+
+                .doctor-info__content {
+                    display: none;
+                }
+
+                .doctor-profile {
+                    display: none;
+                }
+
+            }
+        }
+
+        .doctor-info_right {
+
+            .line-hidden {
+                display: block;
+            }
+        }
+
+    }
+}

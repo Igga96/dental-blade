@@ -91,11 +91,11 @@ paths:
           description: Врач успешно удален
         '404':
           description: Врач не найден
-  /services:
+  /prices:
     get:
-      summary: Получить список всех услуг
+      summary: Получить список стоимости всех услуг
       tags:
-        - Services
+        - Prices
       responses:
         '200':
           description: Успешный ответ
@@ -104,25 +104,25 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/Service'
+                  $ref: '#/components/schemas/Price'
     post:
       summary: Добавить новую услугу
       tags:
-        - Services
+        - Prices
       requestBody:
         required: true
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/Service'
+              $ref: '#/components/schemas/Price'
       responses:
         '201':
           description: Услуга успешно добавлена
-  /services/{id}:
+  /prices/{id}:
     get:
       summary: Получить информацию об услуге по ID
       tags:
-        - Services
+        - Prices
       parameters:
         - name: id
           in: path
@@ -135,13 +135,13 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Service'
+                $ref: '#/components/schemas/Price'
         '404':
           description: Услуга не найдена
     put:
       summary: Обновить информацию об услуге
       tags:
-        - Services
+        - Prices
       parameters:
         - name: id
           in: path
@@ -153,7 +153,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/Service'
+              $ref: '#/components/schemas/Price'
       responses:
         '200':
           description: Информация об услуге обновлена
@@ -162,7 +162,7 @@ paths:
     delete:
       summary: Удалить услугу по ID
       tags:
-        - Services
+        - Prices
       parameters:
         - name: id
           in: path
@@ -423,6 +423,142 @@ paths:
           description: Запись успешно удалена
         '404':
           description: Запись не найдена
+  /contacts:
+    get:
+      summary: Получить контактные данные клиники
+      tags:
+        - Contacts
+      responses:
+        '200':
+          description: Успешный ответ
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Contacts'
+    post:
+      summary: Добавить контактные данные клиники
+      tags:
+        - Contacts
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Contacts'
+      responses:
+        '201':
+          description: Контакты успешно добавлены
+    put:
+      summary: Обновить информацию о контактах
+      tags:
+        - Contacts
+      parameters:
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Contacts'
+      responses:
+        '200':
+          description: Информация о контактах обновлена
+        '404':
+          description: Запись не найдена
+    delete:
+      summary: Удалить контакты 
+      tags:
+        - Contacts
+      parameters:
+      responses:
+        '204':
+          description: Запись успешно удалена
+        '404':
+          description: Запись не найдена 
+  /questions:
+    get:
+      summary: Получить список всех вопросов
+      tags:
+        - Questions
+      responses:
+        '200':
+          description: Успешный ответ
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Questions'
+    post:
+      summary: Добавить новый вопрос
+      tags:
+        - Questions
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Questions'
+      responses:
+        '201':
+          description: Вопрос успешно добавлен
+  /question/{id}:
+    get:
+      summary: Получить информацию о вопросе по ID
+      tags:
+        - Questions
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Успешный ответ
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Questions'
+        '404':
+          description: Вопрос не найден
+    put:
+      summary: Обновить информацию о вопросе по ID
+      tags:
+        - Questions
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Questions'
+      responses:
+        '200':
+          description: Информация о вопросе удалена
+        '404':
+          description: Вопрос не найден
+    delete:
+      summary: Удалить вопрос по ID
+      tags:
+        - Questions
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        '204':
+          description: Вопрос успешно удален
+        '404':
+          description: Вопрос не найден                     
 components:
   schemas:
     Doctor:
@@ -431,21 +567,29 @@ components:
         id:
           type: integer
           example: 1
-        first_name:
+        firstName:
           type: string
           example: Александр
-        last_name:
+        lastName:
           type: string
-          example: Ковалев
-        middle_name:
+          example: Фроленков
+        middleName:
           type: string
           example: Александрович
-        specialty:
+        category:
           type: string
-          example: Ортопед
-        experience_years:
+          example: врач высшей категории 
+        experienceYears:
           type: integer
-          example: 21
+          example: 21  
+        specialty:
+          type: array
+          items:
+            $ref: '#/components/schemas/Specialty'
+        treatmentProfile:
+          type: array
+          items:
+            $ref: '#/components/schemas/treatmentProfile'
         worktime_start:
           type: integer 
           example: 09:00 
@@ -456,20 +600,54 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Education'
-        advanced_training:
+        advancedTraining:
           type: array
           items:
             $ref: '#/components/schemas/Training'
-        image_path:
+        sheldue:
+          type: array
+          items:
+            $ref: '#/components/schemas/Sheldue'
+        rating:
           type: string
-          example: url/Assets/images/doctors/
+          example: 4.9    
+        imgPath:
+          type: string
+          example: url/assets/images/doctors/doctor:id/picture.png
           description: URL или путь к изображению врача
+    Specialty:
+      type: object
+      properties:
+        id: 
+          type: integer
+          example: 0
+        name:
+          type: string
+          example: гигиенист  
+    treatmentProfile:
+      type: object
+      properties:
+        id:
+          type: integer
+          example: 0
+        name: 
+          type: string
+          example: гиперестезия
+        percent:
+          type: integer
+          example: 14              
     Education:
       type: object
       properties:
-        year:
+        id:
           type: integer
-          example: 2005
+          example: 0
+        edStart:
+          type: string
+          example: 2023
+        edEnd:
+          type: string
+          example: по настоящее время
         name:
           type: string
           example: Стоматология ортопедическая
@@ -479,13 +657,29 @@ components:
     Training:
       type: object
       properties:
-        year:
+        id:
           type: integer
+          example: 0
+        year:
+          type: string
           example: 2015
         name:
           type: string
           example: Ортопедическая стоматология
-    Service:
+    Sheldue:
+      type: object
+      properties:
+        date:
+          type: string
+          format: date
+          example: 18.09.2024
+        startTime: 
+          type: string
+          example: 09:00
+        endTime: 
+          type: string
+          example: 19:00     
+    Price:
       type: object
       properties:
         id:
@@ -509,20 +703,62 @@ components:
       properties:
         id:
           type: integer
-          example: 1
+          example: 0
         category:
           type: string
-          example: Детская стоматология
+          example: Имплантология
+        images:
+          type: array
+          items:
+            $ref: '#/components/schemas/CasesImages'  
         name:
           type: string
-          example: Лечение кариеса у ребенка 7 лет под местной анестезией
+          example: Одномоментная, c удалением зубов, установка дентальных имплантов
         description:
+          type: array
+          items:
+            $ref: '#/components/schemas/CasesDescription'  
+        totalCost:
+          type: integer
+          example: 250000
+        priceId:
+          type: array
+          items:
+            $ref: '#/components/schemas/CasesPrices'  
+    CasesImages:
+      type: object
+      properties:
+        id: 
+          type: integer
+          example: 0
+        path: 
           type: string
-          example: Ребенку 7 лет. Пришли с целью санации. Проведено лечение кариеса в кресле под местной анест...
-        image_path:
+          example: url/assets/images/cases/case:id/picture.png
+        isTitle:
+          type: boolean
+          example: true
+          description: по умолчанию false, true в том случае, если ее пометили как "титульная фотография"   
+    CasesDescription:
+      type: object
+      properties:
+        introduction:
           type: string
-          example: url/Assets/images/cases/
-          description: URL или путь к папке с изображениями кейса
+          example: Пришла пациентка А. с жалобами на
+        diagnos:
+          type: string
+          example: На приеме был диагностирован 
+        treatment:
+          type: string
+          example: Зубы 4.4., 4.5 – сформированы полости по
+    CasesPrices:
+      type: object
+      properties:
+        id:
+          type: integer
+          example: 0
+        name:
+          type: string
+          example: Операция на ретинированном/дистопированном зубе 
     User:
       type: object
       properties:
@@ -552,7 +788,7 @@ components:
           example: 79930726053
         image_path:
           type: string
-          example: url/Assets/images/users/
+          example: url/assets/images/users/user:id/picture.png
           description: URL или путь к изображению пользователя
     Appointment:
       type: object
@@ -560,28 +796,86 @@ components:
         id:
           type: integer
           example: 1
-        doctor_name:
+        Doctor.firstName:
           type: string
           description: Имя врача
           example: Александр
-        appointment_date:
+        Doctor.lastName:
+          type: string
+          example: Фроленков
+        Doctor.middleName:
+          type: string
+          example: Александрович
+        appointmentСreation:
+          type: array
+          items:
+            $ref: '#/components/schemas/AppointmentСreation'
+          description: Дата и время создания заявки
+        appointmentDate:
           type: string
           format: date
           description: Дата приема
-        appointment_time:
+        appointmentTime:
           type: string
           example: 09:00
           format: time
           description: Время приема
-        patient_name:
+        patientName:
           type: string
           example: Иван
           description: Имя пациента
-        patient_phone:
+        patientPhone:
           type: string
-          example: 79930726053
+          example: +79930726053
           description: Номер телефона пациента
-        patient_email:
+        patientEmail:
           type: string
           example: Ivanov_ivan@gmail.com
           description: Электронная почта пациента
+        serviceType:
+          type: string
+          example: Консультация первичного пациента с определением плана и стоимости лечения  
+    AppointmentСreation:
+      type: object
+      properties:
+        date:
+          type: string
+          format: date
+          example: 19.09.2024
+        time: 
+          type: string
+          format: time
+          example: 19:02        
+    Contacts:
+      type: object
+      properties:
+        id:
+          type: integer
+          example: 0
+        address: 
+          type: string
+          example: Москва, Кутузовский пр-кт, 45
+        phone:
+          type: string
+          example:  +74959889939
+        timeStart:
+          type: string
+          example:  10:00
+        timeEnd:
+          type: string
+          example: 22:00
+        email:
+          type: string
+          example: insmileveneers@gmail.com       
+    Questions:
+      type: object
+      properties:
+        id:
+          type: integer
+          example: 0      
+        question:
+          type: string
+          example: Предоставляете ли вы услуги детской стоматологии?
+        answer:
+          type: string
+          example: Да, в нашей клинике есть специалисты по детской стоматологии

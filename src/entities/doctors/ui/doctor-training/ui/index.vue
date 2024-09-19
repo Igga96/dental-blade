@@ -12,7 +12,7 @@ const { doctor } = useDoctorById(props.doctorId);
 <template>
     <article class="doctor-training">
         <Paragraph tagName="p" size="xxl" color="dark" class="title">
-            Повышение квалификации
+            повышение квалификации
         </Paragraph>
         <ul class="training-list">
             <li v-for="item in  doctor.advancedTraining" :key="item.id" class="item">

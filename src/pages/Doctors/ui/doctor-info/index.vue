@@ -2,7 +2,7 @@
 import { computed } from 'vue';
 import { useRoute } from 'vue-router';
 
-import { DoctorInfoById } from '@/widgets/doctor-info-id'
+import { DoctorInfoById } from '@/widgets/doctors/doctor-info-id'
 const route = useRoute();
 
 const doctorId = computed(() => Number(route.params.id));

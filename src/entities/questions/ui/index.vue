@@ -1,7 +1,5 @@
 <script setup lang="ts">
 import { useQuestionsModel } from '@/entities/questions/model/questions.model';
-import { Container } from '@/shared/ui/container';
-import { Heading } from '@/shared/ui/text/heading';
 import { Paragraph } from '@/shared/ui/text/paragraph';
 import { Icon } from '@/shared/ui/icons';
 

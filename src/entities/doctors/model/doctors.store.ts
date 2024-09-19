@@ -15,11 +15,11 @@ export const doctorsModule = {
                 lastName: 'Фроленков',
                 middleName: 'Сергеевич',
                 category: 'врач высшей категории',
+                experienceYears: 13,
                 specialty: [
                     { id: 0, name: 'Гигиенист' },
                     { id: 1, name: 'Десткий стоматолог' }
                 ],
-                experienceYears: 13,
                 treatmentProfile: [
                     { id: 0, name: 'гиперестезия', percent: 20 },
                     { id: 0, name: 'удаление зуба', percent: 35 },
@@ -36,9 +36,6 @@ export const doctorsModule = {
                     { id: 2, year: '2018', name: "«Компьютерная и магнитно-резонансная томография» СЗГМУ им. И.И. Мечникова" },
                     { id: 3, year: '2020', name: "«Компьютерная томография» ФГБУ НМИЦ им. В.А. Алмазова" },
                     { id: 4, year: '2021', name: "«Лучевая диагностика заболеваний гепатопанкреатодуоденальной зоны» СЗГМУ им. И.И. Мечникова" },
-                ],
-                sheldue: [
-                    { date: 'DD:MM:YYYY', startTime: '9:00', endTime: '19:00' },
                 ],
                 imgPath: require('@/assets/images/doctors/1.png'),
                 rating: '4.8'
@@ -71,9 +68,6 @@ export const doctorsModule = {
                     { id: 3, year: '2020', name: "«Компьютерная томография» ФГБУ НМИЦ им. В.А. Алмазова" },
                     { id: 4, year: '2021', name: "«Лучевая диагностика заболеваний гепатопанкреатодуоденальной зоны» СЗГМУ им. И.И. Мечникова" },
                 ],
-                sheldue: [
-                    { date: 'DD:MM:YYYY', startTime: '9:00', endTime: '19:00' },
-                ],
                 imgPath: require('@/assets/images/doctors/3.png'),
                 rating: '4.8'
             },
@@ -104,9 +98,6 @@ export const doctorsModule = {
                     { id: 2, year: '2018', name: "«Компьютерная и магнитно-резонансная томография» СЗГМУ им. И.И. Мечникова" },
                     { id: 3, year: '2020', name: "«Компьютерная томография» ФГБУ НМИЦ им. В.А. Алмазова" },
                     { id: 4, year: '2021', name: "«Лучевая диагностика заболеваний гепатопанкреатодуоденальной зоны» СЗГМУ им. И.И. Мечникова" },
-                ],
-                sheldue: [
-                    { date: 'DD:MM:YYYY', startTime: '9:00', endTime: '19:00' },
                 ],
                 imgPath: require('@/assets/images/doctors/4.png'),
                 rating: '4.8'
@@ -139,9 +130,6 @@ export const doctorsModule = {
                     { id: 2, year: '2018', name: "«Компьютерная и магнитно-резонансная томография» СЗГМУ им. И.И. Мечникова" },
                     { id: 3, year: '2020', name: "«Компьютерная томография» ФГБУ НМИЦ им. В.А. Алмазова" },
                     { id: 4, year: '2021', name: "«Лучевая диагностика заболеваний гепатопанкреатодуоденальной зоны» СЗГМУ им. И.И. Мечникова" },
-                ],
-                sheldue: [
-                    { date: 'DD:MM:YYYY', startTime: '9:00', endTime: '19:00' },
                 ],
                 imgPath: require('@/assets/images/doctors/2.png'),
                 rating: '4.8'

@@ -1,0 +1,139 @@
+.section-nine {
+  h2 {
+    margin: 200px 0 70px;
+  }
+
+  .section-nine__content {
+    display: flex;
+    justify-content: space-between;
+    gap: 50px;
+
+    .content__text {
+      .text__cards {
+        margin-top: 40px;
+
+        .item {
+          display: flex;
+          align-items: center;
+          margin-top: 20px;
+          min-height: 55px;
+
+          .item__text {
+            margin-left: 75px;
+          }
+
+          .item__circle {
+            position: absolute;
+            background-color: #F6F6F6;
+            width: 55px;
+            height: 55px;
+            font-size: 18px;
+            line-height: 25px;
+            font-weight: 500;
+            .text{
+              font-weight: 500;
+            }
+          }
+        }
+      }
+
+      .text__description {
+        margin-top: 50px;
+        max-width: 535px;
+      }
+    }
+
+    .content__image {
+      border-radius: 40px;
+      background-repeat: no-repeat;
+      background-position: center;
+      width: 594px;
+      height: 500px;
+    }
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .section-nine {
+    h2 {
+      margin: 100px 0 40px;
+    }
+
+    .section-nine__content {
+      display: flex;
+      justify-content: space-between;
+      gap: 30px;
+
+      .content__text {
+        .text__cards {
+          margin-top: 20px;
+
+          .item {
+            align-items: center;
+            margin-top: 10px;
+            height: 40px;
+
+            .item__text {
+              margin-left: 50px;
+            }
+
+            .item__circle {
+              width: 40px;
+              height: 40px;
+              font-size: 14px;
+              line-height: 25px;
+              font-weight: 500;
+              .text{
+                font-size: 20px;
+              }
+              
+            }
+          }
+        }
+
+        .text__description {
+          margin-top: 20px;
+          max-width: 535px;
+        }
+      }
+
+      .content__image {
+        border-radius: 20px;
+        min-width: 330px;
+        height: 400px;
+        background-position: center;
+      }
+    }
+  }
+}
+@media screen and (max-width: 541px) {
+  .section-nine {
+    .section-nine__content {
+      flex-direction: column;
+      gap: 30px;
+
+      .content__text {
+        .text__cards {
+          margin-top: 20px;
+
+          .item {
+            align-items: center;
+            margin-top: 10px;
+            height: 40px;
+          }
+        }
+
+        .text__description {
+          margin-top: 20px;
+          max-width: 535px;
+        }
+      }
+
+      .content__image {
+        width: 100%;
+        height: 280px;
+        background-position: 40% 70%;
+      }
+    }
+  }
+}

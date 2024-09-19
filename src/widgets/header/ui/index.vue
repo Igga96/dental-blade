@@ -10,7 +10,7 @@ import { reactive } from 'vue';
 const navItems = reactive([
     { name: 'О клинике', link: '/' },
     { name: 'Врачи', link: '/doctors' },
-    { name: 'Услуги', link: '/services' },
+    { name: 'Услуги', link: '/services' }, 
     { name: 'Цены', link: '/prices' },
     { name: 'Кейсы', link: '/cases' },
 ])
@@ -19,7 +19,7 @@ const navItems = reactive([
     <header class="header">
         <Logo class="header__logo" />
         <div class="header__menu">
-            <Navigation :navItems="navItems" class="menu-left" />
+            <Navigation :navItems="navItems " class="menu-left" />
             <div class="menu-right">
                 <Search />
                 <Glasses />

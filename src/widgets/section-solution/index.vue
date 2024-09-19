@@ -40,7 +40,7 @@ import { Icon } from '@/shared/ui/icons';
                             </Paragraph>
                             <div class="item__price">
                                 <Paragraph tagName="p" color="dark" size="xs">стоимость:</Paragraph>
-                                <Paragraph tagName="p" color="dark" size="xxxl" class="summary">250 000 rub</Paragraph>
+                                <Paragraph tagName="p" color="dark" size="xxxl" class="summary">250 000 руб</Paragraph>
                             </div>
                         </div>
                         <div class="photos">
