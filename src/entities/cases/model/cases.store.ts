@@ -13,9 +13,9 @@ export const casesModule = {
                 id: 0,
                 category: 'Имплантология',
                 images: [
-                    { id: 0, path: require('@/assets/images/cases/1.png'), isTitle: true },
-                    { id: 1, path: require('@/assets/images/cases/2.png'), isTitle: false },
-                    { id: 2, path: require('@/assets/images/cases/4.png'), isTitle: false },
+                    { id: 0, path: require('@/assets/images/cases/case_1.png'), isTitle: true },
+                    { id: 1, path: require('@/assets/images/cases/case_2.png'), isTitle: false },
+                    { id: 2, path: require('@/assets/images/cases/case_4.png'), isTitle: false },
                 ],
                 name: 'Одномоментная, c удалением зубов, установка дентальных имплантов',
                 description: 'Пришла пациентка А. с жалобами на неэстетичность зубов на нижней челюсти, коричневые пятна на зубах в зоне улыбки. Болезненность во время приема кислой и холодной пищи. На приеме был диагностирован диагноз: клиновидный дефект (некариозное поражение зубов, связанное с неправильным перераспределением жевательной нагрузки на зубы) Были проведены консультации врача хирурга-имплантолога, врача-ортопеда и врача-ортодонта для объяснения причины данного заболевания). Было принято решение запломбировать клиновидные дефекты с последующей реабилитацией ортопедическими конструкциями. Зубы 4.4, 4.5 – сформированы полости по 5 классу Блека, проведена ретракция десны (изоляция дефекта от мягких тканей десны), зубы восстановлены реставрациями светового отверждения, отполированы дисками до зеркального блеска. Даны рекомендации – восстановление зубных рядов (есть отсутствующие зубы) для правильного перераспределения жевательной нагрузки.',
@@ -31,7 +31,7 @@ export const casesModule = {
                 id: 1,
                 category: 'Хирургия',
                 images: [
-                    { id: 0, path: require('@/assets/images/cases/2.png'), isTitle: true }
+                    { id: 0, path: require('@/assets/images/cases/case_2.png'), isTitle: true }
                 ],
                 name: 'Лечение и реставрация клиновидного дефекта на нижней челюсти',
                 description: 'Пришла пациентка А. с жалобами на неэстетичность зубов на нижней челюсти, коричневые пятна...',
@@ -46,7 +46,7 @@ export const casesModule = {
                 id: 2,
                 category: 'Детская стоматология',
                 images: [
-                    { id: 0, path: require('@/assets/images/cases/3.png'), isTitle: true }
+                    { id: 0, path: require('@/assets/images/cases/case_3.png'), isTitle: true }
                 ],
                 name: 'Лечение кариеса у ребенка 7 лет под местной анестезией',
                 description: 'Ребенку 7 лет. Пришли с целью санации. Проведено лечение кариеса в кресле под местной анест...',
@@ -61,7 +61,7 @@ export const casesModule = {
                 id: 3,
                 category: 'Ортодонтия',
                 images: [
-                    { id: 0, path: require('@/assets/images/cases/4.png'), isTitle: true }
+                    { id: 0, path: require('@/assets/images/cases/case_4.png'), isTitle: true }
                 ],
                 name: 'Эстетическая реставрация зубов композитными материалами',
                 description: 'Эстетическая реставрация зубов композитными материалами Estelaite Sigma Quick...',
@@ -76,7 +76,7 @@ export const casesModule = {
                 id: 4,
                 category: 'Терапевтические услуги',
                 images: [
-                    { id: 0, path: require('@/assets/images/cases/1.png'), isTitle: true }
+                    { id: 0, path: require('@/assets/images/cases/case_1.png'), isTitle: true }
                 ],
                 name: ' Лечение и реставрация клиновидного дефекта на нижней челюсти',
                 description: 'Пришла пациентка А. с жалобами на неэстетичность зубов на нижней челюсти, коричневые пятна...',
@@ -91,7 +91,7 @@ export const casesModule = {
                 id: 5,
                 category: 'Ортопедия',
                 images: [
-                    { id: 0, path: require('@/assets/images/cases/2.png'), isTitle: true }
+                    { id: 0, path: require('@/assets/images/cases/case_2.png'), isTitle: true }
                 ],
                 name: 'Одномоментная, c удалением зубов, установка дентальных имплантов',
                 description: 'Одномоментная, c удалением зубов, имплантация в области 34, 32, 42 ,44. Через 4 месяца...',
@@ -106,7 +106,7 @@ export const casesModule = {
                 id: 6,
                 category: 'Рентгенологическое исследование',
                 images: [
-                    { id: 0, path: require('@/assets/images/cases/3.png'), isTitle: true }
+                    { id: 0, path: require('@/assets/images/cases/case_3.png'), isTitle: true }
                 ],
                 name: 'Лечение и реставрация клиновидного дефекта на нижней челюсти',
                 description: 'Пришла пациентка А. с жалобами на неэстетичность зубов на нижней челюсти, коричневые пятна...',
@@ -121,7 +121,7 @@ export const casesModule = {
                 id: 7,
                 category: 'Компьютерная томография',
                 images: [
-                    { id: 0, path: require('@/assets/images/cases/4.png'), isTitle: true }
+                    { id: 0, path: require('@/assets/images/cases/case_4.png'), isTitle: true }
                 ],
                 name: 'Лечение кариеса у ребенка 7 лет под местной анестезией',
                 description: 'Ребенку 7 лет. Пришли с целью санации. Проведено лечение кариеса в кресле под местной анест...',
@@ -136,7 +136,7 @@ export const casesModule = {
                 id: 8,
                 category: 'Ортопедия',
                 images: [
-                    { id: 0, path: require('@/assets/images/cases/2.png'), isTitle: true }
+                    { id: 0, path: require('@/assets/images/cases/case_2.png'), isTitle: true }
                 ],
                 name: 'Эстетическая реставрация зубов композитными материалами',
                 description: 'Эстетическая реставрация зубов композитными материалами Estelaite Sigma Quick...',
@@ -151,7 +151,7 @@ export const casesModule = {
                 id: 9,
                 category: 'Компьютерная томография',
                 images: [
-                    { id: 0, path: require('@/assets/images/cases/1.png'), isTitle: true }
+                    { id: 0, path: require('@/assets/images/cases/case_1.png'), isTitle: true }
                 ],
                 name: ' Лечение и реставрация клиновидного дефекта на нижней челюсти',
                 description: 'Пришла пациентка А. с жалобами на неэстетичность зубов на нижней челюсти, коричневые пятна...',

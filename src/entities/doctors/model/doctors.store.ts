@@ -37,7 +37,7 @@ export const doctorsModule = {
                     { id: 3, year: '2020', name: "«Компьютерная томография» ФГБУ НМИЦ им. В.А. Алмазова" },
                     { id: 4, year: '2021', name: "«Лучевая диагностика заболеваний гепатопанкреатодуоденальной зоны» СЗГМУ им. И.И. Мечникова" },
                 ],
-                imgPath: require('@/assets/images/doctors/1.png'),
+                imgPath: require('@/assets/images/doctors/doctor_1.png'),
                 rating: '4.8'
             },
             {
@@ -68,7 +68,7 @@ export const doctorsModule = {
                     { id: 3, year: '2020', name: "«Компьютерная томография» ФГБУ НМИЦ им. В.А. Алмазова" },
                     { id: 4, year: '2021', name: "«Лучевая диагностика заболеваний гепатопанкреатодуоденальной зоны» СЗГМУ им. И.И. Мечникова" },
                 ],
-                imgPath: require('@/assets/images/doctors/3.png'),
+                imgPath: require('@/assets/images/doctors/doctor_3.png'),
                 rating: '4.8'
             },
             {
@@ -99,7 +99,7 @@ export const doctorsModule = {
                     { id: 3, year: '2020', name: "«Компьютерная томография» ФГБУ НМИЦ им. В.А. Алмазова" },
                     { id: 4, year: '2021', name: "«Лучевая диагностика заболеваний гепатопанкреатодуоденальной зоны» СЗГМУ им. И.И. Мечникова" },
                 ],
-                imgPath: require('@/assets/images/doctors/4.png'),
+                imgPath: require('@/assets/images/doctors/doctor_4.png'),
                 rating: '4.8'
             },
             {
@@ -131,7 +131,7 @@ export const doctorsModule = {
                     { id: 3, year: '2020', name: "«Компьютерная томография» ФГБУ НМИЦ им. В.А. Алмазова" },
                     { id: 4, year: '2021', name: "«Лучевая диагностика заболеваний гепатопанкреатодуоденальной зоны» СЗГМУ им. И.И. Мечникова" },
                 ],
-                imgPath: require('@/assets/images/doctors/2.png'),
+                imgPath: require('@/assets/images/doctors/doctor_2.png'),
                 rating: '4.8'
             },
         ],

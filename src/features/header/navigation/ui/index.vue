@@ -4,9 +4,10 @@ import { RouterLink } from 'vue-router';
 
 interface Props {
     navItems: {
+        id: number;
         name: string;
         link: string;
-    }
+    }[]
 }
 const { navItems } = defineProps<Props>();
 
@@ -14,7 +15,7 @@ const { navItems } = defineProps<Props>();
 <template>
     <nav class="navigation">
         <ul class="navigation__list">
-            <li v-for="item in navItems" :key="item.name" class="item">
+            <li v-for="item in navItems" :key="item.id" class="item">
                 <RouterLink :to="item.link" tagName="roter-link" class="item__link">
                     <Paragraph tag-name="span" size="xs" color="dark" class="item__text">
                         {{ item.name }}

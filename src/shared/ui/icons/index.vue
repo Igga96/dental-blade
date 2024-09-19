@@ -1,8 +1,8 @@
 <script setup lang="ts">
-import { type IconType } from './types';
+
 
 interface Props {
-    type: IconType
+    type: string
     color: 'white' | 'accent' | 'gray' | 'dark' | 'none';
 }
 const props = defineProps<Props>()

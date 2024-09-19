@@ -15,7 +15,7 @@ const props = defineProps<Props>()
         <slot></slot>
     </component>
 </template>
-<style scoped>
+<style scoped lang="scss">
 .button {
     border-radius: 90px;
     display: flex;
@@ -27,7 +27,7 @@ const props = defineProps<Props>()
     font-weight: 500;
 }
 
-.button:hover {
+.button__type-none:hover {
     background: #3D4FB3;
     color: white;
 }
@@ -46,6 +46,7 @@ const props = defineProps<Props>()
     padding: 19.13px 36px;
     height: 60px;
 }
+
 .button__size-xs {
     padding: 10px 20px;
     height: 50px;
@@ -55,5 +56,18 @@ const props = defineProps<Props>()
     width: 50px;
     border-radius: 30px;
     padding: 0;
+
+    &:hover {
+        box-shadow: 0px 0px 10px 3px rgba(0, 0, 0, 0.2);
+    }
 }
-</style>
+
+.button_disabled {
+    opacity: 0.5;
+
+    &:hover {
+        background: none;
+        cursor: default;
+        box-shadow: none;
+    }
+}</style>

@@ -838,7 +838,7 @@ import { Solution } from '@/widgets/section-solution'
 
     .content__photo {
       border-radius: 30px;
-      background: url("@/assets/images/doctors/4.png");
+      background: url("@/assets/images/doctors/doctor_4.png");
       background-repeat: no-repeat;
       background-size: 100%;
       background-position: center;

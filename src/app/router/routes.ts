@@ -9,33 +9,33 @@ export const routes = [
   {
     path: '/admin',
     name: 'admin',
-    component: () => import('@/pages/admin/ui/index.vue')
+    component: () => import('../../pages/admin/ui/index.vue')
   },
   {
     path: '/services',
     name: 'services',
-    component: () => import('@/pages/services/ui/index.vue')
+    component: () => import('../../pages/services/ui/index.vue')
   },
   {
     path: '/prices',
     name: 'Стоимость услуг',
-    component: () => import('@/pages/prices/ui/index.vue')
+    component: () => import('../../pages/prices/ui/index.vue')
   },
   {
     path: '/cases',
     name: 'Кейсы',
-    component: () => import('@/pages/cases/ui/cases-view/ui/index.vue'),
+    component: () => import('../../pages/cases/ui/cases-view/ui/index.vue'),
     children: [
       {
         path: '',
         name: 'Кейсы',
-        component: () => import('@/pages/cases/ui/cases-list/ui/index.vue'),
+        component: () => import('../../pages/cases/ui/cases-list/ui/index.vue'),
 
       },
       {
         path: ':id',
         name: 'Кейс',
-        component: () => import('@/pages/cases/ui/case-info/ui/index.vue'),
+        component: () => import('../../pages/cases/ui/case-info/ui/index.vue'),
         props: true
       },
     ]

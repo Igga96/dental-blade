@@ -8,18 +8,18 @@ import { Burger } from '@/features//header/burger'
 import { reactive } from 'vue';
 
 const navItems = reactive([
-    { name: 'О клинике', link: '/' },
-    { name: 'Врачи', link: '/doctors' },
-    { name: 'Услуги', link: '/services' }, 
-    { name: 'Цены', link: '/prices' },
-    { name: 'Кейсы', link: '/cases' },
+    { id: 0, name: 'О клинике', link: '/' },
+    { id: 1, name: 'Врачи', link: '/doctors' },
+    { id: 2, name: 'Услуги', link: '/services' },
+    { id: 3, name: 'Цены', link: '/prices' },
+    { id: 4, name: 'Кейсы', link: '/cases' },
 ])
 </script>
 <template>
     <header class="header">
         <Logo class="header__logo" />
         <div class="header__menu">
-            <Navigation :navItems="navItems " class="menu-left" />
+            <Navigation :navItems="navItems" class="menu-left" />
             <div class="menu-right">
                 <Search />
                 <Glasses />

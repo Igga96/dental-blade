@@ -1,0 +1,92 @@
+.section-solution {
+    .section-solution__title {
+        margin: 200px 0 70px;
+    }
+
+    .section-solution__list {
+        gap: 10px;
+        display: flex;
+        touch-action: pan-y;
+        transition: transform 0.3s ease;
+
+        .item {
+            border-bottom: 2px solid rgba(119, 126, 144, 0.05);
+            padding: 3px 18px 3px 0px;
+            color: #747B8F;
+            width: 100%;
+
+            &:hover {
+                border-bottom: 2px solid rgb(35, 38, 47);
+                cursor: pointer;
+                color: #23262F;
+            }
+        }
+
+        .item_active {
+            border-bottom: 2px solid rgb(35, 38, 47);
+
+            .text {
+                color: #23262F;
+            }
+        }
+    }
+
+    .section-solution__content {
+        .content__items {
+            margin-top: 60px;
+            padding: 25px 0;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+
+            .item__description {
+                h4 {
+                    margin-bottom: 40px;
+                }
+
+                p {
+                    margin-top: 20px;
+                }
+
+                .item__price {
+                    margin-top: 73px;
+
+                    p {
+                        margin: 0;
+                    }
+
+                    .summary {
+                        font-size: 30px;
+                        line-height: 33px;
+                        font-weight: 700;
+                    }
+                }
+            }
+
+            .item__photo {
+                display: flex;
+                align-items: center;
+                flex-direction: column;
+                justify-content: end;
+
+                .photos__content {
+                    border-radius: 100%;
+                    overflow: hidden;
+                    width: 490px;
+                    height: 490px;
+
+                }
+
+                .buttons {
+                    display: flex;
+                    gap: 10px;
+                    margin-top: 20px;
+
+                    .button {
+                        height: 50px;
+                    }
+                }
+            }
+
+        }
+    }
+}

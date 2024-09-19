@@ -1,1 +1,1 @@
-export {default as Solution} from './index.vue'
+export {default as Solution} from './ui/index.vue'
