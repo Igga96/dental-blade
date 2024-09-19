@@ -1,0 +1,2 @@
+"use strict";(self["webpackChunkdental_blade"]=self["webpackChunkdental_blade"]||[]).push([[707],{3707:function(n,e,u){u.r(e),u.d(e,{default:function(){return s}});var a=u(641);const t=(0,a.Lk)("h1",null,"Admin Page",-1),l=[t];function r(n,e,u,t,r,d){return(0,a.uX)(),(0,a.CE)("div",null,l)}var d=(0,a.pM)({name:"Admin"}),c=u(6262);const i=(0,c.A)(d,[["render",r]]);var s=i}}]);
+//# sourceMappingURL=707.js.map
