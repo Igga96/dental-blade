@@ -1,4 +1,5 @@
 .section-solution {
+    overflow: hidden;
     .section-solution__title {
         margin: 200px 0 70px;
     }
@@ -14,11 +15,16 @@
             padding: 3px 18px 3px 0px;
             color: #747B8F;
             width: 100%;
+            min-width: 199px;
 
             &:hover {
                 border-bottom: 2px solid rgb(35, 38, 47);
                 cursor: pointer;
                 color: #23262F;
+            }
+
+            .text {
+                font-size: 16px;
             }
         }
 
@@ -37,6 +43,7 @@
             padding: 25px 0;
             display: grid;
             grid-template-columns: 1fr 1fr;
+            gap: 50px;
 
             .item__description {
                 h4 {
@@ -66,9 +73,10 @@
                 display: flex;
                 align-items: center;
                 flex-direction: column;
-                justify-content: end;
 
                 .photos__content {
+                    background-position: center;
+                    background-size: 100%;
                     border-radius: 100%;
                     overflow: hidden;
                     width: 490px;
@@ -79,7 +87,7 @@
                 .buttons {
                     display: flex;
                     gap: 10px;
-                    margin-top: 20px;
+                    margin-top: 25px;
 
                     .button {
                         height: 50px;
@@ -87,6 +95,82 @@
                 }
             }
 
+        }
+    }
+}
+
+@media screen and (max-width:768px) {
+    .section-solution {
+
+        .section-solution__title {
+            margin: 100px 0 40px;
+        }
+
+        .section-solution__content {
+            .content__items {
+                margin-top: 40px;
+                padding: 0;
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+
+                .item__description {
+                    h4 {
+                        margin-bottom: 25px;
+                    }
+
+                    p {
+                        margin-top: 10px;
+                    }
+
+                    .item__price {
+                        margin-top: 30px;
+
+                        p {
+                            margin: 0;
+                        }
+
+                        .summary {
+                            font-size: 20px;
+                            font-weight: 500;
+                            line-height: 28px;
+                        }
+                    }
+                }
+
+                .item__photo {
+                    .photos__content {
+                        width: 335px;
+                        height: 335px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width:541px) {
+    .section-solution {
+        .section-solution__content {
+            .content__items {
+                display: flex;
+                flex-direction: column;
+                gap: 30px;
+
+                .item__description {
+                    h4 {
+                        margin-bottom: 20px;
+                    }
+
+                    p {
+                        margin-top: 10px;
+                    }
+
+                    .item__price {
+                        margin-top: 30px;
+                    }
+                }
+
+            }
         }
     }
 }

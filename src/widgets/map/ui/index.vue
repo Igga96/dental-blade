@@ -3,7 +3,7 @@ import { Container } from '@/shared/ui/container'
 import { Icon } from '@/shared/ui/icons';
 import { Circle } from '@/shared/ui/circle';
 import { Button } from '@/shared/ui/button';
-import { Contacts } from '@/entities/contacts/'
+import { Contacts } from '@/entities/contacts/ui/map-contacts'
 </script>
 <template>
     <section class="section-map">

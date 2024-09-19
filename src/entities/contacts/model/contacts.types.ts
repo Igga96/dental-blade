@@ -4,5 +4,9 @@ export interface Contacts {
     phone: string,
     timeStart: string,
     timeEnd: string,
-    email: string
+    email: string,
+    wsLink: string,
+    vkLink: string,
+    tgLink: string,
+    fbLink: string,
 }

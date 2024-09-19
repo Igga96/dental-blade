@@ -7,17 +7,17 @@ const { questions, activeQuestionIndex, toggleQuestion } = useQuestionsModel();
 </script>
 
 <template>
-    <ul>
-        <li v-for="(questionItem, index) in questions" :key="questionItem.id"
-            :class="{ active: activeQuestionIndex === index }" @click="toggleQuestion(index)">
-            <div class="question">
+    <ul class="questions__list">
+        <li class="item" v-for="(questionItem, index) in questions" :key="questionItem.id"
+            :class="{ item_active: activeQuestionIndex === index }" @click="toggleQuestion(index)">
+            <div class="item__question">
                 <Paragraph tagName="p" size="m" color="dark">
                     <Paragraph tagName="span" size="m" color="dark-gray">{{ index + 1 }}</Paragraph>
                     {{ questionItem.question }}
                 </Paragraph>
                 <Icon type="arrowDown" color="dark" class="rotate-icon"></Icon>
             </div>
-            <Paragraph tagName="p" size="xs" color="dark-gray" class="question__description">
+            <Paragraph tagName="p" size="xs" color="dark-gray" class="item__answer">
                 {{ questionItem.answer }}
             </Paragraph>
         </li>

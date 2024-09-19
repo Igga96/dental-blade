@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { Logo } from '@/shared/ui/logo';
 import { Paragraph } from '@/shared/ui/text/paragraph';
-import { Icon } from '@/shared/ui/icons';
+import { FooterSocialLinks } from '@/entities/contacts/ui/footer-links'
 </script>
 <template>
     <footer>
@@ -27,28 +27,7 @@ import { Icon } from '@/shared/ui/icons';
                     </div>
                 </div>
             </div>
-            <ul class="social-links">
-                <li>
-                <a href="">
-                        <Icon type="WS" color="none"></Icon>
-                    </a>
-                    </li>
-                <li>
-                <a href="">
-                        <Icon type="TG" color="none"></Icon>
-                    </a>
-                    </li>
-                <li>
-                <a href="">
-                        <Icon type="VK" color="none"></Icon>
-                    </a>
-                    </li>
-                <li>
-                    <a href="">
-                        <Icon type="FB" color="none"></Icon>
-                    </a>
-                </li>
-            </ul>
+            <FooterSocialLinks />
             <Paragraph tagName="p" color="dark-gray" size="xs" class="footer__content_text-bottom">
                 Стоимость процедур определяется после консультации на приеме.
             </Paragraph>
@@ -123,7 +102,7 @@ footer {
                 grid-column: 1;
                 grid-row: 1;
             }
- 
+
             .social-links {
                 order: 2;
                 grid-column: 2;

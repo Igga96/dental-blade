@@ -15,6 +15,10 @@ export const contactsModule = {
                 timeStart: '10:00',
                 timeEnd: '22:00',
                 email: 'insmileveneers@gmail.com',
+                wsLink: 'ws',
+                vkLink: 'wk',
+                tgLink: 'tg',
+                fbLink: 'fb',
             },
         ]
     }),
