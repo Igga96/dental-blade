@@ -1,0 +1,1 @@
+export {default as SectionSafety} from './ui/index.vue'

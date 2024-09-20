@@ -354,6 +354,8 @@ const doctorsData = computed(() => store.getters['doctors/formattedDoctors']);
 
 hr {
   margin: 32px 0;
-  color: #B1B5C3;
-}
+  border: none;
+  border-top: 1px solid #F1F2F4;
+};
+
 </style>

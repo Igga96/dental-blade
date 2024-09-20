@@ -1,0 +1,1 @@
+export {default as SectionAllOnFirst} from './ui/index.vue'

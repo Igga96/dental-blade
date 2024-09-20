@@ -1,0 +1,1 @@
+export {default as SectionStandarts} from './ui/index.vue'

@@ -15,5 +15,7 @@ const doctorId = computed(() => Number(route.params.id));
 <style scoped>
 hr {
   margin: 32px 0 50px;
+  border: none;
+  border-top: 1px solid #F1F2F4;
 }
 </style>

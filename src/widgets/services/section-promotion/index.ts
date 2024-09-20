@@ -1,0 +1,1 @@
+export {default as SectionPromotion} from './ui/index.vue'
