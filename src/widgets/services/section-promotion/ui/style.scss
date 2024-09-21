@@ -1,60 +1,69 @@
 .section-promotion {
-    h2 {
-      margin: 200px 0 70px;
-    }
-  
-    .promotion__content {
-      .content__items {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 50px 75px;
-  
-        .item {
-  
-          .discount {
-            border-radius: 7px;
-            background: #DBFC5B;
-            padding: 5px 10px;
-            position: absolute;
-            font-size: 19px;
-            font-weight: 500;
-            margin-top: -40px;
-          }
-  
-          .text {
-            display: flex;
-            justify-content: space-between;
-  
+  h2 {
+    margin: 200px 0 70px;
+  }
+
+  .promotion__content {
+    .content__items {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 50px 75px;
+
+      .item {
+
+        .discount {
+          border-radius: 7px;
+          background: #DBFC5B;
+          padding: 5px 10px;
+          position: absolute;
+          font-size: 19px;
+          font-weight: 500;
+          margin-top: -40px;
+        }
+
+        .text {
+          display: flex;
+          justify-content: space-between;
+
+          .title__items {
+            overflow: hidden;
+            flex-grow: 1;
+
             .title {
-              max-width: 458px;
-              display: flex;
-              align-items: end;
+              max-width: 455px;
+              display: inline-block;
+              flex-grow: 1;
+              position: relative;
+
             }
-  
-            .price {
-              display: flex;
-              flex-direction: column;
-              justify-content: end;
-  
-              &:first-child {
-                text-decoration: line-through #747B8F;
-              }
-            }
-  
-            .price span:first-child {
+          }
+
+          .price {
+            display: flex;
+            flex-direction: column;
+            justify-content: end;
+            padding-left: 5px;
+            min-width: max-content;
+
+            &:first-child {
               text-decoration: line-through #747B8F;
             }
           }
-  
-          .button {
-            margin-top: 30px;
-            border: 1px solid rgb(28, 30, 39);
-  
-            &:hover {
-              border: 1px solid #3D4FB3;
-            }
+
+          .price span:first-child {
+            text-decoration: line-through #747B8F;
+          }
+        }
+
+        .button {
+          margin-top: 30px;
+          border: 1px solid rgb(28, 30, 39);
+
+          &:hover {
+            border: 1px solid #3D4FB3;
           }
         }
       }
     }
   }
+}

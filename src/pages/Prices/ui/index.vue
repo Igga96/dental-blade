@@ -28,7 +28,7 @@ const handleCategorySelected = (category: string | null) => {
   <Container>
     <Breadcrumbs />
     <Heading tagName="h2" regular size="xxl">
-      Стоимость услуг
+      стоимость услуг
     </Heading>
     <hr>
     <section class="section-prices">

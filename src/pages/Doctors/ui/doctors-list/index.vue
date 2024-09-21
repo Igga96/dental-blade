@@ -17,7 +17,7 @@ const doctorsData = computed(() => store.getters['doctors/formattedDoctors']);
 
 <template>
   <Heading tagName="h2" regular size="xxl">
-    Наши специалисты
+    наши специалисты
   </Heading>
   <hr />
   <Tags />
@@ -178,6 +178,10 @@ const doctorsData = computed(() => store.getters['doctors/formattedDoctors']);
 
   
 <style scoped lang="scss">
+h2 {
+  margin-top: 50px;
+}
+
 .section-doctors {
   margin-top: 100px;
 
@@ -356,6 +360,7 @@ hr {
   margin: 32px 0;
   border: none;
   border-top: 1px solid #F1F2F4;
-};
+}
 
+;
 </style>

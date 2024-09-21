@@ -1,13 +1,19 @@
 <script setup lang="ts">
 import { Container } from '@/shared/ui/container'
 import { Heading } from '@/shared/ui/text/heading'
+import { Paragraph } from '@/shared/ui/text/paragraph';
 </script>
 
 <template>
     <section class="section-implantation">
         <Container>
-            <Heading tagName="h2" regular size="xl">у нас имплантация
-                доступна каждому без мнимой экономии!</Heading>
+            <Heading tagName="h2" regular size="xl">
+                у нас имплантация
+                <Paragraph tagName="span" size="parent" color="gray">
+                    доступна каждому
+                </Paragraph>
+                без мнимой экономии!
+            </Heading>
         </Container>
         <div class="section-implantation__items">
             <div class="item">
@@ -62,4 +68,5 @@ import { Heading } from '@/shared/ui/text/heading'
             }
         }
     }
-}</style>
+}
+</style>

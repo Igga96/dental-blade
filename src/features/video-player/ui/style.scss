@@ -3,10 +3,31 @@
     overflow: hidden;
     width: 100%;
 
-    iframe {
+    .video-player__smooth-background {
         overflow: hidden;
         height: 100%;
         width: 100%;
         background: rgba(35, 38, 47, 0.45);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        iframe {
+            width: 100%;
+            height: 100%;
+        }
+        .play-button__content{
+            text-align: center;
+            
+            .circle {
+                width: 65px;
+                height: 65px;
+                backdrop-filter: blur(34px);
+            }
+            .text{
+                max-width: 200px;
+                margin-top: 16px;
+            }
+        }
     }
 }

@@ -1,11 +1,11 @@
 <script setup lang="ts">
-import { Header } from '@/widgets/header';
 import { Container } from '@/shared/ui/container'
 import { Heading } from '@/shared/ui/text/heading'
 import { Paragraph } from '@/shared/ui/text/paragraph';
 import { Icon } from '@/shared/ui/icons';
 import { Circle } from '@/shared/ui/circle';
-import { Button } from '@/shared/ui/button';
+import {VideoPlayer} from '@/features/video-player'
+
 
 </script>
 
@@ -21,6 +21,7 @@ import { Button } from '@/shared/ui/button';
           <iframe src="" frameborder="1">
           </iframe>
         </div>
+        <!--VideoPlayer :data="sectionAllOnSecondData" /-->
         <div class="content__cards">
           <div class="item">
             <Circle tagName="span" color="white" size="s">

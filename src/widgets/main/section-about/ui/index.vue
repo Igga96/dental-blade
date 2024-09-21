@@ -17,6 +17,7 @@ interface Props {
         description: DescriptionItem[];
         iframeBackground: string;
         linkVideo: string;
+        iframeText: string;
     };
 }
 const { sectionAboutData } = defineProps<Props>();
@@ -26,18 +27,23 @@ const { sectionAboutData } = defineProps<Props>();
         <Container tagName="div" size="m">
             <div class="section-about__content">
                 <div class="section-about__text">
-                    <Heading tagName="h2" regular size="xl" class="text__title">
-                    {{ sectionAboutData.title }}
-                    </Heading>
+                    <div class="title__items">
+                        <Heading tagName="h2" regular size="xl" class="text__title">
+                            {{ sectionAboutData.title }}
+                        </Heading>
+                        <div class="badge">
+                            <Icon type="snow" color="none" />
+                        </div>
+                    </div>
                     <Paragraph tagName="p" color="dark-gray" size="l" class="text__description">
-                    {{ sectionAboutData.text }}
+                        {{ sectionAboutData.text }}
                     </Paragraph>
                     <div class="item" v-for="item in sectionAboutData.description" :key="item.id">
-                        <Circle tagName="button" color="light-blue-second" size="m" class="item__icon">
+                        <Circle tagName="button" color="light-blue-first" size="m" class="item__icon">
                             <icon :type="item.iconType" color="none"></icon>
                         </Circle>
                         <Paragraph tagName="p" color="dark-gray" size="m" class="item__text">
-                        {{ item.text }}
+                            {{ item.text }}
                         </Paragraph>
                     </div>
                 </div>

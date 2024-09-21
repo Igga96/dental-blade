@@ -12,7 +12,7 @@ import { Circle } from '@/shared/ui/circle';
 <section class="section-all-on-first">
     <Container>
       <Heading tagName="h2" regular size="xl">
-        Имплантация без боли: All-on-4® при любой степени потери зубов
+        имплантация без боли: All-on-4® при любой степени потери зубов
       </Heading>
     </Container>
     <div class="section-all-on-first__content">

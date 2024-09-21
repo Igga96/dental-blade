@@ -3,8 +3,8 @@ import { defineProps } from 'vue';
 
 interface Props {
     tagName: 'span' | 'p';
-    color: 'white' | 'dark' | 'dark-gray' | 'accent' | 'red';
-    size: 'xs' | 's' | 'm' | 'l' | 'xl' | 'xxl' | 'xxxl';
+    color: 'white' | 'dark' | 'dark-gray'|'gray' | 'accent' | 'red';
+    size: 'xs' | 's' | 'm' | 'l' | 'xl' | 'xxl' | 'xxxl'| 'parent';
 }
 const props = defineProps<Props>()
 </script>
@@ -37,6 +37,9 @@ const props = defineProps<Props>()
 
 .text-color-red {
     color: #ED2626;
+}
+.text-color-gray{
+    color: #B1B5C3;
 }
 
 .text-size-xs {

@@ -23,6 +23,11 @@
       gap: 15px;
       min-width: 400px;
 
+      .item__title {
+        font-weight: 600;
+        max-width: 240px;
+      }
+
       .item__circle {
         .circle {
           width: 60px;
@@ -93,6 +98,10 @@
               font-size: 20px;
             }
           }
+          .item__title {
+            font-weight: 500;
+          }
+    
 
           .item__text {
             max-width: 340px;
@@ -121,6 +130,7 @@
 
     .hidden-button {
       display: flex;
+      margin-top: 40px;
 
       .button {
         width: 89%;

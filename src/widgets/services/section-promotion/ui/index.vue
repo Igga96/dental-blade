@@ -3,11 +3,12 @@ import { Container } from '@/shared/ui/container'
 import { Heading } from '@/shared/ui/text/heading'
 import { Paragraph } from '@/shared/ui/text/paragraph';
 import { Button } from '@/shared/ui/button';
+import { Dots } from '@/shared/ui/dots'
 
 </script>
 
 <template>
- <section class="section-promotion">
+  <section class="section-promotion">
     <Container>
       <Heading tagName="h2" regular size="xl">
         стоимость услуг
@@ -16,9 +17,12 @@ import { Button } from '@/shared/ui/button';
         <div class="content__items">
           <div class="item">
             <div class="text">
-              <Paragraph tagName="p" color="dark" size="xxl" class="title">
-                Компьютерная 3D томография с записью на диск
-              </Paragraph>
+              <div class="title__items">
+                <Paragraph tagName="p" color="dark" size="xxl" class="title">
+                  Компьютерная 3D томография с записью на диск
+                  <Dots />
+                </Paragraph>
+              </div>
               <div class="price">
                 <Paragraph tagName="span" color="dark-gray" size="xxl">10 000 ₽</Paragraph>
                 <Paragraph tagName="span" color="red" size="xxl">5 000 ₽</Paragraph>
@@ -104,7 +108,6 @@ import { Button } from '@/shared/ui/button';
       </div>
     </Container>
   </section>
-
 </template>
 <style scoped lang="scss">
 @import './style.scss';

@@ -3,12 +3,14 @@
 
 * {
     font-family: "Open Sans", sans-serif;
-    color: $dark;
+    
 }
-p{
+
+p {
     color: $dark-gray;
 }
-button{
+
+button {
     cursor: pointer;
 }
 
@@ -30,4 +32,8 @@ $light-blue-second: #F1F3F9;
 /*status colors*/
 $yellow: #FFD166;
 $green: #DBFC5B;
-$red:#ED2626;
+$red: #ED2626;
+
+:root {
+    --accent-color: #4963FF;
+}

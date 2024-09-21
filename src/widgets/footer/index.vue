@@ -10,15 +10,15 @@ import { FooterSocialLinks } from '@/entities/contacts/ui/footer-links'
             <Logo />
             <div class="footer__content-center">
                 <div>
-                    <Paragraph tagName="p" color="dark-gray" size="xs">Денталмед© 2024, </Paragraph>
-                    <Paragraph tagName="p" color="dark-gray" size="xs">
+                    <Paragraph tagName="p" color="gray" size="xs">Денталмед© 2024, </Paragraph>
+                    <Paragraph tagName="p" color="gray" size="xs">
                         Все права защищены, копирование материалов запрещено
                     </Paragraph>
                 </div>
 
                 <div class="docs">
                     <div>
-                        <a href="">Политика конфеденциальности</a>
+                        <a href="">Политика конфиденциальности</a>
                         <a href="">Публичная оферта</a>
                     </div>
                     <div>
@@ -28,7 +28,7 @@ import { FooterSocialLinks } from '@/entities/contacts/ui/footer-links'
                 </div>
             </div>
             <FooterSocialLinks />
-            <Paragraph tagName="p" color="dark-gray" size="xs" class="footer__content_text-bottom">
+            <Paragraph tagName="p" color="gray" size="xs" class="footer__content_text-bottom">
                 Стоимость процедур определяется после консультации на приеме.
             </Paragraph>
 
@@ -41,19 +41,21 @@ footer {
     padding: 32px 25px;
     border-bottom-left-radius: 50px;
     border-bottom-right-radius: 50px;
-
+.logo{
+    color: white;
+}
     .footer__content {
         display: flex;
         align-items: center;
-        color: #747B8F;
         justify-content: space-between;
         gap: 40px;
 
         a {
-            color: #747B8F;
+            color: #B1B5C3;
+            text-decoration: underline;
 
             &:hover {
-                color: #B1B5C3;
+                color: #3D4FB3;
             }
         }
 
@@ -74,6 +76,7 @@ footer {
 
                 a {
                     display: block;
+                    text-align: end;
                 }
             }
         }

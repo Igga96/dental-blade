@@ -6,7 +6,7 @@ import {QuestionsList} from '@/entities/questions'
 <template>
     <section class="section-questions">
         <Container tagName="div" size="m">
-            <Heading tagName="h2" regular size="xl">У нас часто спрашивают</Heading>
+            <Heading tagName="h2" regular size="xl">у нас часто спрашивают?</Heading>
             <QuestionsList/>
         </Container>
     </section>

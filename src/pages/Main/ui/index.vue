@@ -33,7 +33,7 @@ const sectionSecondData = reactive([
 ])
 const sectionThirdData = reactive([
   {
-    title: 'Клиника ”Дентал Клиник”',
+    title: 'клиника ”дентал клиник”',
     description: [
       { id: 0, iconType: 'coloredProtection', count: '2000', text: 'успешных операций в год' },
       { id: 1, iconType: 'coloredUser', count: '44', text: 'квалифицированных специалиста' },
@@ -41,7 +41,8 @@ const sectionThirdData = reactive([
       { id: 3, iconType: 'coloredTooth', count: '7 лет', text: 'работаем по технологии All-on-4' },
     ],
     iframeBackground: require('@/assets/images/section-third-background.jpg'),
-    linkVideo: ''
+    linkVideo: 'https://www.youtube.com/embed/TDiGegnG7tU?si=PJTBEUk0H54hdtF7',
+    iframeText: ''
   }
 ])
 const sectionAboutData = reactive([
@@ -54,7 +55,8 @@ const sectionAboutData = reactive([
       { id: 0, iconType: 'sheldue', text: 'точность и эффективность' },
     ],
     iframeBackground: require('@/assets/images/section-about-background.jpg'),
-    linkVideo: ''
+    linkVideo: 'https://www.youtube.com/embed/TDiGegnG7tU?si=PJTBEUk0H54hdtF7',
+    iframeText: 'нажми и узнай о нашей клинике больше'
 
 
   }
@@ -74,7 +76,7 @@ const sectionSolutionData = reactive([
 ])
 const sectionNineData = reactive([
   {
-    title: 'ВАШЕ РЕШЕНИЕ ПРИЙТИ И ДОВЕРИТСЯ НАМ - ЭТО ШАГ К ПОЛНОЦЕННОЙ ЖИЗНИ!',
+    title: 'ваше решение прийти и довериться нам - это шаг к полноценной жизни!',
     heading: 'достижения и награды клиники',
     description: [
       { id: 0, text: 'Врачи – отличники стоматологии' },

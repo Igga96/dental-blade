@@ -41,15 +41,15 @@ useSwipe({ elementRef: itemsContainer });
             <ul class="section-technology__items" ref="itemsContainer">
                 <li class="item" v-for="item in sectionTechnologyData.cards" :key="item.id">
                     <div class="item__circle">
-                        <Circle tagName="button" size="m" color="light-blue-second">
+                        <Circle tagName="button" size="m" color="light-blue-first">
                             <Paragraph tagName="span" color="accent" size="s">
-                                {{ item.id + 1 }}
+                                0{{ item.id + 1 }}
                             </Paragraph>
                         </Circle>
                     </div>
-                    <Paragraph tagName="p" color="dark" size="xxxl" class="item__title">
+                    <Heading tagName="h4" color="dark" size="xs" regular class="item__title">
                     {{item.title}}
-                    </Paragraph>
+                    </Heading>
                     <Paragraph tagName="p" color="dark-gray" size="xs" class="item__text">
                     {{ item.text }}
                     </Paragraph>

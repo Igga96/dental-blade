@@ -8,9 +8,27 @@
       height: 100%;
       width: 100%;
 
-      .text__title {
-        margin: 0;
-        max-width: 430px;
+      .title__items {
+        .text__title {
+          margin: 0;
+          max-width: 430px;
+        }
+
+        .badge {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          position: absolute;
+          height: 80px;
+          width: 80px;
+          margin-top: -100px;
+          margin-left: 278px;
+          border-radius: 30px;
+          backdrop-filter: blur(40px);
+          background: rgba(255, 255, 255, 0.1);
+          transform: rotate(13.62deg);
+        }
+
       }
 
       .text__description {
@@ -61,10 +79,17 @@
       gap: 30px;
 
       .section-about__text {
-        .text__title {
-          margin: 0;
-          max-width: 430px;
+        .title__items {
+          .text__title {
+            margin: 0;
+            max-width: 430px;
+          }
+
+          .badge {
+            display: none;
+          }
         }
+
 
         .text__description {
           margin: 20px 0 30px;
@@ -75,13 +100,49 @@
       .video-player {
         margin: 0;
         background-size: 140%;
-        background-position: 65% 35%;;
+        background-position: 65% 35%;
+        ;
         border-radius: 20px;
         height: 420px;
 
         iframe {
           border-radius: 20px;
         }
+      }
+    }
+  }
+}
+
+@media screen and (max-width:541px) {
+  .section-about {
+    .section-about__content {
+      .section-about__text {
+        .title__items {
+          .text__title {
+            margin: 0;
+            max-width: 200px;
+          }
+
+          .badge {
+            display: block;
+            height: 55px;
+            width: 55px;
+            margin-top: -40px;
+            margin-left: 160px;
+            border-radius: 20px;
+
+          }
+        }
+
+      }
+
+      .video-player {
+        margin: 0;
+        background-size: 160%;
+        background-position: 55% 35%;
+        ;
+        border-radius: 20px;
+        height: 420px;
       }
     }
   }

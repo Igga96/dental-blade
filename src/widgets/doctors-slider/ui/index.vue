@@ -16,7 +16,7 @@ useSwipe({ elementRef: itemsContainer });
     <section class="doctors-slider">
         <Container>
             <div class="section__tittle-with-buttons">
-                <Heading tagName="h2" regular size="xl">Наши врачи</Heading>
+                <Heading tagName="h2" regular size="xl">наши врачи</Heading>
                 <div class="btn__slide">
                     <Button tagName="button" size="s" color="white" type="circle">
                         <Icon type="arrowLeft" color="none"></Icon>

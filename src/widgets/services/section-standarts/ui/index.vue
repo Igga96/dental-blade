@@ -10,7 +10,7 @@ import { Circle } from '@/shared/ui/circle';
 <section class="section-standarts">
     <Container>
       <Heading tagName="h2" regular size="xl">
-        Стандарт нашей работы никакой боли во время и после операции
+        стандарт нашей работы никакой боли во время и после операции
       </Heading>
       <div class="section-standarts__content">
         <div class="content__items">

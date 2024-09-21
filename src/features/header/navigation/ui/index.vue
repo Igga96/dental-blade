@@ -1,6 +1,10 @@
 <script setup lang="ts">
 import { Paragraph } from '@/shared/ui/text/paragraph';
 import { RouterLink } from 'vue-router';
+import { computed } from 'vue';
+import { useRoute } from 'vue-router';
+const route = useRoute()
+const isHomePage = computed(() => route.path === '/')
 
 interface Props {
     navItems: {
@@ -13,7 +17,7 @@ const { navItems } = defineProps<Props>();
 
 </script>
 <template>
-    <nav class="navigation">
+    <nav class="navigation" :class="{ 'navigation_dark-theme': isHomePage, '': !isHomePage }">
         <ul class="navigation__list">
             <li v-for="item in navItems" :key="item.id" class="item">
                 <RouterLink :to="item.link" tagName="roter-link" class="item__link">

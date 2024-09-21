@@ -7,8 +7,13 @@ import { Paragraph } from '@/shared/ui/text/paragraph';
 <template>
     <section class="section-reviews">
         <Container tagName="div" size="m">
-            <Heading tagName="h2" regular size="xl">посмотрите отзывы наших клиентов и убедитесь что Дентал Клиник - лучший
-                выбор</Heading>
+            <Heading tagName="h2" regular size="xl">
+                посмотрите отзывы наших клиентов и убедитесь что
+                <Paragraph tagName="span" size="parent" color="gray">
+                    дентал клиник
+                </Paragraph>
+                - лучший выбор
+            </Heading>
         </Container>
         <div class="reviews__content">
             <div class="content__items">

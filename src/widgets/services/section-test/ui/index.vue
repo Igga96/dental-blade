@@ -12,7 +12,7 @@ import { Button } from '@/shared/ui/button';
 <section class="section-test">
     <Container>
       <Heading tagName="h2" regular size="xl">
-        Стандарт нашей работы никакой боли во время и после операции
+        узнайте подходит ли вам All-on-4 и рассчитайте, сколько будет стоить востановить зубы за 1 день
       </Heading>
       <Paragraph tagName="p" color="dark-gray" size="l">
         All-on-4® - методика имплантации зубов с использованием всего 4 имплантатов для восстановления полной или

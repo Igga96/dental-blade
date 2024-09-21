@@ -10,13 +10,21 @@ import { Button } from '@/shared/ui/button';
 </script>
 
 <template>
-<section class="section-first">
-    <Header/>
+  <section class="section-first">
+    <Header />
     <Container>
       <div class="section-first__content">
         <div class="content__left">
-          <Heading tagName="h2" regular size="xxl">
-            верните зубы за один день, без боли
+          <Heading tagName="h2" regular size="xl">
+            верните зубы за
+            <Paragraph tagName="span" size="parent" color="gray">
+              один
+            </Paragraph>
+            день,
+            <Paragraph tagName="span" size="parent" color="gray">
+              без
+            </Paragraph>
+            боли
           </Heading>
           <Paragraph tagName="p" color="dark-gray" size="xl">
             Живите и жуйте полноценно сразу. Всего 2-3 дня - вы даже не вспомните, что у вас не свои зубы
@@ -47,14 +55,13 @@ import { Button } from '@/shared/ui/button';
           </div>
           <div class="badge-right">
             <Circle tagName="span" color="opacity-light" size="s">
-              <icon type="coloredTooth" color="accent"></icon>
+              <icon type="coloredTooth" color="accent" :size="40"></icon>
             </Circle>
           </div>
         </div>
       </div>
     </Container>
   </section>
-
 </template>
 <style scoped lang="scss">
 @import './style.scss';

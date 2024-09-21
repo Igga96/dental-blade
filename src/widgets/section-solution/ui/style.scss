@@ -48,6 +48,7 @@
             .item__description {
                 h4 {
                     margin-bottom: 40px;
+                    font-weight: 600;
                 }
 
                 p {
@@ -81,6 +82,12 @@
                     overflow: hidden;
                     width: 490px;
                     height: 490px;
+                    .circle{
+                        position: absolute;
+                        margin-left: 15px;
+                        margin-top: 15px;
+                        transform: rotate(-30deg);
+                    }
 
                 }
 

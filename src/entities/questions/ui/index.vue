@@ -12,10 +12,10 @@ const { questions, activeQuestionIndex, toggleQuestion } = useQuestionsModel();
             :class="{ item_active: activeQuestionIndex === index }" @click="toggleQuestion(index)">
             <div class="item__question">
                 <Paragraph tagName="p" size="m" color="dark">
-                    <Paragraph tagName="span" size="m" color="dark-gray">{{ index + 1 }}</Paragraph>
+                    <Paragraph tagName="span" size="m" color="dark-gray">0{{ index + 1 }}</Paragraph>
                     {{ questionItem.question }}
                 </Paragraph>
-                <Icon type="arrowDown" color="dark" class="rotate-icon"></Icon>
+                <Icon :rotate="activeQuestionIndex === index ? 180 : 0" type="arrowDown" color="dark" class="rotate-icon"></Icon>
             </div>
             <Paragraph tagName="p" size="xs" color="dark-gray" class="item__answer">
                 {{ questionItem.answer }}

@@ -32,7 +32,11 @@ useSwipe({ elementRef: itemsContainer });
   <section class="section-second">
     <Container tagName="div" size="m">
       <Heading tagName="h2" regular size="xl">
-        {{ sectionSecondData.title }}
+        один визит в клинику приблизит вас к
+        <Paragraph tagName="span" size="parent" color="gray">
+          качественному решению
+        </Paragraph>
+        любой проблемы.
       </Heading>
       <div class="section-second__items" ref="itemsContainer">
         <div v-for="(item, index) in sectionSecondData.cards" :key="item.id" class="item" :id="`item-${index + 1}`">

@@ -21,7 +21,7 @@ const handleCategorySelected = (category: string | null) => {
 
 <template>
     <Heading tagName="h2" regular size="xxl">
-        Кейсы
+        кейсы
     </Heading>
     <hr>
     <section class="section-cases">
