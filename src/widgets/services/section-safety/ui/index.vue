@@ -23,6 +23,9 @@ const { sectionSafetyData } = defineProps<Props>();
     <Container>
       <Heading tagName="h2" regular size="xl">
         {{ sectionSafetyData.title }}
+        <div class="badge">
+          <Icon type="snow" color="none" />
+        </div>
       </Heading>
     </Container>
     <div class="section-safety__content">

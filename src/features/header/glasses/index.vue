@@ -4,7 +4,7 @@ import { Circle } from '@/shared/ui/circle'
 </script>
 <template>
     <Circle tagName="button" size="s" color="accent">
-        <Icon tagName="svg" size="s" type="glasses" color="none"></Icon>
+        <Icon tagName="svg" type="glasses" color="none"></Icon>
     </Circle>
 </template>
 <style scoped>

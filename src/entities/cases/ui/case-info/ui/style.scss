@@ -1,14 +1,25 @@
-hr{
+hr {
     border: none;
     border-top: 1px solid #F1F2F4;
 }
+
 .case-article {
     display: flex;
     flex-direction: column;
     gap: 40px;
 
+    .article__title {
+        text-transform: lowercase;
+    }
+
     .article__description {
-        font-size: 16px;
+        display: flex;
+        flex-direction: column;
+        gap: 25px;
+
+        .text {
+            font-size: 16px;
+        }
     }
 
     .article__coast {
@@ -25,9 +36,10 @@ hr{
     }
 
     .article__services {
-        .services__title{
+        .services__title {
             font-weight: 500;
         }
+
         .services__list {
             margin-top: 20px;
             display: flex;
@@ -36,7 +48,8 @@ hr{
 
             .item {
                 display: flex;
-                .text{
+
+                .text {
                     font-size: 16px;
                     padding-left: 40px;
                 }

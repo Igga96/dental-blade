@@ -8,7 +8,7 @@ interface Props {
     data: {
         iframeBackground: string;
         linkVideo: string;
-        iframeText: string;
+        iframeText?: string;
     };
 }
 

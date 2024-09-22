@@ -11,4 +11,5 @@ export interface DoctorItem {
   advancedTraining: { id: number; year: string; name: string; }[];
   imgPath: string;
   rating: string;
+  slug: string;
 }

@@ -4,11 +4,16 @@ import { Container } from '@/shared/ui/container';
 import { Breadcrumbs } from '@/features/breadcrumbs';
 import { Map } from '@/widgets/map';
 import { Footer } from '@/widgets/footer';
+
+import { useStore } from 'vuex';
+import { computed } from 'vue';
+const store = useStore();
+const doctorsData = computed(() => store.getters['doctors/formattedDoctors']);
 </script>
 <template>
     <Header />
     <Container>
-        <Breadcrumbs />
+        <Breadcrumbs :dynamicLabel="doctorsData?.fullName" />
         <router-view />
     </Container>
     <Map />

@@ -1,12 +1,12 @@
 <script setup lang="ts">
+import { defineProps } from 'vue';
 import { Paragraph } from '@/shared/ui/text/paragraph';
-import { useDoctorById } from '@/entities/doctors/model/doctor.model';
 
 const props = defineProps<{
-    doctorId: number;
+    doctor: {
+        advancedTraining: Array<{ id: number; year: string; name: string }>;
+    };
 }>();
-
-const { doctor } = useDoctorById(props.doctorId);
 </script>
 
 <template>
@@ -15,7 +15,7 @@ const { doctor } = useDoctorById(props.doctorId);
             повышение квалификации
         </Paragraph>
         <ul class="training-list">
-            <li v-for="item in  doctor.advancedTraining" :key="item.id" class="item">
+            <li v-for="item in doctor.advancedTraining" :key="item.id" class="item">
                 <Paragraph tagName="p" size="xs" color="dark-gray" class="description">
                     <Paragraph tagName="span" size="xs" color="dark">
                         {{ item.year }}
@@ -26,6 +26,7 @@ const { doctor } = useDoctorById(props.doctorId);
         </ul>
     </article>
 </template>
+
 <style lang="scss" scoped>
 @import './style.scss';
 </style>

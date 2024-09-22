@@ -33,7 +33,7 @@ export const routes = [
 
       },
       {
-        path: ':id',
+        path: ':slug',
         name: 'Кейс',
         component: () => import('../../pages/cases/ui/case-info/ui/index.vue'),
         props: true
@@ -52,7 +52,7 @@ export const routes = [
         component: () => import('@/pages/doctors/ui/doctors-list/index.vue'),
       },
       {
-        path: ':id',
+        path: ':slug',
         name: 'DoctorsDetail',
         component: () => import('@/pages/doctors/ui/doctor-info/index.vue'),
         props: true,

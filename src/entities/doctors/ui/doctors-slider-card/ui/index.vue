@@ -10,7 +10,7 @@ const store = useStore();
 const doctors = computed(() => store.getters['doctors/formattedDoctors']);
 </script>
 <template>
-    <RouterLink :to="`/doctors/${doctor.id}`" v-for="doctor in doctors" :key="doctor.id" :style="{ backgroundImage: `url(${doctor.imgPath})` }"
+    <RouterLink :to="`/doctors/${doctor.slug}`" v-for="doctor in doctors" :key="doctor.id" :style="{ backgroundImage: `url(${doctor.imgPath})` }"
         :aria-label="`${doctor.firstName} ${doctor.lastName}`" class="doctors-slider__content_item">
         <div class="item__info">
             <Paragraph tagName="p" color="white" size="xxxl" class="doctor-name">

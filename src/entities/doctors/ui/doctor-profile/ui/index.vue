@@ -1,12 +1,12 @@
 <script setup lang="ts">
+import { defineProps } from 'vue';
 import { Paragraph } from '@/shared/ui/text/paragraph';
-import { useDoctorById } from '@/entities/doctors/model/doctor.model';
 
 const props = defineProps<{
-    doctorId: number;
+    doctor: {
+        treatmentProfile: Array<{ id: number; name: string; percent: number }>;
+    };
 }>();
-
-const { doctor } = useDoctorById(props.doctorId);
 </script>
 
 <template>
@@ -26,6 +26,7 @@ const { doctor } = useDoctorById(props.doctorId);
         </ul>
     </div>
 </template>
+
 <style lang="scss" scoped>
 @import './style.scss';
 </style>

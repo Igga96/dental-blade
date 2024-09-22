@@ -1,13 +1,16 @@
 <script setup lang="ts">
+import { defineProps } from 'vue';
 import { Paragraph } from '@/shared/ui/text/paragraph';
 import { Heading } from '@/shared/ui/text/heading';
-import { useDoctorById } from '@/entities/doctors/model/doctor.model';
 
 const props = defineProps<{
-    doctorId: number;
+    doctor: {
+        specialties: string;
+        fullName: string;
+        experienceText: string;
+        category: string;
+    };
 }>();
-
-const { doctor } = useDoctorById(props.doctorId);
 </script>
 
 <template>

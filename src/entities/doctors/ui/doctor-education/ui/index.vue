@@ -1,13 +1,12 @@
 <script setup lang="ts">
 import { defineProps } from 'vue';
 import { Paragraph } from '@/shared/ui/text/paragraph';
-import { useDoctorById } from '@/entities/doctors/model/doctor.model';
 
 const props = defineProps<{
-    doctorId: number;
+    doctor: {
+        education: Array<{ id: number; edStart: string; edEnd: string; name: string }>;
+    };
 }>();
-
-const { doctor } = useDoctorById(props.doctorId);
 </script>
 
 <template>

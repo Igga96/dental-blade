@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { computed } from 'vue';
 import { useImageSlider } from '@/features/cases/casePhotos/model/casePhotos.model';
 import { Button } from '@/shared/ui/button';
 import { Icon } from '@/shared/ui/icons';
@@ -8,12 +9,17 @@ interface Image {
     path: string;
     isTitle: boolean;
 }
+
 interface Props {
     images: Image[];
     caseName: string;
 }
+
 const { images, caseName } = defineProps<Props>();
 const { currentImageIndex, prevImage, nextImage, setCurrentImage } = useImageSlider(images);
+
+const isPrevDisabled = computed(() => currentImageIndex.value === 0);
+const isNextDisabled = computed(() => currentImageIndex.value === images.length - 1);
 </script>
 
 <template>
@@ -30,15 +36,19 @@ const { currentImageIndex, prevImage, nextImage, setCurrentImage } = useImageSli
                 :class="{ active: index === currentImageIndex }" />
         </div>
         <div class="btn__slide">
-            <Button tagName="button" size="xs" color="white" type="circle" @click="prevImage">
+            <Button tagName="button" size="xs" color="white" type="circle" 
+                    :class="{ 'button_disabled': isPrevDisabled }"
+                    @click="prevImage" :disabled="isPrevDisabled">
                 <Icon type="arrowLeft" color="none" />
             </Button>
-            <Button tagName="button" size="xs" color="white" type="circle" @click="nextImage">
+            <Button tagName="button" size="xs" color="white" type="circle" 
+                    :class="{ 'button_disabled': isNextDisabled }"
+                    @click="nextImage" :disabled="isNextDisabled">
                 <Icon type="arrowRight" color="none" />
             </Button>
         </div>
     </div>
-</template> 
+</template>
 <style scoped lang="scss">
 @import './style.scss';
 </style>

@@ -1,17 +1,17 @@
 <script setup lang="ts">
 import { computed } from 'vue';
 import { useRoute } from 'vue-router';
+import { DoctorInfoBySlug } from '@/widgets/doctors/doctor-info-slug';
 
-import { DoctorInfoById } from '@/widgets/doctors/doctor-info-id'
 const route = useRoute();
-
-const doctorId = computed(() => Number(route.params.id));
-
+const doctorSlug = computed(() => String(route.params.slug));
 </script>
+
 <template>
   <hr />
-  <DoctorInfoById :doctorId="doctorId" />
+  <DoctorInfoBySlug :doctorSlug="doctorSlug" />
 </template>
+
 <style scoped>
 hr {
   margin: 32px 0 50px;

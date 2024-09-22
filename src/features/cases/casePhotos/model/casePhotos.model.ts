@@ -24,6 +24,7 @@ export function useImageSlider(images: Image[]) {
     const setCurrentImage = (index: number) => {
         currentImageIndex.value = index;
     };
+    
 
     return {
         currentImageIndex,

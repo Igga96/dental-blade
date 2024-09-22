@@ -10,8 +10,8 @@ import { Paragraph } from '@/shared/ui/text/paragraph';
 const route = useRoute();
 const store = useStore();
 
-const caseId = computed(() => Number(route.params.id));
-const caseData = computed(() => store.getters['cases/getCaseById'](caseId.value));
+const caseSlug = computed(() => String(route.params.slug));
+const caseData = computed(() => store.getters['cases/getCaseBySlug'](caseSlug.value));
 </script>
 
 <template>
@@ -20,7 +20,7 @@ const caseData = computed(() => store.getters['cases/getCaseById'](caseId.value)
         <div class="case-info__content">
             <CasePhotosSlider :images="caseData.images" :caseName="caseData.name" />
             <div class="case__description">
-                <CaseInfo :caseId="caseId" />
+                <CaseInfo :caseSlug="caseSlug" />
                 <Button tagName="button" size="xs" color="accent" type="none">
                     <Paragraph tagName="span" color="white" size="m">
                         Записаться на приём

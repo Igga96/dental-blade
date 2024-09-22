@@ -1,6 +1,22 @@
 .section-safety {
     h2 {
       margin: 200px 0 70px;
+      max-width: 880px;
+      .badge{
+        
+        display: flex;
+          align-items: center;
+          justify-content: center;
+          position: absolute;
+          height: 80px;
+          width: 80px;
+          margin-top: -140px;
+          margin-left: 660px;
+          border-radius: 30px;
+          backdrop-filter: blur(40px);
+          background: rgba(255, 255, 255, 0.1);
+          transform: rotate(13.62deg);
+      }
     }
   
     .section-safety__content {

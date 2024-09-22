@@ -6,7 +6,7 @@ import { Circle } from '@/shared/ui/circle'
 <template>
     <input type="text">
     <Circle tagName="button" size="s" color="accent">
-        <Icon tagName="svg" size="s" color="white" type="search"></Icon>
+        <Icon tagName="svg" color="white" type="search"></Icon>
     </Circle>
 </template>
 <style scoped>

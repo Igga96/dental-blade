@@ -25,7 +25,7 @@ const sortedPricesData = computed(() => sortPricesByCategory(props.pricesData));
                 {{ category }}
             </Heading>
             <div v-for="price in prices" :key="price.id" class="item__description">
-                <Paragraph tagName="p" color="dark-gray" size="m" class="item__text">
+                <Paragraph tagName="p" color="dark" size="m" class="item__text">
                     {{ price.name }}
                     <!--br v-if="isVisible"-->
                     <Dots />

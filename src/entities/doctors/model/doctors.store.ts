@@ -38,7 +38,8 @@ export const doctorsModule = {
                     { id: 4, year: '2021', name: "«Лучевая диагностика заболеваний гепатопанкреатодуоденальной зоны» СЗГМУ им. И.И. Мечникова" },
                 ],
                 imgPath: require('@/assets/images/doctors/doctor_1.png'),
-                rating: '4.8'
+                rating: '4.8',
+                slug: 'frolenkov-aleksandr-sergeevich',
             },
             {
                 id: 1,
@@ -69,7 +70,8 @@ export const doctorsModule = {
                     { id: 4, year: '2021', name: "«Лучевая диагностика заболеваний гепатопанкреатодуоденальной зоны» СЗГМУ им. И.И. Мечникова" },
                 ],
                 imgPath: require('@/assets/images/doctors/doctor_3.png'),
-                rating: '4.8'
+                rating: '4.8',
+                slug: 'evteeva-natalya-vsilyevna',
             },
             {
                 id: 2,
@@ -100,7 +102,8 @@ export const doctorsModule = {
                     { id: 4, year: '2021', name: "«Лучевая диагностика заболеваний гепатопанкреатодуоденальной зоны» СЗГМУ им. И.И. Мечникова" },
                 ],
                 imgPath: require('@/assets/images/doctors/doctor_4.png'),
-                rating: '4.8'
+                rating: '4.8',
+                slug: 'ivanov-vasiliy-genrihovich',
             },
             {
                 id: 3,
@@ -132,7 +135,8 @@ export const doctorsModule = {
                     { id: 4, year: '2021', name: "«Лучевая диагностика заболеваний гепатопанкреатодуоденальной зоны» СЗГМУ им. И.И. Мечникова" },
                 ],
                 imgPath: require('@/assets/images/doctors/doctor_2.png'),
-                rating: '4.8'
+                rating: '4.8',
+                slug: 'cikolya-elina-michailovna',
             },
         ],
         selectedSpecialty: '',
@@ -158,6 +162,18 @@ export const doctorsModule = {
         },
         getDoctorById: (state: DoctorsState) => (id: number) => {
             const doctor = state.doctorsData.find(doctor => doctor.id === id);
+            if (doctor) {
+                return {
+                    ...doctor,
+                    fullName: `${doctor.lastName} ${doctor.firstName} ${doctor.middleName}`,
+                    specialties: doctor.specialty.map(s => s.name).join(', '),
+                    experienceText: `стаж ${doctor.experienceYears} лет`,
+                };
+            }
+            return null;
+        },
+        getDoctorBySlug: (state: DoctorsState) => (slug: string) => {
+            const doctor = state.doctorsData.find(doctor => doctor.slug === slug);
             if (doctor) {
                 return {
                     ...doctor,

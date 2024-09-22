@@ -36,7 +36,7 @@ const doctorsData = computed(() => store.getters['doctors/formattedDoctors']);
               <a href="">109 отзывов</a>
             </div>
             <div class="item__description">
-              <RouterLink :to="`/doctors/${doctor.id}`">
+              <RouterLink :to="`/doctors/${doctor.slug}`">
                 <Paragraph tagName="p" size="xs" color="dark-gray">
                   {{ doctor.specialties }}
                 </Paragraph>
@@ -223,6 +223,12 @@ h2 {
           .item__description {
             width: 472px;
             padding-top: 14px;
+            a:hover{
+              h2{
+                color:#3D4FB3;
+              }
+              }
+            
 
             h2 {
               margin: 5px 0 16px;

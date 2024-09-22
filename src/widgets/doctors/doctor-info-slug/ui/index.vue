@@ -1,39 +1,43 @@
 <script setup lang="ts">
-import { computed } from 'vue';
+import { computed, watch } from 'vue';
 import { useStore } from 'vuex';
 import { useRoute } from 'vue-router';
 import { DoctorInfo } from '@/entities/doctors/ui/doctor-info/';
-import { DoctorEducation } from '@/entities/doctors/ui/doctor-education'
-import { DoctorTraining } from '@/entities/doctors/ui/doctor-training'
-import { DoctorProfile } from '@/entities/doctors/ui/doctor-profile'
-import { DoctorReviews } from '@/features/doctor-reviews'
+import { DoctorEducation } from '@/entities/doctors/ui/doctor-education';
+import { DoctorTraining } from '@/entities/doctors/ui/doctor-training';
+import { DoctorProfile } from '@/entities/doctors/ui/doctor-profile';
+import { DoctorReviews } from '@/features/doctor-reviews';
 
 const store = useStore();
 const route = useRoute();
 
-const doctorId = computed(() => Number(route.params.id));
+const doctorSlug = computed(() => String(route.params.slug));
 
-const doctor = computed(() => store.getters['doctors/getDoctorById'](doctorId.value));
+const doctor = computed(() => store.getters['doctors/getDoctorBySlug'](doctorSlug.value));
+watch(doctorSlug, () => {
+  store.getters['doctors/getDoctorBySlug'](doctorSlug.value);
+});
 </script>
+
 <template>
     <section v-if="doctor" class="section-doctor">
         <div class="doctor-info doctor-info_left">
             <div class="doctor-photo" :style="{ backgroundImage: `url(${doctor.imgPath})` }"
                 :aria-label="`${doctor.fullName}`" />
             <div class="doctor-info__hidden-content">
-                <DoctorInfo :doctorId="doctorId" />
+                <DoctorInfo :doctor="doctor" />
                 <hr>
-                <DoctorProfile :doctorId="doctorId" />
+                <DoctorProfile :doctor="doctor" />
             </div>
         </div>
         <article class="doctor-info doctor-info_right">
-            <DoctorInfo :doctorId="doctorId" />
+            <DoctorInfo :doctor="doctor" />
             <hr class="line-hidden">
-            <DoctorProfile :doctorId="doctorId" />
+            <DoctorProfile :doctor="doctor" />
             <hr class="line-hidden">
-            <DoctorEducation :doctorId="doctorId" />
+            <DoctorEducation :doctor="doctor" />
             <hr>
-            <DoctorTraining :doctorId="doctorId" />
+            <DoctorTraining :doctor="doctor" />
             <hr>
             <DoctorReviews />
         </article>
@@ -42,6 +46,7 @@ const doctor = computed(() => store.getters['doctors/getDoctorById'](doctorId.va
         <p>Доктор не найден.</p>
     </div>
 </template>
+
 <style scoped lang="scss">
 @import './style.scss';
 </style>

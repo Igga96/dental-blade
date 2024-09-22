@@ -5,23 +5,27 @@
     color: #747B8F;
     display: flex;
     flex-wrap: wrap;
-    gap: 17.5px;
 
     .breadcrumbs__link {
         color: #747B8F;
 
-        .text {
+        .link__text {
             font-size: 16px;
             font-weight: 400;
+
             &:hover {
                 color: #4963FF;
             }
+
         }
+        
+    }
+    .link__arrow {
+        margin: 0 17.5px;
+        font-weight: 600;
+        cursor: default;
     }
 
-    span {
-        font-weight: 600;
-    }
 }
 
 @media screen and (max-width: 768px) {

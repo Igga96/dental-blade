@@ -1,1 +1,0 @@
-export {default as DoctorInfoById} from './ui/index.vue'

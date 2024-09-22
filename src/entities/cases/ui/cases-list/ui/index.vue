@@ -14,22 +14,24 @@ const { casesData } = defineProps<Props>();
 
 const store = useStore();
 
-const getTitleImage = (id: number) => {
-  return store.getters['cases/getTitleImage'](id)?.path;
+const getTitleImage = (slug: string) => {
+  return store.getters['cases/getTitleImage'](slug)?.path;
 };
+
 </script>
 
 <template>
   <div class="cases-item" v-for="item in casesData" :key="item.id">
-    <div class="cases-item__image" :style="{ backgroundImage: `url(${getTitleImage(item.id)})` }"
+    <div class="cases-item__image" :style="{ backgroundImage: `url(${getTitleImage(item.slug)})` }"
       :aria-label="`${item.name}`" />
     <Paragraph tagName="p" size="xxl" color="dark" class="cases-item__title">
       {{ item.name }}
+      
     </Paragraph>
-    <Paragraph tagName="p" size="xxl" color="dark-gray" class="cases-item__description">
-      {{ item.description }}
+    <Paragraph tagName="p" size="xs" color="dark-gray" class="cases-item__description">
+      {{ item.description[0].introduction }}
     </Paragraph>
-    <RouterLink :to="`/cases/${item.id}`" class="cases-item__link">
+    <RouterLink :to="`/cases/${item.slug}`" class="cases-item__link">
       <Button tagName="button" size="xs" color="white" type="none">
         <Paragraph tagName="span" size="m" color="dark">
           узнать подробнее

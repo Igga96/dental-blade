@@ -53,7 +53,7 @@ const { sectionNineData } = defineProps<Props>();
         </div>
         <div class="content__image" :style="{ backgroundImage: `url(${sectionNineData.imageBackground})` }">
           <Circle tagName="span" size="l" color="opacity-light">
-            <Icon type="coloredTooth" color="accent"></Icon>
+            <Icon type="coloredTooth" :size="40" color="accent"></Icon>
           </Circle>
         </div>
       </div>

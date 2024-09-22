@@ -17,7 +17,7 @@ export const contactsModule = {
                 email: 'insmileveneers@gmail.com',
                 wsLink: 'ws',
                 vkLink: 'wk',
-                tgLink: 'tg',
+                tgLink: 'imwd_d',
                 fbLink: 'fb',
             },
         ]

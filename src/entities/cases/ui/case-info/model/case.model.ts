@@ -6,10 +6,22 @@ import { CaseItem } from '@/entities/cases/model/cases.types';
 export const useCaseData = () => {
   const route = useRoute();
   const store = useStore();
+  const slug = route.params.slug
 
-  const caseId = computed(() => Number(route.params.id));
-  const caseData = computed<CaseItem | null>(() => store.getters['cases/getCaseById'](caseId.value));
+  const caseSlug = computed(() => String(slug));
+  const caseData = computed<CaseItem | null>(() => store.getters['cases/getCaseBySlug'](caseSlug.value));
 
+  const caseDescription = computed(() => {
+    if (caseData.value && caseData.value.description.length > 0) {
+      const { introduction, diagnos, treatment } = caseData.value.description[0];
+      return {
+        introduction,
+        diagnos,
+        treatment,
+      };
+    }
+    return null;
+  }); 
   const formatCost = (cost: number): string => {
     return cost.toLocaleString('ru-RU');
   };
@@ -21,5 +33,6 @@ export const useCaseData = () => {
   return {
     caseData,
     formattedCost,
+    caseDescription
   };
 };

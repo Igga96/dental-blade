@@ -5,7 +5,7 @@ import { Heading } from '@/shared/ui/text/heading';
 import { Icon } from '@/shared/ui/icons';
 import { Circle } from '@/shared/ui/circle';
 
-const { caseData, formattedCost } = useCaseData();
+const { caseData, caseDescription, formattedCost } = useCaseData();
 </script>
 
 <template>
@@ -13,9 +13,15 @@ const { caseData, formattedCost } = useCaseData();
     <Heading tagName="h2" color="dark" regular size="l" class="article__title">
       {{ caseData?.name }}
     </Heading>
-    <Paragraph tagName="p" size="xs" color="dark-gray" class="article__description">
-      {{ caseData?.description }}
-    </Paragraph>
+    <div class="article__description">
+      <Paragraph tagName="p" size="xs" color="dark-gray">
+        {{ caseDescription?.introduction }}</Paragraph>
+      <Paragraph tagName="p" size="xs" color="dark-gray">
+        {{ caseDescription?.diagnos }}</Paragraph>
+      <Paragraph tagName="p" size="xs" color="dark-gray">
+        {{ caseDescription?.treatment }}
+      </Paragraph>
+    </div>
     <hr>
     <div class="article__coast">
       <Paragraph tagName="p" size="xs" color="dark">
@@ -30,7 +36,7 @@ const { caseData, formattedCost } = useCaseData();
       <Paragraph tagName="p" size="xxl" color="dark" class="services__title">
         Услуги
       </Paragraph>
-      <ul class="services__list"> 
+      <ul class="services__list">
         <li v-for="item in caseData?.priceId" :key="item.id" class="item">
           <Circle tagName="span" color="green" size="s">
             <Icon type="tick" color="none" />
