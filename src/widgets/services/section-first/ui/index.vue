@@ -55,7 +55,7 @@ import { Button } from '@/shared/ui/button';
           </div>
           <div class="badge-right">
             <Circle tagName="span" color="opacity-light" size="s">
-              <icon type="coloredTooth" color="accent" :size="40"></icon>
+              <icon type="coloredTooth" color="accent" :size="43"></icon>
             </Circle>
           </div>
         </div>

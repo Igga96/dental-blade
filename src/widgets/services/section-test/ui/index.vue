@@ -5,11 +5,29 @@ import { Paragraph } from '@/shared/ui/text/paragraph';
 import { Icon } from '@/shared/ui/icons';
 import { Circle } from '@/shared/ui/circle';
 import { Button } from '@/shared/ui/button';
+import { reactive } from 'vue';
+import { ref } from 'vue';
+
+
+const activeItem = ref<number | null>(0);
+
+const setActive = (index: number) => {
+  activeItem.value = activeItem.value === index ? null : index;
+};
+
+const sectionTestData = reactive({
+  iconType: 'tick',
+  questions: [
+    { id: 0, title: 'верхней челюсти', imageBackground: require('@/assets/images/services_page/test/upper_jaw.png') },
+    { id: 1, title: 'нижней челюсти', imageBackground: require('@/assets/images/services_page/test/lower_jaw.png') },
+    { id: 2, title: 'обеих челюстей', imageBackground: require('@/assets/images/services_page/test/both_jaws.png') }
+  ]
+})
 
 </script>
 
 <template>
-<section class="section-test">
+  <section class="section-test">
     <Container>
       <Heading tagName="h2" regular size="xl">
         узнайте подходит ли вам All-on-4 и рассчитайте, сколько будет стоить востановить зубы за 1 день
@@ -38,37 +56,17 @@ import { Button } from '@/shared/ui/button';
               вам нужна имплантация?
             </Paragraph>
             <div class="test__items">
-              <div class="item active">
-                <div class="img">
-                  <img src="@/assets/images/services_page/test/upper_jaw.png" alt="">
-                  <Circle tagName="span" color="accent" size="s">
-                    <Icon type="tick" color="none"></Icon>
-                  </Circle>
+              <div class="item" v-for="(item, index) in sectionTestData.questions" :key="index"
+                :class="{ 'item_active': activeItem === index }" @click="setActive(index)">
+                <div class="smooth-background">
+                  <div class="img" :style="{ backgroundImage: `url(${item.imageBackground})` }">
+                    <Circle tagName="span" color="accent" size="s">
+                      <Icon :type="sectionTestData.iconType" color="none"></Icon>
+                    </Circle>
+                  </div>
                 </div>
                 <Paragraph tagName="p" color="dark" size="l">
-                  верхней челюсти
-                </Paragraph>
-              </div>
-              <div class="item">
-                <div class="img">
-                  <img src="@/assets/images/services_page/test/lower_jaw.png" alt="">
-                  <Circle tagName="span" color="accent" size="s">
-                    <Icon type="tick" color="none"></Icon>
-                  </Circle>
-                </div>
-                <Paragraph tagName="p" color="dark" size="l">
-                  нижней челюсти
-                </Paragraph>
-              </div>
-              <div class="item">
-                <div class="img">
-                  <img src="@/assets/images/services_page/test/both_jaws.png" alt="">
-                  <Circle tagName="span" color="accent" size="s">
-                    <Icon type="tick" color="none"></Icon>
-                  </Circle>
-                </div>
-                <Paragraph tagName="p" color="dark" size="l">
-                  обеих челюстей
+                  {{ item.title }}
                 </Paragraph>
               </div>
             </div>
@@ -93,7 +91,6 @@ import { Button } from '@/shared/ui/button';
     </Container>
 
   </section>
-
 </template>
 <style scoped lang="scss">
 @import './style.scss';

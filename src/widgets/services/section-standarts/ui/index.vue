@@ -4,64 +4,48 @@ import { Heading } from '@/shared/ui/text/heading'
 import { Paragraph } from '@/shared/ui/text/paragraph';
 import { Icon } from '@/shared/ui/icons';
 import { Circle } from '@/shared/ui/circle';
+
+interface CardsItem {
+  id: number;
+  iconType: string;
+  title: string;
+  text: string;
+}
+interface Props {
+  sectionStandartsData: {
+    title: string;
+    cards: CardsItem[];
+    imageBackground: string
+  };
+}
+const { sectionStandartsData } = defineProps<Props>();
 </script>
 
 <template>
 <section class="section-standarts">
     <Container>
       <Heading tagName="h2" regular size="xl">
-        стандарт нашей работы никакой боли во время и после операции
+        {{sectionStandartsData.title}}
       </Heading>
       <div class="section-standarts__content">
         <div class="content__items">
-          <div class="item">
+          <div class="item" 
+          v-for="item in sectionStandartsData.cards" 
+          :key="item.id">
             <Circle tagName="span" color="white" size="m">
-              <Icon type="coloredProtection" color="accent"></Icon>
+              <Icon :type="item.iconType" color="accent"></Icon>
             </Circle>
             <Paragraph tagName="p" color="dark" size="xxl" class="title">
-              безболезненные уколы
+              {{item.title}}
             </Paragraph>
             <Paragraph tagName="p" color="dark-gray" size="xs">
-              инновационные капсульные шприцы обладают тонкими и острыми иглами, что минимизирует дискомфорт при введении
-              уколов.
-            </Paragraph>
-          </div>
-          <div class="item">
-            <Circle tagName="span" color="white" size="m">
-              <Icon type="coloredProtection" color="accent"></Icon>
-            </Circle>
-            <Paragraph tagName="p" color="dark" size="xxl" class="title">
-              быстрое восстановление
-            </Paragraph>
-            <Paragraph tagName="p" color="dark-gray" size="xs">
-              мягкая седация позволяет пациентам чувствовать себя расслабленно и спокойно, уменьшая тревожность и стресс.
-            </Paragraph>
-          </div>
-          <div class="item">
-            <Circle tagName="span" color="white" size="m">
-              <Icon type="coloredProtection" color="accent"></Icon>
-            </Circle>
-            <Paragraph tagName="p" color="dark" size="xxl" class="title">
-              легкие обезболивающие
-            </Paragraph>
-            <Paragraph tagName="p" color="dark-gray" size="xs">
-              современные обезболивающие препараты не вызывают побочных эффектов, таких как сонливость или расстройства
-              желудка.
-            </Paragraph>
-          </div>
-          <div class="item">
-            <Circle tagName="span" color="white" size="m">
-              <Icon type="coloredProtection" color="accent"></Icon>
-            </Circle>
-            <Paragraph tagName="p" color="dark" size="xxl" class="title">
-              думаем о вашем комфорте
-            </Paragraph>
-            <Paragraph tagName="p" color="dark-gray" size="xs">
-              использование передовых технологий позволяет нам проводить диагностику и лечение на самом высоком уровне.
+              {{item.text}}
             </Paragraph>
           </div>
         </div>
-        <div class="content__photo">
+        <div 
+        class="content__photo" 
+        :style="{ backgroundImage: `url(${sectionStandartsData.imageBackground})` }">
           <Circle tagName="span" color="accent" size="l">
             <Icon type="heart" color="white"></Icon>
           </Circle>
