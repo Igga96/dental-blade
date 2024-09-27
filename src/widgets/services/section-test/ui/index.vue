@@ -29,10 +29,10 @@ const sectionTestData = reactive({
 <template>
   <section class="section-test">
     <Container>
-      <Heading tagName="h2" regular size="xl">
+      <Heading tagName="h2" regular size="xl" class="section-test__title">
         узнайте подходит ли вам All-on-4 и рассчитайте, сколько будет стоить востановить зубы за 1 день
       </Heading>
-      <Paragraph tagName="p" color="dark-gray" size="l">
+      <Paragraph tagName="p" color="dark-gray" size="l" class="section-test__description">
         All-on-4® - методика имплантации зубов с использованием всего 4 имплантатов для восстановления полной или
         частичной зубной дуги. Это инновационное решение позволяет быстро и эффективно восстановить утраченные зубы, даже
         при значительной потере костной ткани.

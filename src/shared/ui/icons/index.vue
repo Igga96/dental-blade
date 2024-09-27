@@ -15,7 +15,7 @@ const { type } = props;
             d="M9.55825 10.56C8.59868 11.3059 7.39292 11.7501 6.08341 11.7501C2.9538 11.7501 0.416748 9.21303 0.416748 6.08341C0.416748 2.9538 2.9538 0.416748 6.08341 0.416748C9.21303 0.416748 11.7501 2.9538 11.7501 6.08341C11.7501 7.39292 11.3059 8.59868 10.56 9.55825L14.3759 13.3742C14.6526 13.6508 14.6526 14.0993 14.3759 14.3759C14.0993 14.6526 13.6508 14.6526 13.3742 14.3759L9.55825 10.56ZM10.3334 6.08341C10.3334 8.43062 8.43062 10.3334 6.08341 10.3334C3.7362 10.3334 1.83341 8.43062 1.83341 6.08341C1.83341 3.7362 3.7362 1.83341 6.08341 1.83341C8.43062 1.83341 10.3334 3.7362 10.3334 6.08341Z"
             fill="#FCFCFD" />
     </svg>
-    <svg :class="[`svg-${color}`]"  v-if="type === 'glasses'"  width="25" height="25" viewBox="0 0 25 25" fill="none"
+    <svg :class="[`svg-${color}`]" v-if="type === 'glasses'" width="25" height="25" viewBox="0 0 25 25" fill="none"
         xmlns="http://www.w3.org/2000/svg">
         <path d="M10.5 12.5131C11.605 11.1801 13.395 11.1801 14.5 12.5131" stroke="white" stroke-width="1.5"
             stroke-linecap="round" stroke-linejoin="round" />
@@ -111,8 +111,8 @@ const { type } = props;
             d="M13.0303 6.22315L12.5 6.76161L11.9696 6.22307C11.0026 5.24072 9.68188 4.68753 8.30346 4.68753C6.92504 4.68753 5.60429 5.24072 4.63732 6.22307V6.22307C2.62089 8.29521 2.62089 11.5961 4.63732 13.6683L10.2547 19.372C10.8469 19.9737 11.6558 20.3125 12.5 20.3125C13.3442 20.3125 14.1532 19.9737 14.7454 19.372L20.3627 13.6684C22.3791 11.5962 22.3791 8.29531 20.3627 6.22316V6.22316C19.3957 5.24078 18.0749 4.68757 16.6965 4.68756C15.318 4.68756 13.9973 5.24077 13.0303 6.22315Z"
             fill="#4963FF" stroke="#4963FF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
     </svg>
-    <svg :class="[`svg-${color}`]" v-if="type === 'coloredTooth'"  :width="size ? size : '24'" :height="size ? size : '25'" viewBox="0 0 24 25" fill="none"
-        xmlns="http://www.w3.org/2000/svg">
+    <svg :class="[`svg-${color}`]" v-if="type === 'coloredTooth'" :width="size ? size : '24'" :height="size ? size : '25'"
+        viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
         <path fill-rule="evenodd" clip-rule="evenodd" d="M13.6707 7.56433C12.5783 7.87445 11.4218 7.87445 10.3293 7.56433Z"
             fill="#4963FF" />
         <path d="M13.6707 7.56433C12.5783 7.87445 11.4218 7.87445 10.3293 7.56433" stroke="#4963FF" stroke-width="1.5"
@@ -152,35 +152,35 @@ const { type } = props;
             d="M3.74512 6.24616V23.7534C3.74512 24.4168 4.00838 25.0531 4.47745 25.5222C4.94653 25.9912 5.58279 26.2545 6.24616 26.2545H23.7534C24.4168 26.2545 25.0531 25.9912 25.5222 25.5222C25.9912 25.0531 26.2545 24.4168 26.2545 23.7534V6.24616C26.2545 5.58279 25.9912 4.94653 25.5222 4.47745C25.0531 4.00838 24.4168 3.74512 23.7534 3.74512H6.24616C5.58279 3.74512 4.94653 4.00838 4.47745 4.47745C4.00838 4.94653 3.74512 5.58279 3.74512 6.24616Z"
             stroke="#23262F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
     </svg>
-    <svg :class="[`svg-${color}`]" :style="{ transform: `rotate(${rotate}deg)` }" v-if="type === 'arrowDown'" width="24" height="24" viewBox="0 0 24 24"
-        fill="none" xmlns="http://www.w3.org/2000/svg">
+    <svg :class="[`svg-${color}`]" :style="{ transform: `rotate(${rotate}deg)` }" v-if="type === 'arrowDown'" width="24"
+        height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
         <path fill-rule="evenodd" clip-rule="evenodd"
             d="M16.2071 9.79289C15.8166 9.40237 15.1834 9.40237 14.7929 9.79289L12 12.5858L9.20711 9.79289C8.81658 9.40237 8.18342 9.40237 7.79289 9.79289C7.40237 10.1834 7.40237 10.8166 7.79289 11.2071L11.2929 14.7071C11.6834 15.0976 12.3166 15.0976 12.7071 14.7071L16.2071 11.2071C16.5976 10.8166 16.5976 10.1834 16.2071 9.79289Z"
             fill="#747B8F" />
     </svg>
-    <svg :class="[`svg-${color}`]" v-if="type === 'WS'" width="35" height="35" viewBox="0 0 35 35" fill="none"
-        xmlns="http://www.w3.org/2000/svg">
+    <svg :class="[`svg-${color}`]" v-if="type === 'WS'" :width="size ? size : '35'" :height="size ? size : '35'"
+        viewBox="0 0 35 35" fill="none" xmlns="http://www.w3.org/2000/svg">
         <rect width="35" height="35" rx="17.5" fill="#48C95F" />
         <path
             d="M24.436 10.5547C22.7073 8.83203 20.4024 7.875 17.9695 7.875C12.9116 7.875 8.81402 11.9583 8.81402 16.9987C8.81402 18.5938 9.2622 20.1888 10.0305 21.5286L8.75 26.25L13.6159 24.974C14.9604 25.6758 16.4329 26.0586 17.9695 26.0586C23.0274 26.0586 27.125 21.9753 27.125 16.9349C27.061 14.5742 26.1646 12.2773 24.436 10.5547ZM22.3872 20.2526C22.1951 20.763 21.2988 21.2734 20.8506 21.3372C20.4665 21.401 19.9543 21.401 19.4421 21.2734C19.122 21.1458 18.6738 21.0182 18.1616 20.763C15.8567 19.806 14.3841 17.5091 14.2561 17.3177C14.128 17.1901 13.2957 16.1055 13.2957 14.957C13.2957 13.8086 13.872 13.2982 14.064 13.043C14.2561 12.7878 14.5122 12.7878 14.7043 12.7878C14.8323 12.7878 15.0244 12.7878 15.1524 12.7878C15.2805 12.7878 15.4726 12.724 15.6646 13.1706C15.8567 13.6172 16.3049 14.7656 16.3689 14.8294C16.4329 14.957 16.4329 15.0846 16.3689 15.2122C16.3049 15.3398 16.2409 15.4674 16.1128 15.5951C15.9848 15.7227 15.8567 15.9141 15.7927 15.9779C15.6646 16.1055 15.5366 16.2331 15.6646 16.4245C15.7927 16.6797 16.2409 17.3815 16.9451 18.0195C17.8415 18.7852 18.5457 19.0404 18.8018 19.168C19.0579 19.2956 19.186 19.2318 19.314 19.1042C19.4421 18.9766 19.8902 18.4661 20.0183 18.2109C20.1463 17.9557 20.3384 18.0195 20.5305 18.0833C20.7226 18.1471 21.875 18.7214 22.0671 18.849C22.3232 18.9766 22.4512 19.0404 22.5152 19.1042C22.5793 19.2956 22.5793 19.7422 22.3872 20.2526Z"
             fill="white" />
     </svg>
-    <svg :class="[`svg-${color}`]" v-if="type === 'TG'" width="35" height="35" viewBox="0 0 35 35" fill="none"
-        xmlns="http://www.w3.org/2000/svg">
+    <svg :class="[`svg-${color}`]" v-if="type === 'TG'" :width="size ? size : '35'" :height="size ? size : '35'"
+        viewBox="0 0 35 35" fill="none" xmlns="http://www.w3.org/2000/svg">
         <rect width="35" height="35" rx="17.5" fill="#27A6E5" />
         <path
             d="M24.501 11.0269L21.8712 24.7557C21.8712 24.7557 21.5033 25.7076 20.4925 25.2511L14.425 20.4335L14.3968 20.4193C15.2164 19.6572 21.5718 13.7398 21.8496 13.4716C22.2796 13.0562 22.0126 12.8089 21.5134 13.1227L12.1257 19.2963L8.50391 18.0344C8.50391 18.0344 7.93395 17.8245 7.87912 17.368C7.82357 16.9107 8.52267 16.6634 8.52267 16.6634L23.2875 10.6653C23.2875 10.6653 24.501 10.1132 24.501 11.0269Z"
             fill="#FEFEFE" />
     </svg>
-    <svg :class="[`svg-${color}`]" v-if="type === 'VK'" width="35" height="35" viewBox="0 0 35 35" fill="none"
-        xmlns="http://www.w3.org/2000/svg">
+    <svg :class="[`svg-${color}`]" v-if="type === 'VK'" :width="size ? size : '35'" :height="size ? size : '35'"
+        viewBox="0 0 35 35" fill="none" xmlns="http://www.w3.org/2000/svg">
         <rect width="35" height="35" rx="17.5" fill="#0077FF" />
         <path
             d="M18.3607 23.625C11.7837 23.625 8.03229 19.0267 7.87598 11.375H11.1705C11.2787 16.9911 13.7075 19.37 15.6313 19.8605V11.375H18.7334V16.2186C20.6332 16.0101 22.6291 13.8029 23.3024 11.375H26.4046C26.1508 12.6342 25.6451 13.8264 24.9189 14.8772C24.1927 15.9279 23.2617 16.8146 22.1842 17.4816C23.387 18.0911 24.4493 18.9538 25.3012 20.0128C26.153 21.0717 26.775 22.3029 27.126 23.625H23.7112C23.3961 22.4767 22.7557 21.4487 21.8702 20.67C20.9847 19.8912 19.8935 19.3964 18.7334 19.2474V23.625H18.3607Z"
             fill="white" />
     </svg>
-    <svg :class="[`svg-${color}`]" v-if="type === 'FB'" width="35" height="35" viewBox="0 0 35 35" fill="none"
-        xmlns="http://www.w3.org/2000/svg">
+    <svg :class="[`svg-${color}`]" v-if="type === 'FB'" :width="size ? size : '35'" :height="size ? size : '35'"
+        viewBox="0 0 35 35" fill="none" xmlns="http://www.w3.org/2000/svg">
         <rect width="35" height="35" rx="17.5" fill="#0B84EE" />
         <path
             d="M18.949 17.8192H22.2059L22.7172 14.4905H18.9483V12.6712C18.9483 11.2884 19.3974 10.0622 20.6831 10.0622H22.749V7.15727C22.386 7.10796 21.6183 7 20.1677 7C17.1387 7 15.3629 8.60939 15.3629 12.276V14.4905H12.249V17.8192H15.3629V26.9684C15.9795 27.0617 16.6042 27.125 17.2453 27.125C17.8249 27.125 18.3906 27.0717 18.949 26.9957V17.8192Z"
@@ -434,71 +434,121 @@ const { type } = props;
             </filter>
         </defs>
     </svg>
-    <svg :class="[`svg-${color}`]" v-if="type === 'caries2'" width="50" height="50" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
-<g filter="url(#filter0_dii_3_5)">
-<path fill-rule="evenodd" clip-rule="evenodd" d="M28.6931 11.6557C26.6485 12.5028 23.6978 12.5028 21.6532 11.6557C19.992 10.9674 18.1339 10.9036 16.4195 11.6248C12.8014 13.1468 11.1786 17.5947 12.7533 21.607C12.7537 21.6079 12.7537 21.6089 12.7533 21.6098L13.2447 22.6432C14.9059 26.1365 16.158 29.7985 16.9778 33.5609L17.7576 37.1399C18.0274 38.1688 18.9811 38.8889 20.0739 38.8889C21.2475 38.8889 22.2475 38.061 22.4339 36.9351L23.5332 30.2921C23.6627 29.5098 24.3576 28.9345 25.1732 28.9345C25.9888 28.9345 26.6837 29.5098 26.8132 30.2921L27.9125 36.9351C28.0988 38.061 29.0989 38.8889 30.2725 38.8889C31.3653 38.8889 32.3189 38.1688 32.5888 37.1399L33.3686 33.5609C34.1884 29.7985 35.4405 26.1365 37.1017 22.6432L37.5931 21.6098C37.5927 21.6089 37.5927 21.6079 37.593 21.607C39.1678 17.5947 37.545 13.1468 33.9269 11.6248C32.2124 10.9036 30.3543 10.9674 28.6931 11.6557Z" fill="white"/>
-</g>
-<path fill-rule="evenodd" clip-rule="evenodd" d="M35.5688 26.2167L34.5277 19.9089C34.4276 19.3025 33.7274 18.9959 33.2014 19.3281L32.3398 19.8722L30.8008 17.1506C30.6345 16.8565 30.2571 16.7505 29.9577 16.9139C29.6584 17.0773 29.5505 17.4482 29.7168 17.7423L31.4485 20.8046C31.692 21.2352 32.255 21.3742 32.6767 21.1078L33.3945 20.6545L34.7108 28.6293C34.9762 27.8184 35.2623 27.014 35.5688 26.2167Z" fill="#4963FF"/>
-<defs>
-<filter id="filter0_dii_3_5" x="-13.7988" y="-0.684872" width="77.9437" height="79.68" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
-<feFlood flood-opacity="0" result="BackgroundImageFix"/>
-<feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
-<feOffset dy="14.1551"/>
-<feGaussianBlur stdDeviation="12.9756"/>
-<feColorMatrix type="matrix" values="0 0 0 0 0.286275 0 0 0 0 0.396078 0 0 0 0 1 0 0 0 0.35 0"/>
-<feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_3_5"/>
-<feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_3_5" result="shape"/>
-<feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
-<feOffset dy="-9.43676"/>
-<feGaussianBlur stdDeviation="5.89798"/>
-<feComposite in2="hardAlpha" operator="arithmetic" k2="-1" k3="1"/>
-<feColorMatrix type="matrix" values="0 0 0 0 0.285189 0 0 0 0 0.397316 0 0 0 0 1 0 0 0 0.45 0"/>
-<feBlend mode="normal" in2="shape" result="effect2_innerShadow_3_5"/>
-<feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
-<feOffset dy="-3.53879"/>
-<feGaussianBlur stdDeviation="2.35919"/>
-<feComposite in2="hardAlpha" operator="arithmetic" k2="-1" k3="1"/>
-<feColorMatrix type="matrix" values="0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0.25 0"/>
-<feBlend mode="normal" in2="effect2_innerShadow_3_5" result="effect3_innerShadow_3_5"/>
-</filter>
-</defs>
-</svg>
-<svg :class="[`svg-${color}`]" v-if="type === 'checkmark'" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M19.5596 7.44385L12.0036 14.9998L8.22656 11.2218" stroke="#4963FF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-<path d="M21 12C21 16.971 16.971 21 12 21C7.029 21 3 16.971 3 12C3 7.029 7.029 3 12 3C13.453 3 14.821 3.353 16.036 3.964" stroke="#4963FF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-</svg>
-<svg :class="[`svg-${color}`]" v-if="type === 'boockmark'" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path fill-rule="evenodd" clip-rule="evenodd" d="M4 15.667V5C4 3.895 4.895 3 6 3H18C19.105 3 20 3.895 20 5V15.667C20 16.393 19.606 17.063 18.971 17.415L12.971 20.748C12.367 21.084 11.632 21.084 11.028 20.748L5.028 17.415C4.394 17.062 4 16.393 4 15.667Z" stroke="#4963FF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-<path fill-rule="evenodd" clip-rule="evenodd" d="M10.8021 13.909L11.6321 13.473C11.8631 13.352 12.1391 13.352 12.3701 13.473L13.2001 13.909C13.4681 14.05 13.7911 14.026 14.0351 13.848L14.3451 13.623C14.5891 13.446 14.7111 13.145 14.6611 12.848L14.5021 11.924C14.4581 11.667 14.5431 11.404 14.7301 11.222L15.4011 10.568C15.6171 10.357 15.6951 10.042 15.6021 9.755L15.4841 9.391C15.3911 9.104 15.1431 8.895 14.8441 8.851L13.9161 8.716C13.6581 8.679 13.4351 8.516 13.3191 8.282L12.9041 7.441C12.7691 7.171 12.4931 7 12.1911 7H11.8081C11.5061 7 11.2301 7.171 11.0971 7.442L10.6821 8.283C10.5661 8.517 10.3431 8.68 10.0851 8.717L9.15812 8.851C8.85912 8.895 8.61112 9.104 8.51812 9.391L8.40012 9.755C8.30712 10.042 8.38412 10.357 8.60112 10.568L9.27212 11.222C9.45912 11.404 9.54412 11.667 9.50012 11.924L9.34112 12.848C9.29012 13.146 9.41312 13.446 9.65712 13.623L9.96712 13.848C10.2111 14.025 10.5341 14.049 10.8021 13.909V13.909Z" stroke="#4963FF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-</svg>
-<svg :class="[`svg-${color}`]" v-if="type === 'coloredlock'" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M8 10V7V7C8 4.791 9.791 3 12 3V3C14.209 3 16 4.791 16 7V7V10" stroke="#4963FF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-<path d="M12 14V17" stroke="#4963FF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-<path fill-rule="evenodd" clip-rule="evenodd" d="M17 21H7C5.895 21 5 20.105 5 19V12C5 10.895 5.895 10 7 10H17C18.105 10 19 10.895 19 12V19C19 20.105 18.105 21 17 21Z" stroke="#4963FF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-</svg>
-<svg :class="[`svg-${color}`]" v-if="type === 'coloreduser'" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M18.3639 5.63604C21.8787 9.15076 21.8787 14.8492 18.3639 18.3639C14.8492 21.8787 9.15074 21.8787 5.63604 18.3639C2.12132 14.8492 2.12132 9.15074 5.63604 5.63604C9.15076 2.12132 14.8492 2.12132 18.3639 5.63604" stroke="#4963FF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-<path d="M17.3074 19.257C16.9234 17.417 14.7054 16 12.0004 16C9.29536 16 7.07736 17.417 6.69336 19.257" stroke="#4963FF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-<path d="M14.1213 7.87868C15.2929 9.05025 15.2929 10.9497 14.1213 12.1213C12.9497 13.2929 11.0502 13.2929 9.87868 12.1213C8.70711 10.9497 8.70711 9.05025 9.87868 7.87868C11.0502 6.70711 12.9497 6.70711 14.1213 7.87868" stroke="#4963FF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-</svg>
-<svg :class="[`svg-${color}`]" v-if="type === 'certificate'" width="21" height="21" viewBox="0 0 21 21" fill="none" xmlns="http://www.w3.org/2000/svg">
-<circle cx="16.0015" cy="12.501" r="3.50146" stroke="#4963FF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-<path d="M14.002 15.374V20.004L16.0028 19.0035L18.0036 20.004V15.374" stroke="#4963FF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-<path d="M11.0003 19.0036H2.99693C1.89147 19.0036 0.996094 18.1082 0.996094 17.0028V2.99693C0.996094 1.89147 1.89147 0.996094 2.99693 0.996094H16.0023C17.1078 0.996094 18.0032 1.89147 18.0032 2.99693V5.99818" stroke="#4963FF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-<path d="M4.99805 4.99777H14.0018" stroke="#4963FF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-<path d="M4.99805 8.99923H8.99971" stroke="#4963FF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-<path d="M4.99805 13.0012H7.9993" stroke="#4963FF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-</svg>
-<svg :class="[`svg-${color}`]" v-if="type === 'stars'" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path fill-rule="evenodd" clip-rule="evenodd" d="M11.9978 16.0019C11.9978 13.7918 13.7894 12.0002 15.9994 12.0002C13.7894 12.0002 11.9978 10.2086 11.9978 7.99854C11.9978 10.2086 10.2062 12.0002 7.99609 12.0002C10.2062 12.0002 11.9978 13.7918 11.9978 16.0019Z" stroke="#4963FF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-<path d="M21.0036 11.9998C21.0036 16.9725 16.9725 21.0036 11.9998 21.0036C7.02721 21.0036 2.99609 16.9725 2.99609 11.9998C2.99609 7.02721 7.02721 2.99609 11.9998 2.99609" stroke="#4963FF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-<path fill-rule="evenodd" clip-rule="evenodd" d="M19.0013 7.99859C19.0013 6.34105 20.345 4.99734 22.0025 4.99734C20.345 4.99734 19.0013 3.65364 19.0013 1.99609C19.0013 3.65364 17.6575 4.99734 16 4.99734C17.6575 4.99734 19.0013 6.34105 19.0013 7.99859Z" stroke="#4963FF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-</svg>
-<svg :class="[`svg-${color}`]" v-if="type === 'snow'" width="49" height="49" viewBox="0 0 49 49" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path fill-rule="evenodd" clip-rule="evenodd" d="M31.3614 26.0083L36.3632 30.6812C37.0457 31.3182 37.072 32.3913 36.4208 33.0617L33.764 35.7945C33.1313 36.4455 32.0946 36.4703 31.432 35.8502L26.3814 31.1311L24.6899 38.1108C24.4732 39.0049 23.5717 39.5547 22.6775 39.338L18.8516 38.4108C17.9575 38.1941 17.4077 37.2926 17.6244 36.3984L19.3159 29.4188L12.6653 31.302C11.7923 31.55 10.882 31.0533 10.6174 30.1849L9.50657 26.539C9.23415 25.6464 9.74882 24.7045 10.6476 24.449L17.2305 22.5837L12.2287 17.9108C11.5462 17.2738 11.5199 16.2007 12.1711 15.5302L14.8279 12.7974C15.4607 12.1465 16.4974 12.1216 17.1599 12.7418L22.2105 17.4608L23.9021 10.4812C24.1187 9.5871 25.0203 9.0373 25.9144 9.25399L29.7403 10.1812C30.6344 10.3979 31.1842 11.2994 30.9675 12.1935L29.276 19.1732L35.9267 17.29C36.7996 17.0419 37.7099 17.5386 37.9745 18.4071L39.0854 22.0529C39.3578 22.9456 38.8431 23.8875 37.9443 24.143L31.3614 26.0083Z" fill="#E5E6EB" stroke="#E5E6EB" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-</svg>
-
-
+    <svg :class="[`svg-${color}`]" v-if="type === 'caries2'" width="50" height="50" viewBox="0 0 50 50" fill="none"
+        xmlns="http://www.w3.org/2000/svg">
+        <g filter="url(#filter0_dii_3_5)">
+            <path fill-rule="evenodd" clip-rule="evenodd"
+                d="M28.6931 11.6557C26.6485 12.5028 23.6978 12.5028 21.6532 11.6557C19.992 10.9674 18.1339 10.9036 16.4195 11.6248C12.8014 13.1468 11.1786 17.5947 12.7533 21.607C12.7537 21.6079 12.7537 21.6089 12.7533 21.6098L13.2447 22.6432C14.9059 26.1365 16.158 29.7985 16.9778 33.5609L17.7576 37.1399C18.0274 38.1688 18.9811 38.8889 20.0739 38.8889C21.2475 38.8889 22.2475 38.061 22.4339 36.9351L23.5332 30.2921C23.6627 29.5098 24.3576 28.9345 25.1732 28.9345C25.9888 28.9345 26.6837 29.5098 26.8132 30.2921L27.9125 36.9351C28.0988 38.061 29.0989 38.8889 30.2725 38.8889C31.3653 38.8889 32.3189 38.1688 32.5888 37.1399L33.3686 33.5609C34.1884 29.7985 35.4405 26.1365 37.1017 22.6432L37.5931 21.6098C37.5927 21.6089 37.5927 21.6079 37.593 21.607C39.1678 17.5947 37.545 13.1468 33.9269 11.6248C32.2124 10.9036 30.3543 10.9674 28.6931 11.6557Z"
+                fill="white" />
+        </g>
+        <path fill-rule="evenodd" clip-rule="evenodd"
+            d="M35.5688 26.2167L34.5277 19.9089C34.4276 19.3025 33.7274 18.9959 33.2014 19.3281L32.3398 19.8722L30.8008 17.1506C30.6345 16.8565 30.2571 16.7505 29.9577 16.9139C29.6584 17.0773 29.5505 17.4482 29.7168 17.7423L31.4485 20.8046C31.692 21.2352 32.255 21.3742 32.6767 21.1078L33.3945 20.6545L34.7108 28.6293C34.9762 27.8184 35.2623 27.014 35.5688 26.2167Z"
+            fill="#4963FF" />
+        <defs>
+            <filter id="filter0_dii_3_5" x="-13.7988" y="-0.684872" width="77.9437" height="79.68"
+                filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+                <feFlood flood-opacity="0" result="BackgroundImageFix" />
+                <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
+                    result="hardAlpha" />
+                <feOffset dy="14.1551" />
+                <feGaussianBlur stdDeviation="12.9756" />
+                <feColorMatrix type="matrix" values="0 0 0 0 0.286275 0 0 0 0 0.396078 0 0 0 0 1 0 0 0 0.35 0" />
+                <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_3_5" />
+                <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_3_5" result="shape" />
+                <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
+                    result="hardAlpha" />
+                <feOffset dy="-9.43676" />
+                <feGaussianBlur stdDeviation="5.89798" />
+                <feComposite in2="hardAlpha" operator="arithmetic" k2="-1" k3="1" />
+                <feColorMatrix type="matrix" values="0 0 0 0 0.285189 0 0 0 0 0.397316 0 0 0 0 1 0 0 0 0.45 0" />
+                <feBlend mode="normal" in2="shape" result="effect2_innerShadow_3_5" />
+                <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
+                    result="hardAlpha" />
+                <feOffset dy="-3.53879" />
+                <feGaussianBlur stdDeviation="2.35919" />
+                <feComposite in2="hardAlpha" operator="arithmetic" k2="-1" k3="1" />
+                <feColorMatrix type="matrix" values="0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0.25 0" />
+                <feBlend mode="normal" in2="effect2_innerShadow_3_5" result="effect3_innerShadow_3_5" />
+            </filter>
+        </defs>
+    </svg>
+    <svg :class="[`svg-${color}`]" v-if="type === 'checkmark'" width="24" height="24" viewBox="0 0 24 24" fill="none"
+        xmlns="http://www.w3.org/2000/svg">
+        <path d="M19.5596 7.44385L12.0036 14.9998L8.22656 11.2218" stroke="#4963FF" stroke-width="1.5"
+            stroke-linecap="round" stroke-linejoin="round" />
+        <path
+            d="M21 12C21 16.971 16.971 21 12 21C7.029 21 3 16.971 3 12C3 7.029 7.029 3 12 3C13.453 3 14.821 3.353 16.036 3.964"
+            stroke="#4963FF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+    </svg>
+    <svg :class="[`svg-${color}`]" v-if="type === 'boockmark'" width="24" height="24" viewBox="0 0 24 24" fill="none"
+        xmlns="http://www.w3.org/2000/svg">
+        <path fill-rule="evenodd" clip-rule="evenodd"
+            d="M4 15.667V5C4 3.895 4.895 3 6 3H18C19.105 3 20 3.895 20 5V15.667C20 16.393 19.606 17.063 18.971 17.415L12.971 20.748C12.367 21.084 11.632 21.084 11.028 20.748L5.028 17.415C4.394 17.062 4 16.393 4 15.667Z"
+            stroke="#4963FF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+        <path fill-rule="evenodd" clip-rule="evenodd"
+            d="M10.8021 13.909L11.6321 13.473C11.8631 13.352 12.1391 13.352 12.3701 13.473L13.2001 13.909C13.4681 14.05 13.7911 14.026 14.0351 13.848L14.3451 13.623C14.5891 13.446 14.7111 13.145 14.6611 12.848L14.5021 11.924C14.4581 11.667 14.5431 11.404 14.7301 11.222L15.4011 10.568C15.6171 10.357 15.6951 10.042 15.6021 9.755L15.4841 9.391C15.3911 9.104 15.1431 8.895 14.8441 8.851L13.9161 8.716C13.6581 8.679 13.4351 8.516 13.3191 8.282L12.9041 7.441C12.7691 7.171 12.4931 7 12.1911 7H11.8081C11.5061 7 11.2301 7.171 11.0971 7.442L10.6821 8.283C10.5661 8.517 10.3431 8.68 10.0851 8.717L9.15812 8.851C8.85912 8.895 8.61112 9.104 8.51812 9.391L8.40012 9.755C8.30712 10.042 8.38412 10.357 8.60112 10.568L9.27212 11.222C9.45912 11.404 9.54412 11.667 9.50012 11.924L9.34112 12.848C9.29012 13.146 9.41312 13.446 9.65712 13.623L9.96712 13.848C10.2111 14.025 10.5341 14.049 10.8021 13.909V13.909Z"
+            stroke="#4963FF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+    </svg>
+    <svg :class="[`svg-${color}`]" v-if="type === 'coloredlock'" width="24" height="24" viewBox="0 0 24 24" fill="none"
+        xmlns="http://www.w3.org/2000/svg">
+        <path d="M8 10V7V7C8 4.791 9.791 3 12 3V3C14.209 3 16 4.791 16 7V7V10" stroke="#4963FF" stroke-width="1.5"
+            stroke-linecap="round" stroke-linejoin="round" />
+        <path d="M12 14V17" stroke="#4963FF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+        <path fill-rule="evenodd" clip-rule="evenodd"
+            d="M17 21H7C5.895 21 5 20.105 5 19V12C5 10.895 5.895 10 7 10H17C18.105 10 19 10.895 19 12V19C19 20.105 18.105 21 17 21Z"
+            stroke="#4963FF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+    </svg>
+    <svg :class="[`svg-${color}`]" v-if="type === 'coloreduser'" width="24" height="24" viewBox="0 0 24 24" fill="none"
+        xmlns="http://www.w3.org/2000/svg">
+        <path
+            d="M18.3639 5.63604C21.8787 9.15076 21.8787 14.8492 18.3639 18.3639C14.8492 21.8787 9.15074 21.8787 5.63604 18.3639C2.12132 14.8492 2.12132 9.15074 5.63604 5.63604C9.15076 2.12132 14.8492 2.12132 18.3639 5.63604"
+            stroke="#4963FF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+        <path d="M17.3074 19.257C16.9234 17.417 14.7054 16 12.0004 16C9.29536 16 7.07736 17.417 6.69336 19.257"
+            stroke="#4963FF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+        <path
+            d="M14.1213 7.87868C15.2929 9.05025 15.2929 10.9497 14.1213 12.1213C12.9497 13.2929 11.0502 13.2929 9.87868 12.1213C8.70711 10.9497 8.70711 9.05025 9.87868 7.87868C11.0502 6.70711 12.9497 6.70711 14.1213 7.87868"
+            stroke="#4963FF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+    </svg>
+    <svg :class="[`svg-${color}`]" v-if="type === 'certificate'" width="21" height="21" viewBox="0 0 21 21" fill="none"
+        xmlns="http://www.w3.org/2000/svg">
+        <circle cx="16.0015" cy="12.501" r="3.50146" stroke="#4963FF" stroke-width="1.5" stroke-linecap="round"
+            stroke-linejoin="round" />
+        <path d="M14.002 15.374V20.004L16.0028 19.0035L18.0036 20.004V15.374" stroke="#4963FF" stroke-width="1.5"
+            stroke-linecap="round" stroke-linejoin="round" />
+        <path
+            d="M11.0003 19.0036H2.99693C1.89147 19.0036 0.996094 18.1082 0.996094 17.0028V2.99693C0.996094 1.89147 1.89147 0.996094 2.99693 0.996094H16.0023C17.1078 0.996094 18.0032 1.89147 18.0032 2.99693V5.99818"
+            stroke="#4963FF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+        <path d="M4.99805 4.99777H14.0018" stroke="#4963FF" stroke-width="1.5" stroke-linecap="round"
+            stroke-linejoin="round" />
+        <path d="M4.99805 8.99923H8.99971" stroke="#4963FF" stroke-width="1.5" stroke-linecap="round"
+            stroke-linejoin="round" />
+        <path d="M4.99805 13.0012H7.9993" stroke="#4963FF" stroke-width="1.5" stroke-linecap="round"
+            stroke-linejoin="round" />
+    </svg>
+    <svg :class="[`svg-${color}`]" v-if="type === 'stars'" width="24" height="24" viewBox="0 0 24 24" fill="none"
+        xmlns="http://www.w3.org/2000/svg">
+        <path fill-rule="evenodd" clip-rule="evenodd"
+            d="M11.9978 16.0019C11.9978 13.7918 13.7894 12.0002 15.9994 12.0002C13.7894 12.0002 11.9978 10.2086 11.9978 7.99854C11.9978 10.2086 10.2062 12.0002 7.99609 12.0002C10.2062 12.0002 11.9978 13.7918 11.9978 16.0019Z"
+            stroke="#4963FF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+        <path
+            d="M21.0036 11.9998C21.0036 16.9725 16.9725 21.0036 11.9998 21.0036C7.02721 21.0036 2.99609 16.9725 2.99609 11.9998C2.99609 7.02721 7.02721 2.99609 11.9998 2.99609"
+            stroke="#4963FF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+        <path fill-rule="evenodd" clip-rule="evenodd"
+            d="M19.0013 7.99859C19.0013 6.34105 20.345 4.99734 22.0025 4.99734C20.345 4.99734 19.0013 3.65364 19.0013 1.99609C19.0013 3.65364 17.6575 4.99734 16 4.99734C17.6575 4.99734 19.0013 6.34105 19.0013 7.99859Z"
+            stroke="#4963FF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+    </svg>
+    <svg :class="[`svg-${color}`]" v-if="type === 'snow'" width="49" height="49" viewBox="0 0 49 49" fill="none"
+        xmlns="http://www.w3.org/2000/svg">
+        <path fill-rule="evenodd" clip-rule="evenodd"
+            d="M31.3614 26.0083L36.3632 30.6812C37.0457 31.3182 37.072 32.3913 36.4208 33.0617L33.764 35.7945C33.1313 36.4455 32.0946 36.4703 31.432 35.8502L26.3814 31.1311L24.6899 38.1108C24.4732 39.0049 23.5717 39.5547 22.6775 39.338L18.8516 38.4108C17.9575 38.1941 17.4077 37.2926 17.6244 36.3984L19.3159 29.4188L12.6653 31.302C11.7923 31.55 10.882 31.0533 10.6174 30.1849L9.50657 26.539C9.23415 25.6464 9.74882 24.7045 10.6476 24.449L17.2305 22.5837L12.2287 17.9108C11.5462 17.2738 11.5199 16.2007 12.1711 15.5302L14.8279 12.7974C15.4607 12.1465 16.4974 12.1216 17.1599 12.7418L22.2105 17.4608L23.9021 10.4812C24.1187 9.5871 25.0203 9.0373 25.9144 9.25399L29.7403 10.1812C30.6344 10.3979 31.1842 11.2994 30.9675 12.1935L29.276 19.1732L35.9267 17.29C36.7996 17.0419 37.7099 17.5386 37.9745 18.4071L39.0854 22.0529C39.3578 22.9456 38.8431 23.8875 37.9443 24.143L31.3614 26.0083Z"
+            fill="#E5E6EB" stroke="#E5E6EB" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+    </svg>
+    <svg :class="[`svg-${color}`]" v-if="type === 'star'" width="20" height="19" viewBox="0 0 20 19" fill="none"
+        xmlns="http://www.w3.org/2000/svg">
+        <path fill-rule="evenodd" clip-rule="evenodd"
+            d="M12.1128 1.28584L13.9159 4.83396L17.9638 5.40522C19.8601 5.67275 20.7269 8.01285 19.2651 9.39572L16.3576 12.1438L17.0419 16.016C17.3923 17.9996 15.287 19.3318 13.6291 18.4871L9.99981 16.6358L6.37157 18.4865C4.71128 19.334 2.60769 17.9973 2.95771 16.016L3.64202 12.1438L0.734896 9.3961C-0.727985 8.01223 0.141887 5.67263 2.03558 5.40525L6.08384 4.83394L7.88786 1.28584C8.75914 -0.428539 11.2417 -0.428688 12.1128 1.28584Z"
+            fill="#FFD166" />
+    </svg>
 </template>
 <style lang="scss">
 svg {

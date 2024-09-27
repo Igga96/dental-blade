@@ -58,7 +58,7 @@ const props = defineProps<Props>()
     padding: 0;
 
     &:hover {
-        box-shadow: 0px 0px 10px 3px rgba(0, 0, 0, 0.2);
+        border: 1px solid #23262F;
     }
 }
 
@@ -67,6 +67,7 @@ const props = defineProps<Props>()
 
     &:hover {
         background: none;
+        border: 1px solid rgb(177, 181, 195);
         cursor: default;
         box-shadow: none;
     }

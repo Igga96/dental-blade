@@ -17,8 +17,8 @@ export const doctorsModule = {
                 category: 'врач высшей категории',
                 experienceYears: 13,
                 specialty: [
-                    { id: 0, name: 'Гигиенист' },
-                    { id: 1, name: 'Десткий стоматолог' }
+                    { id: 0, name: 'гигиенист' },
+                    { id: 1, name: 'десткий стоматолог' }
                 ],
                 treatmentProfile: [
                     { id: 0, name: 'гиперестезия', percent: 20 },
@@ -48,8 +48,8 @@ export const doctorsModule = {
                 middleName: 'Васильевна',
                 category: 'доктор медицинских наук',
                 specialty: [
-                    { id: 0, name: 'Cтоматолог-терапевт' },
-                    { id: 1, name: 'Хирург' }
+                    { id: 0, name: 'стоматолог-терапевт' },
+                    { id: 1, name: 'хирург' }
                 ],
                 experienceYears: 18,
                 treatmentProfile: [
@@ -80,8 +80,8 @@ export const doctorsModule = {
                 middleName: 'Генрихович',
                 category: 'профессор',
                 specialty: [
-                    { id: 0, name: 'Ортопед' },
-                    { id: 1, name: 'Пародонтолог' }
+                    { id: 0, name: 'ортопед' },
+                    { id: 1, name: 'пародонтолог' }
                 ],
                 experienceYears: 25,
                 treatmentProfile: [
@@ -112,9 +112,9 @@ export const doctorsModule = {
                 middleName: 'Михайловна',
                 category: 'кандидат медицинских наук',
                 specialty: [
-                    { id: 0, name: 'Имплантолог' },
-                    { id: 1, name: 'Ортодонт' },
-                    { id: 2, name: 'Пародонтолог' }
+                    { id: 0, name: 'имплантолог' },
+                    { id: 1, name: 'ортодонт' },
+                    { id: 2, name: 'пародонтолог' }
                 ],
                 experienceYears: 10,
                 treatmentProfile: [

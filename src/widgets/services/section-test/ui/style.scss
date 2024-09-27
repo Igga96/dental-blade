@@ -1,7 +1,11 @@
 .section-test {
-  h2 {
+  .section-test__title {
     margin: 200px 0 50px;
+    max-width: 1200px;
 
+  }
+  .section-test__description{
+    max-width: 1200px;
   }
 
   .section-test__content {

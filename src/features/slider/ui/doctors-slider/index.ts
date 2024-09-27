@@ -1,0 +1,1 @@
+export {default as DoctorsSlider} from './ui/index.vue'

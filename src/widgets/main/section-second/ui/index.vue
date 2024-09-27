@@ -4,7 +4,7 @@ import { Heading } from '@/shared/ui/text/heading';
 import { Paragraph } from '@/shared/ui/text/paragraph';
 import { Icon } from '@/shared/ui/icons';
 import { Circle } from '@/shared/ui/circle';
-import { useSwipe } from '@/shared/composables/useSwipe'
+import { useTouchSwipe } from '@/shared/composables/useTouchSwipe';
 import { ref } from 'vue';
 
 interface CardsItem {
@@ -25,7 +25,7 @@ interface Props {
 const { sectionSecondData } = defineProps<Props>();
 
 const itemsContainer = ref<HTMLElement | null>(null);
-useSwipe({ elementRef: itemsContainer });
+useTouchSwipe({ elementRef: itemsContainer });
 </script>
 
 <template>
@@ -56,6 +56,7 @@ useSwipe({ elementRef: itemsContainer });
     </Container>
   </section>
 </template>
+
 <style lang="scss" scoped>
 @import './style.scss';
 </style>

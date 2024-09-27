@@ -29,6 +29,7 @@ $light-gray: #F6F6F6;
 $light-blue-first: #FCFCFD;
 $light-blue-second: #F1F3F9;
 
+
 /*status colors*/
 $yellow: #FFD166;
 $green: #DBFC5B;
@@ -37,3 +38,15 @@ $red: #ED2626;
 :root {
     --accent-color: #4963FF;
 }
+.no-select {
+    user-select: none; 
+    -webkit-user-select: none; 
+    -moz-user-select: none; 
+    -ms-user-select: none; 
+}
+img {
+    pointer-events: none; 
+}
+.no-hover * {
+    pointer-events: none; 
+  }

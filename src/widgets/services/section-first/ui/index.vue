@@ -14,9 +14,9 @@ import { Button } from '@/shared/ui/button';
     <Header />
     <Container>
       <div class="section-first__content">
-        <div class="content__left">
-          <Heading tagName="h2" regular size="xl">
-            верните зубы за
+        <div class="content__text">
+          <Heading class="text__title" tagName="h2" regular size="xl">
+            верните зубы <br> за
             <Paragraph tagName="span" size="parent" color="gray">
               один
             </Paragraph>
@@ -26,7 +26,7 @@ import { Button } from '@/shared/ui/button';
             </Paragraph>
             боли
           </Heading>
-          <Paragraph tagName="p" color="dark-gray" size="xl">
+          <Paragraph tagName="p" color="dark-gray" size="xl" class="text__description">
             Живите и жуйте полноценно сразу. Всего 2-3 дня - вы даже не вспомните, что у вас не свои зубы
           </Paragraph>
           <div class="buttons">
@@ -41,7 +41,7 @@ import { Button } from '@/shared/ui/button';
             </Paragraph>
           </div>
         </div>
-        <div class="content__right">
+        <div class="content__photo">
           <div class="utp">
             <Circle tagName="span" color="accent" size="s">
               <icon type="whiteProtection" color="white"></icon>

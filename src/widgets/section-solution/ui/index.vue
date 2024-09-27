@@ -7,6 +7,7 @@ import { Circle } from '@/shared/ui/circle';
 import { Icon } from '@/shared/ui/icons';
 import { useSwipe } from '@/shared/composables/useSwipe';
 import { useSolutionSelector } from '@/widgets/section-solution/model/solutions.model';
+import { Slider } from '@/shared/ui/slider';
 import { ref } from 'vue'
 
 const itemsContainer = ref<HTMLElement | null>(null);
@@ -39,17 +40,20 @@ const {
     selectNextSolution,
     isPreviousDisabled,
     isNextDisabled,
+    formattedTotalCost
 } = useSolutionSelector(sectionSolutionData.solutions);
 </script>
 <template>
     <section class="section-solution">
-        <Container tagName="div" size="m">
+        <Container>
             <Heading tagName="h2" regular size="xl" class="section-solution__title">
                 вне зависимости от состояния здоровья ваша проблема c зубами будет
                 <Paragraph tagName="span" size="parent" color="gray">
                     решена!
                 </Paragraph>
             </Heading>
+        </Container>
+        <Slider>
             <ul ref="itemsContainer" class="section-solution__list">
                 <li v-for="item in sectionSolutionData.solutions" :key="item.id" class="item"
                     :class="{ item_active: selectedSolution?.id === item.id }" @click="selectSolution(item)">
@@ -58,6 +62,8 @@ const {
                     </Paragraph>
                 </li>
             </ul>
+        </Slider>
+        <Container>
             <div class="section-solution__content" v-if="selectedSolution">
                 <div class="content__items">
                     <div class="item__description">
@@ -77,7 +83,7 @@ const {
                         <div class="item__price">
                             <Paragraph tagName="p" color="dark" size="xs">стоимость:</Paragraph>
                             <Paragraph tagName="p" color="dark" size="xxxl" class="summary">{{
-                                selectedSolution.totalCost }} руб</Paragraph>
+                                formattedTotalCost }} </Paragraph>
                         </div>
                     </div>
                     <div class="item__photo">

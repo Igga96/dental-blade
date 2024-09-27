@@ -1,0 +1,61 @@
+.doctor__rating {
+
+    .rating__title {
+        display: flex;
+        align-items: center;
+        .title{
+            font-size: 20px;
+            line-height: 28px;
+            font-weight: 500;
+        }
+
+        .title__items {
+            display: flex;
+            gap: 8px;
+            margin-left: 20px;
+            .text{
+                font-size: 16px;
+                line-height: 24px;
+            }
+        }
+    }
+
+    .rating__label {
+        margin-top: 30px;
+
+
+        .label__text {
+            display: flex;
+            justify-content: space-between;
+            font-size: 16px;
+            line-height: 24px;
+        }
+    }
+
+    .progress-bar {
+        width: 100%;
+        height: 4px;
+        background-color: #e0e0e0;
+        border-radius: 4px;
+        margin-top: 10px;
+
+
+        .progress-fill {
+            height: 100%;
+            border-radius: 4px;
+        }
+    }
+    hr {
+        margin: 40px 0;
+        border: none;
+        border-top: 1px solid #F1F2F4;
+    }
+    .button{
+        width: 208px;
+        .text{
+           font-weight: 500;
+           font-size: 18px;
+           line-height: 21.78px;
+        }
+    }
+}

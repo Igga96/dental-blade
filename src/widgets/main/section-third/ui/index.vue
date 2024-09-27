@@ -27,7 +27,8 @@ const { sectionThirdData } = defineProps<Props>();
     <section class="section-third">
         <Container tagName="div" size="m">
             <Heading tagName="h2" regular size="xl">
-                {{ sectionThirdData.title }}
+                клиника <br>
+                ”Дентал Клиник”
             </Heading>
             <div class="section-third__content">
                 <div v-for="(item, index) in sectionThirdData.description" :key="item.id"

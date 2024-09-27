@@ -33,7 +33,8 @@ const { sectionNineData } = defineProps<Props>();
       <div class="section-nine__content">
         <div class="content__text">
           <Heading tagName="h4" size="s" regular class="text__title">
-            {{ sectionNineData.heading }}
+            достижения<br>
+и награды клиники
           </Heading>
           <ul class="text__cards">
             <li v-for="item in sectionNineData.description" :key="item.id" class="item">

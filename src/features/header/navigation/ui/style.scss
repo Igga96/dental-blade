@@ -13,6 +13,10 @@
                 border: 1px solid #F1F2F4;
                 border-radius: 30px;
 
+                &:hover {
+                    border: 1px solid #23262F;
+                }
+
                 .text {
                     color: black;
                     font-size: 14px;
@@ -36,6 +40,10 @@
                 padding: 12px 30px;
                 border: 1px solid rgba(0, 0, 0, 0.05);
                 background: rgba(0, 0, 0, 0.15);
+
+                &:hover {
+                    border: 1px solid #F1F2F4;
+                }
 
                 .text {
                     color: #FFFF;

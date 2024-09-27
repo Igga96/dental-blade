@@ -18,6 +18,8 @@ const props = defineProps<Props>()
 <style scoped>
 h1, h2, h3, h4{
     font-weight: 400;
+    color: #23262F;
+    
 }
 .heading__size-xs {
     font-size: 24px;
@@ -26,7 +28,7 @@ h1, h2, h3, h4{
 
 .heading__size-s {
     font-size: 40px;
-    line-height: 110%;
+    line-height: 40px;
 }
 
 .heading__size-m {

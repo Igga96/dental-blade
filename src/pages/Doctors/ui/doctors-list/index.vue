@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { useStore } from 'vuex';
-import { computed } from 'vue';
+import { computed, ref } from 'vue';
 
 import { Heading } from '@/shared/ui/text/heading';
 import { Paragraph } from '@/shared/ui/text/paragraph';
@@ -10,9 +10,24 @@ import { Icon } from '@/shared/ui/icons';
 import { Rating } from '@/shared/ui/rating';
 import { RouterLink } from 'vue-router';
 
-
 const store = useStore();
 const doctorsData = computed(() => store.getters['doctors/formattedDoctors']);
+
+// Состояние для активной даты и времени
+const activeDate = ref<number>(0); // Установить первую дату активной по умолчанию
+const activeTime = ref<number | null>(null);
+
+// Функция для установки активной даты
+const setActiveDate = (index: number) => {
+  // Запрет выбора для второй даты
+  if (index === 1) return;
+  activeDate.value = index;
+};
+
+// Функция для установки активного времени
+const setActiveTime = (index: number) => {
+  activeTime.value = index;
+};
 </script>
 
 <template>
@@ -33,7 +48,7 @@ const doctorsData = computed(() => store.getters['doctors/formattedDoctors']);
               <Paragraph tagName="p" size="xs" color="dark">
                 98% пациентов рекомендуют врача
               </Paragraph>
-              <a href="">109 отзывов</a>
+              <a class="review__link" href="">109 отзывов</a>
             </div>
             <div class="item__description">
               <RouterLink :to="`/doctors/${doctor.slug}`">
@@ -70,12 +85,12 @@ const doctorsData = computed(() => store.getters['doctors/formattedDoctors']);
                 <ul class="social-links">
                   <li>
                     <a href="">
-                      <Icon type="WS" color="none" />
+                      <Icon type="WS" color="none" :size="25"/>
                     </a>
                   </li>
                   <li>
                     <a href="">
-                      <Icon type="TG" color="none" />
+                      <Icon type="TG" color="none" :size="25" />
                     </a>
                   </li>
                 </ul>
@@ -85,80 +100,33 @@ const doctorsData = computed(() => store.getters['doctors/formattedDoctors']);
 
           <div class="info__content-right">
             <div class="date-slider">
-
               <ul slidesPerView="auto" spaceBetween={10} class="date-slider__items">
-                <li class="item item_active-date">
+                <li 
+                  v-for="(date, dateIndex) in ['15 сент', '16 сент', '17 сент', '18 сент', '19 сент']" 
+                  :key="dateIndex"
+                  :class="[
+                    'item', 
+                    { 'item_active-date': activeDate === dateIndex, 'item_busy-date': dateIndex === 1 }
+                  ]" 
+                  @click="setActiveDate(dateIndex)">
                   <Paragraph tagName="p" color="dark" size="m" class="date">
-                    15 сент
+                    {{ date }}
                   </Paragraph>
                   <Paragraph tagName="p" color="dark" size="m" class="day">
-                    сегодня
-                  </Paragraph>
-                </li>
-                <li class="item item_busy-date">
-                  <Paragraph tagName="p" color="dark" size="m" class="date">
-                    16 сент
-                  </Paragraph>
-                  <Paragraph tagName="p" color="dark" size="m" class="day">
-                    завтра
-                  </Paragraph>
-                </li>
-                <li class="item item_free-date">
-                  <Paragraph tagName="p" color="dark" size="m" class="date">
-                    17 сент
-                  </Paragraph>
-                  <Paragraph tagName="p" color="dark" size="m" class="day">
-                    вт
-                  </Paragraph>
-                </li>
-                <li class="item item_free-date">
-                  <Paragraph tagName="p" color="dark" size="m" class="date">
-                    18 сент
-                  </Paragraph>
-                  <Paragraph tagName="p" color="dark" size="m" class="day">
-                    ср
-                  </Paragraph>
-                </li>
-                <li class="item item_free-date">
-                  <Paragraph tagName="p" color="dark" size="m" class="date">
-                    19 сент
-                  </Paragraph>
-                  <Paragraph tagName="p" color="dark" size="m" class="day">
-                    чт
+                    {{ dateIndex === 0 ? 'сегодня' : (dateIndex === 1 ? 'завтра' : ['вт', 'ср', 'чт'][dateIndex - 2]) }}
                   </Paragraph>
                 </li>
               </ul>
             </div>
             <div class="time-slider">
               <ul class="time-slider__items">
-                <li class="item item_active">
+                <li 
+                  v-for="(time, timeIndex) in ['09:00', '10:00', '11:00', '12:00', '13:00', '14:00']" 
+                  :key="timeIndex"
+                  :class="['item', { 'item_active-time': activeTime === timeIndex }]" 
+                  @click="setActiveTime(timeIndex)">
                   <Paragraph tagName="span" color="dark" size="m">
-                    09:00
-                  </Paragraph>
-                </li>
-                <li class="item ">
-                  <Paragraph tagName="span" color="dark" size="m">
-                    10:00
-                  </Paragraph>
-                </li>
-                <li class="item">
-                  <Paragraph tagName="span" color="dark" size="m">
-                    11:00
-                  </Paragraph>
-                </li>
-                <li class="item">
-                  <Paragraph tagName="span" color="dark" size="m">
-                    12:00
-                  </Paragraph>
-                </li>
-                <li class="item">
-                  <Paragraph tagName="span" color="dark" size="m">
-                    13:00
-                  </Paragraph>
-                </li>
-                <li class="item">
-                  <Paragraph tagName="span" color="dark" size="m">
-                    14:00
+                    {{ time }}
                   </Paragraph>
                 </li>
               </ul>
@@ -173,6 +141,9 @@ const doctorsData = computed(() => store.getters['doctors/formattedDoctors']);
     </div>
   </section>
 </template>
+
+
+
 
 
 
@@ -216,8 +187,16 @@ h2 {
               margin-bottom: 25px;
               width: 282px;
               height: 304px;
+        
 
             }
+            .review__link{
+                text-decoration: underline;
+                color: #4963FF;
+                &:hover{
+                  color: #3D4FB3;
+                }
+              }
           }
 
           .item__description {
@@ -253,6 +232,11 @@ h2 {
             .phone {
               a p.text {
                 margin-top: 5px;
+                &:hover{
+                  color: #3D4FB3;
+                }
+              
+              
               }
             }
 
@@ -291,10 +275,15 @@ h2 {
             .date-slider__items {
               display: flex;
               overflow: hidden;
+              gap: 5px;
 
               .item {
                 min-width: 100px;
-                padding: 15px 8px 8px 15px;
+                padding: 10px 8px 8px 10px;
+                display: flex;
+                align-items: start;
+                justify-content: center;
+                flex-direction: column;
                 border: 1px solid rgb(241, 242, 244);
                 border-radius: 4px;
                 cursor: pointer;
@@ -302,10 +291,12 @@ h2 {
                 .date {
                   font-size: 18px;
                   font-weight: 500;
+                  line-height: 25px;
                 }
 
                 .day {
                   font-size: 14px;
+                  line-height: 24px;
                 }
 
               }
@@ -320,11 +311,11 @@ h2 {
               }
 
               .item_busy-date {
+                cursor: default;
 
                 .day,
                 .date {
                   color: #B1B5C3;
-                  cursor: default;
                 }
               }
 
@@ -346,7 +337,7 @@ h2 {
                 border-radius: 4px;
               }
 
-              .item_active {
+              .item_active-time {
                 background: #4963FF;
 
                 .text {

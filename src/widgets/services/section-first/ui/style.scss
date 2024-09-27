@@ -9,9 +9,17 @@
     justify-content: space-between;
     gap: 15px;
 
-    .content__left {
-      h2 {
+    .content__text {
+      .text__title {
         margin-bottom: 40px;
+        font-weight: 600;
+        max-width: 650px;
+        .text{
+          font-weight: 600;
+        }
+      }
+      .text__description{
+        max-width: 700px;
       }
 
       .buttons {
@@ -36,7 +44,7 @@
       }
     }
 
-    .content__right {
+    .content__photo {
       display: flex;
       align-items: center;
 
@@ -64,7 +72,7 @@
           backdrop-filter: blur(40px);
           background: rgba(255, 255, 255, 0.1);
           position: absolute;
-          right: 125px;
+          right: 275px;
           top: 195px;
           transform: rotate(30deg);
           height: 80px;

@@ -1,4 +1,5 @@
 import { ref, computed, onMounted } from 'vue';
+import { useStore } from 'vuex';
 
 interface SolutionItem {
   id: number;
@@ -9,9 +10,10 @@ interface SolutionItem {
   treatment: string;
   totalCost: number;
   imageBackground: string;
-}
+} 
 
 export function useSolutionSelector(solutions: SolutionItem[]) {
+  const store = useStore(); 
   const selectedSolution = ref<SolutionItem | null>(null);
 
   const activeIndex = computed(() => {
@@ -43,6 +45,17 @@ export function useSolutionSelector(solutions: SolutionItem[]) {
   const isPreviousDisabled = computed(() => activeIndex.value === 0);
   const isNextDisabled = computed(() => activeIndex.value === solutions.length - 1);
 
+  const formatCost = (cost: number): string => {
+    return cost.toLocaleString('ru-RU'); 
+  };
+
+  const formattedTotalCost = computed(() => {
+    if (selectedSolution.value) {
+      return `${formatCost(selectedSolution.value.totalCost)} руб`; 
+    }
+    return '0 руб.'; 
+  });
+
   return {
     selectedSolution,
     activeIndex,
@@ -51,5 +64,6 @@ export function useSolutionSelector(solutions: SolutionItem[]) {
     selectNextSolution,
     isPreviousDisabled,
     isNextDisabled,
+    formattedTotalCost, 
   };
 }

@@ -1,7 +1,5 @@
 .section-first {
     height: 802px;
-    border-top-left-radius: 50px;
-    border-top-right-radius: 50px;
     background: url("@/assets/images/section-first-background.jpg");
     background-position: center 35%;
     background-size: 120%;
@@ -18,9 +16,10 @@
         .container {
 
             h2 {
-                margin: 130px 0 40px;
+                margin: 110px 0 40px;
                 max-width: 608px;
                 color: #ffff;
+                font-weight: 600;
 
                 .circle {
                     position: relative;
@@ -45,4 +44,34 @@
             }
         }
     }
+}
+@media screen and (max-width:1681px) {
+    .section-first {
+        .section-first__content {   
+            .container {
+                h2 {
+                    margin: 120px 0 40px;
+                    max-width: 608px;
+                    color: #ffff;
+    
+                }
+             
+            }
+        }
+    } 
+}
+@media screen and (max-width:1441px) {
+    .section-first {
+        .section-first__content {   
+            .container {
+                h2 {
+                    margin: 130px 0 40px;
+                    max-width: 608px;
+                    color: #ffff;
+    
+                }
+             
+            }
+        }
+    } 
 }

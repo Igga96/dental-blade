@@ -4,7 +4,7 @@ import { defineProps } from 'vue';
 interface Props {
     tagName: 'span' | 'p';
     color: 'white' | 'dark' | 'dark-gray'|'gray' | 'accent' | 'red';
-    size: 'xs' | 's' | 'm' | 'l' | 'xl' | 'xxl' | 'xxxl'| 'parent';
+    size?: 'xs' | 's' | 'm' | 'l' | 'xl' | 'xxl' | 'xxxl'| 'parent';
 }
 const props = defineProps<Props>()
 </script>

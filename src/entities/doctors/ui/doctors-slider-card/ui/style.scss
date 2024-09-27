@@ -3,7 +3,8 @@
     overflow: hidden;
     cursor: pointer;
     width: 100%;
-    
+    touch-action: pan-y;
+            transition: transform 0.3s ease;
 
     .item__info {
         background-position: center;

@@ -7,7 +7,19 @@
 </template>
 <style scoped>
 .container {
+    margin: 0 240px;
+}
+
+@media screen and (max-width: 1681px) {
+    .container {
+    margin: 0 200px;
+}
+}
+
+@media screen and (max-width: 1441px) {
+    .container {
     margin: 0 110px;
+}
 }
 
 @media screen and (max-width: 768px) {
@@ -17,7 +29,7 @@
 }
 
 @media screen and (max-width: 541px) {
-    .container{
+    .container {
         margin: 0 20px;
     }
 }

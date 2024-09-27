@@ -3,13 +3,7 @@ import { Container } from '@/shared/ui/container'
 import { Heading } from '@/shared/ui/text/heading'
 import { Button } from '@/shared/ui/button';
 import { Icon } from '@/shared/ui/icons';
-import { doctorsSliderCard } from '@/entities/doctors/ui/doctors-slider-card'
-import { useSwipe } from '@/shared/composables/useSwipe'
-import { ref } from 'vue';
-
-const itemsContainer = ref<HTMLElement | null>(null);
-useSwipe({ elementRef: itemsContainer });
-
+import { DoctorsSlider } from '@/features/slider/ui/doctors-slider'
 
 </script>
 <template>
@@ -27,11 +21,7 @@ useSwipe({ elementRef: itemsContainer });
                 </div>
             </div>
         </Container>
-        <div class="slider" >
-            <div class="doctors-slider__content" ref="itemsContainer">
-                <doctorsSliderCard/>
-            </div>
-        </div>
+        <DoctorsSlider/>
     </section>
 </template>
 <style lang="scss">

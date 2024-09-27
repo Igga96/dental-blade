@@ -38,57 +38,73 @@ import { FooterSocialLinks } from '@/entities/contacts/ui/footer-links'
 <style scoped lang="scss">
 footer {
     background: #23262F;
-    padding: 32px 25px;
-    border-bottom-left-radius: 50px;
-    border-bottom-right-radius: 50px;
-.logo{
-    color: white;
-}
-    .footer__content {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        gap: 40px;
-
-        a {
-            color: #B1B5C3;
-            text-decoration: underline;
-
-            &:hover {
-                color: #3D4FB3;
-            }
+    padding: 32px 40px;
+    
+    .logo {
+            color: white;
         }
 
-
-        .footer__content-center {
+        .footer__content {
             display: flex;
-            width: 100%;
+            align-items: center;
             justify-content: space-between;
+            gap: 40px;
 
-            p {
-                font-size: 16px;
-            }
-
-            .docs {
-                display: flex;
-                gap: 50px;
+            a {
+                color: #B1B5C3;
                 text-decoration: underline;
 
-                a {
-                    display: block;
-                    text-align: end;
+                &:hover {
+                    color: #3D4FB3;
                 }
             }
-        }
 
-        .social-links {
-            display: flex;
-            gap: 10px;
-        }
 
-        .footer__content_text-bottom {
-            display: none;
+            .footer__content-center {
+                display: flex;
+                width: 100%;
+                justify-content: space-between;
+
+                p {
+                    font-size: 16px;
+                }
+
+                .docs {
+                    display: flex;
+                    gap: 50px;
+                    text-decoration: underline;
+
+                    a {
+                        display: block;
+                        text-align: end;
+                    }
+                }
+            }
+
+            .social-links {
+                display: flex;
+                gap: 10px;
+            }
+
+            .footer__content_text-bottom {
+                display: none;
+            }
         }
+    }
+
+
+@media screen and (max-width:1680px) {
+    footer {
+        padding: 32px 35px;
+        
+    }
+}
+
+@media screen and (max-width:1440px) {
+
+    footer {
+        padding: 32px 25px;
+
     }
 }
 
@@ -128,6 +144,10 @@ footer {
                     div {
                         display: flex;
                         gap: 15px;
+
+                        a {
+                            text-align: start;
+                        }
                     }
                 }
             }
