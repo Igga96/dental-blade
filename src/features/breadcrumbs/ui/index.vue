@@ -12,26 +12,25 @@ const props = defineProps({
 });
 
 const route = useRoute();
-const isDataReady = ref(false); // Флаг готовности данных
+const isDataReady = ref(false);
 
-// Используем watch для отслеживания изменений маршрута и установки флага
 watch(
     () => route,
     () => {
-        isDataReady.value = true; // Устанавливаем флаг в true, когда маршрут изменился
+        isDataReady.value = true;
     },
-    { immediate: true } // Устанавливаем флаг сразу при инициализации
+    { immediate: true }
 );
 
 const breadcrumbsLinks = computed(() => {
     return route.matched.map((match) => ({
-        label: match.meta?.breadcrumb || match.name,
+        label: match.name,
         path: match.path
     }));
 });
 
 const lastBreadcrumb = computed(() => ({
-    label: props.dynamicLabel || breadcrumbsLinks.value[breadcrumbsLinks.value.length - 1].label,
+    label: props.dynamicLabel || route.params.slug || route.name,
     path: route.fullPath
 }));
 
@@ -40,31 +39,33 @@ const isChildRoute = computed(() => route.path.split('/').length > 2);
 
 <template>
     <div v-if="isDataReady" class="breadcrumbs">
+
         <RouterLink to="/" class="breadcrumbs__link">
-            <Paragraph tagName="span" size="xs" color="dark-gray" class="link__text">
+            <Paragraph tagName="span" color="dark-gray" class="link__text">
                 Главная
             </Paragraph>
         </RouterLink>
-        <RouterLink v-for="(link, index) in breadcrumbsLinks.slice(0, -1)" :key="index" :to="link.path"
-            class="breadcrumbs__link">
-            <Paragraph tagName="span" size="xs" color="dark-gray" class="link__text">
-                <Paragraph tagName="span" size="xs" color="dark-gray" class="link__arrow">
-                    &#8250;
+
+        <template v-if="dynamicLabel.length">
+            <RouterLink v-for="(link, index) in breadcrumbsLinks.slice(0, -1)" :key="index" :to="link.path"
+                class="breadcrumbs__link">
+                <Paragraph tagName="span" color="dark-gray" class="link__text">
+                    <Paragraph tagName="span" color="dark-gray" class="link__arrow">
+                        &#8250;
+                    </Paragraph>
+                    {{ link.label }}
                 </Paragraph>
-                {{ link.label }}
+            </RouterLink>
+        </template>
+
+        <Paragraph tagName="span" color="dark-gray" class="link__text" >
+            <Paragraph tagName="span" color="dark-gray" class="link__arrow">
+                &#8250;
             </Paragraph>
-        </RouterLink>
-        <RouterLink v-if="isChildRoute" :to="lastBreadcrumb.path" class="breadcrumbs__link">
-            <Paragraph tagName="span" size="xs" color="dark-gray" class="link__text">
-                <Paragraph tagName="span" size="xs" color="dark-gray" class="link__arrow">
-                    &#8250;
-                </Paragraph>
-                {{ lastBreadcrumb.label }}
-            </Paragraph>
-        </RouterLink>
+            {{ lastBreadcrumb.label }}
+        </Paragraph>
     </div>
 </template>
-
 <style scoped lang="scss">
 @import './style.scss';
 </style>

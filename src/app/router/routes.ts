@@ -21,7 +21,7 @@ export const routes = [
     name: 'Стоимость услуг',
     component: () => import('../../pages/prices/ui/index.vue')
   },
-  {
+  { 
     path: '/cases',
     name: 'Кейсы',
     component: () => import('../../pages/cases/ui/cases-view/ui/index.vue'),
