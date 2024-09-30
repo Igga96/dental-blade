@@ -1,0 +1,33 @@
+@import url("basic.css");
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
+
+* {
+    font-family: "Open Sans", sans-serif;
+    color: $dark;
+}
+p{
+    color: $dark-gray;
+}
+button{
+    cursor: pointer;
+}
+
+/*default colors*/
+$accent-color: #4963FF;
+$dark: #23262F;
+$white: #FFFFFF;
+$gray: #B1B5C3;
+$dark-gray: #747B8F;
+$dark-blue: #3D4FB3;
+
+/*hover/bacground colors*/
+$accent-color-dark-first: #3D4FB3;
+$accent-color-dark-second: #3E6BC2;
+$light-gray: #F6F6F6;
+$light-blue-first: #FCFCFD;
+$light-blue-second: #F1F3F9;
+
+/*status colors*/
+$yellow: #FFD166;
+$green: #DBFC5B;
+$red-error:#ED2626;
