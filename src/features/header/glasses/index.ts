@@ -1,1 +1,0 @@
-export {default as Glasses} from './index.vue'

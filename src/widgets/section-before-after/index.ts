@@ -1,1 +1,0 @@
-export {default as BeforeAfter} from './index.vue'
