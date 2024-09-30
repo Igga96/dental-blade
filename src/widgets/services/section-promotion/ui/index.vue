@@ -42,7 +42,7 @@ const { sectionPromotionData } = defineProps<Props>();
                 <Paragraph tagName="span" color="red" size="xxl">{{item.newPrice}}</Paragraph>
               </div>
             </div>
-            <Button tagName="button" size="xs" color="white" type="none">
+            <Button tagName="button" size="xs" type="none" color="white" >
               Оставить заявку
             </Button>
           </div>

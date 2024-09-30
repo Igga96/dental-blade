@@ -1,0 +1,133 @@
+h2 {
+    margin-top: 50px;
+}
+
+.section-doctors {
+    margin-top: 100px;
+
+    .section-doctors__content {
+
+        .item {
+
+            hr {
+                margin: 70px 0;
+            }
+
+            .item__info {
+                display: flex;
+                justify-content: space-between;
+                gap: 32px;
+
+                .info__content-left {
+                    display: flex;
+                    gap: 50px;
+
+                    .photo {
+                        align-items: center;
+                        display: flex;
+                        flex-direction: column;
+
+                        .doctor-photo {
+                            display: block;
+                            background-position: 0% 20%;
+                            background-size: 100%;
+                            background-repeat: no-repeat;
+                            border-radius: 10px;
+                            margin-bottom: 25px;
+                            width: 282px;
+                            height: 304px;
+
+
+                        }
+
+                        .review__link {
+                            text-decoration: underline;
+                            color: #4963FF;
+
+                            &:hover {
+                                color: #3D4FB3;
+                            }
+                        }
+                    }
+
+                    .item__description {
+                        width: 472px;
+                        padding-top: 14px;
+
+                        a:hover {
+                            h2 {
+                                color: #3D4FB3;
+                            }
+                        }
+
+
+                        h2 {
+                            margin: 5px 0 16px;
+                            color: #23262F;
+                        }
+
+                        .expierence {
+                            display: flex;
+                            align-items: center;
+                            gap: 12px;
+                            margin-bottom: 65px;
+
+                            .dot {
+                                display: inline-block;
+                                background: rgb(116, 123, 143);
+                                width: 4px;
+                                height: 4px;
+                                border-radius: 90px;
+                            }
+                        }
+
+                        .phone {
+                            a p.text {
+                                margin-top: 5px;
+
+                                &:hover {
+                                    color: #3D4FB3;
+                                }
+
+
+                            }
+                        }
+
+                        .chat {
+                            margin-top: 20px;
+                            display: flex;
+                            align-items: center;
+                            gap: 10px;
+
+                            .social-links {
+                                display: flex;
+                                gap: 5px;
+
+                                li {
+                                    a {
+                                        svg {
+                                            rect {
+                                                width: 25px;
+                                                height: 25px;
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+
+
+                }
+
+            }
+
+        }
+    }
+}
+
+hr {
+    margin: 32px 0;
+    border: none;
+    border-top: 1px solid #F1F2F4;
+}

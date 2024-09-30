@@ -1,33 +1,17 @@
 <script setup lang="ts">
 import { useStore } from 'vuex';
 import { computed, ref } from 'vue';
-
 import { Heading } from '@/shared/ui/text/heading';
 import { Paragraph } from '@/shared/ui/text/paragraph';
-import { Button } from '@/shared/ui/button';
 import { Tags } from '@/features/tags';
 import { Icon } from '@/shared/ui/icons';
+import { Sheldue } from '@/features/sheldue'
 import { Rating } from '@/shared/ui/rating';
 import { RouterLink } from 'vue-router';
 
 const store = useStore();
 const doctorsData = computed(() => store.getters['doctors/formattedDoctors']);
 
-// Состояние для активной даты и времени
-const activeDate = ref<number>(0); // Установить первую дату активной по умолчанию
-const activeTime = ref<number | null>(null);
-
-// Функция для установки активной даты
-const setActiveDate = (index: number) => {
-  // Запрет выбора для второй даты
-  if (index === 1) return;
-  activeDate.value = index;
-};
-
-// Функция для установки активного времени
-const setActiveTime = (index: number) => {
-  activeTime.value = index;
-};
 </script>
 
 <template>
@@ -85,7 +69,7 @@ const setActiveTime = (index: number) => {
                 <ul class="social-links">
                   <li>
                     <a href="">
-                      <Icon type="WS" color="none" :size="25"/>
+                      <Icon type="WS" color="none" :size="25" />
                     </a>
                   </li>
                   <li>
@@ -98,43 +82,7 @@ const setActiveTime = (index: number) => {
             </div>
           </div>
 
-          <div class="info__content-right">
-            <div class="date-slider">
-              <ul slidesPerView="auto" spaceBetween={10} class="date-slider__items">
-                <li 
-                  v-for="(date, dateIndex) in ['15 сент', '16 сент', '17 сент', '18 сент', '19 сент']" 
-                  :key="dateIndex"
-                  :class="[
-                    'item', 
-                    { 'item_active-date': activeDate === dateIndex, 'item_busy-date': dateIndex === 1 }
-                  ]" 
-                  @click="setActiveDate(dateIndex)">
-                  <Paragraph tagName="p" color="dark" size="m" class="date">
-                    {{ date }}
-                  </Paragraph>
-                  <Paragraph tagName="p" color="dark" size="m" class="day">
-                    {{ dateIndex === 0 ? 'сегодня' : (dateIndex === 1 ? 'завтра' : ['вт', 'ср', 'чт'][dateIndex - 2]) }}
-                  </Paragraph>
-                </li>
-              </ul>
-            </div>
-            <div class="time-slider">
-              <ul class="time-slider__items">
-                <li 
-                  v-for="(time, timeIndex) in ['09:00', '10:00', '11:00', '12:00', '13:00', '14:00']" 
-                  :key="timeIndex"
-                  :class="['item', { 'item_active-time': activeTime === timeIndex }]" 
-                  @click="setActiveTime(timeIndex)">
-                  <Paragraph tagName="span" color="dark" size="m">
-                    {{ time }}
-                  </Paragraph>
-                </li>
-              </ul>
-            </div>
-            <Button tagName="button" color="white" size="xs" type="none">
-              записаться на прием
-            </Button>
-          </div>
+          <Sheldue />
         </div>
         <hr v-if="index < doctorsData.length - 1" />
       </div>
@@ -142,222 +90,6 @@ const setActiveTime = (index: number) => {
   </section>
 </template>
 
-
-
-
-
-
-  
 <style scoped lang="scss">
-h2 {
-  margin-top: 50px;
-}
-
-.section-doctors {
-  margin-top: 100px;
-
-  .section-doctors__content {
-
-    .item {
-
-      hr {
-        margin: 70px 0;
-      }
-
-      .item__info {
-        display: flex;
-        justify-content: space-between;
-        gap: 32px;
-
-        .info__content-left {
-          display: flex;
-          gap: 50px;
-
-          .photo {
-            align-items: center;
-            display: flex;
-            flex-direction: column;
-
-            .doctor-photo {
-              display: block;
-              background-position: 0% 20%;
-              background-size: 100%;
-              background-repeat: no-repeat;
-              border-radius: 10px;
-              margin-bottom: 25px;
-              width: 282px;
-              height: 304px;
-        
-
-            }
-            .review__link{
-                text-decoration: underline;
-                color: #4963FF;
-                &:hover{
-                  color: #3D4FB3;
-                }
-              }
-          }
-
-          .item__description {
-            width: 472px;
-            padding-top: 14px;
-            a:hover{
-              h2{
-                color:#3D4FB3;
-              }
-              }
-            
-
-            h2 {
-              margin: 5px 0 16px;
-              color: #23262F;
-            }
-
-            .expierence {
-              display: flex;
-              align-items: center;
-              gap: 12px;
-              margin-bottom: 65px;
-
-              .dot {
-                display: inline-block;
-                background: rgb(116, 123, 143);
-                width: 4px;
-                height: 4px;
-                border-radius: 90px;
-              }
-            }
-
-            .phone {
-              a p.text {
-                margin-top: 5px;
-                &:hover{
-                  color: #3D4FB3;
-                }
-              
-              
-              }
-            }
-
-            .chat {
-              margin-top: 20px;
-              display: flex;
-              align-items: center;
-              gap: 10px;
-
-              .social-links {
-                display: flex;
-                gap: 5px;
-
-                li {
-                  a {
-                    svg {
-                      rect {
-                        width: 25px;
-                        height: 25px;
-                      }
-                    }
-                  }
-                }
-              }
-            }
-          }
-
-
-        }
-
-        .info__content-right {
-          overflow: hidden;
-
-          .date-slider {
-
-            .date-slider__items {
-              display: flex;
-              overflow: hidden;
-              gap: 5px;
-
-              .item {
-                min-width: 100px;
-                padding: 10px 8px 8px 10px;
-                display: flex;
-                align-items: start;
-                justify-content: center;
-                flex-direction: column;
-                border: 1px solid rgb(241, 242, 244);
-                border-radius: 4px;
-                cursor: pointer;
-
-                .date {
-                  font-size: 18px;
-                  font-weight: 500;
-                  line-height: 25px;
-                }
-
-                .day {
-                  font-size: 14px;
-                  line-height: 24px;
-                }
-
-              }
-
-              .item_active-date {
-                background: #4963FF;
-
-                .day,
-                .date {
-                  color: white;
-                }
-              }
-
-              .item_busy-date {
-                cursor: default;
-
-                .day,
-                .date {
-                  color: #B1B5C3;
-                }
-              }
-
-            }
-          }
-
-          .time-slider {
-            margin: 25px 0 45px;
-
-            .time-slider__items {
-              display: flex;
-              flex-wrap: wrap;
-              gap: 5px;
-
-              .item {
-                cursor: pointer;
-                padding: 8px 15px;
-                border: 1px solid rgb(241, 242, 244);
-                border-radius: 4px;
-              }
-
-              .item_active-time {
-                background: #4963FF;
-
-                .text {
-                  color: white;
-                }
-              }
-            }
-          }
-        }
-      }
-
-    }
-  }
-}
-
-hr {
-  margin: 32px 0;
-  border: none;
-  border-top: 1px solid #F1F2F4;
-}
-
-;
+@import './style.scss';
 </style>

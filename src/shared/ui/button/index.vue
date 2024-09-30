@@ -5,7 +5,7 @@ interface Props {
     tagName: 'button';
     size: 's' | 'xs';
     color: 'white' | 'accent';
-    type: 'none' | 'circle'
+    type?: 'none' | 'circle'
 }
 const props = defineProps<Props>()
 </script>

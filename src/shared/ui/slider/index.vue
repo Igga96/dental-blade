@@ -11,7 +11,6 @@
 .slider {
   width: 100%;
   overflow: hidden;
-  display: flex;
   margin-left: 240px;
 }
 

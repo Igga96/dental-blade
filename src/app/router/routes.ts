@@ -9,7 +9,50 @@ export const routes = [
   {
     path: '/admin',
     name: 'admin',
-    component: () => import('../../pages/admin/ui/index.vue')
+    component: () => import('../../pages/admin/ui/admin-view/index.vue'),
+    children: [
+      {
+        path: '',
+        name: 'admin-login',
+        component: () => import('../../pages/admin/ui/admin-login/index.vue')  
+      },
+      {
+        path: 'dashboard',
+        name: 'admin-dashboard',
+        component: () => import('../../pages/admin/ui/admin-dashboard/index.vue'),
+        meta: { requiresAuth: true }  
+      },
+      {
+        path: 'users',
+        name: 'admin-users',
+        component: () => import('../../pages/admin/ui/admin-users/index.vue'),
+        meta: { requiresAuth: true }  
+      },
+      {
+        path: 'doctors',
+        name: 'admin-doctors',
+        component: () => import('../../pages/admin/ui/admin-doctors/index.vue'),
+        meta: { requiresAuth: true }  
+      },
+      {
+        path: 'prices',
+        name: 'admin-prices',
+        component: () => import('../../pages/admin/ui/admin-prices/index.vue'),
+        meta: { requiresAuth: true }  
+      },
+      {
+        path: 'cases',
+        name: 'admin-cases',
+        component: () => import('../../pages/admin/ui/admin-cases/index.vue'),
+        meta: { requiresAuth: true }  
+      },
+      {
+        path: 'contacts',
+        name: 'admin-contacts',
+        component: () => import('../../pages/admin/ui/admin-contacts/index.vue'),
+        meta: { requiresAuth: true }  
+      },
+    ]
   },
   {
     path: '/services',
@@ -21,7 +64,7 @@ export const routes = [
     name: 'Стоимость услуг',
     component: () => import('../../pages/prices/ui/index.vue')
   },
-  { 
+  {
     path: '/cases',
     name: 'Кейсы',
     component: () => import('../../pages/cases/ui/cases-view/ui/index.vue'),

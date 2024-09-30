@@ -5,7 +5,7 @@ import { Heading } from '@/shared/ui/text/heading';
 import { Prices } from '@/entities/price/model/price.types';
 import { sortPricesByCategory } from '@/entities/price/model/price.model';
 import { Dots } from '@/shared/ui/dots'
-
+import { Button } from '@/shared/ui/button';
 const props = defineProps<{
     pricesData?: Prices[];
 }>();
@@ -25,14 +25,16 @@ const sortedPricesData = computed(() => sortPricesByCategory(props.pricesData));
                 {{ category }}
             </Heading>
             <div v-for="price in prices" :key="price.id" class="item__description">
-                <Paragraph tagName="p" color="dark" size="m" class="item__text">
-                    {{ price.name }}
-                    <!--br v-if="isVisible"-->
-                    <Dots />
-                </Paragraph>
-                <Paragraph tagName="span" color="dark-gray" size="xl" class="item__price">
-                    {{ price.price }} ₽
-                </Paragraph>
+                
+                    <Paragraph tagName="p" color="dark" size="m" class="item__text">
+                        {{ price.name }}
+                        <!--br v-if="isVisible"-->
+                        <Dots />
+                    </Paragraph>
+                    <Paragraph tagName="span" color="dark-gray" size="xl" class="item__price">
+                        {{ price.price }} ₽
+                    </Paragraph>
+                
             </div>
         </div>
     </div>
