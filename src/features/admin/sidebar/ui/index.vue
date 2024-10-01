@@ -1,12 +1,14 @@
 <script setup lang="ts">
 import { RouterLink } from 'vue-router';
 import { Paragraph } from '@/shared/ui/text/paragraph'
+import { Logo } from '@/shared/ui/logo';
 
 
 </script>
 
 <template>
     <aside>
+        <Logo />
         <ul>
             <li>
                 <RouterLink to="/admin/users">
@@ -36,16 +38,16 @@ import { Paragraph } from '@/shared/ui/text/paragraph'
         </ul>
     </aside>
 </template>
-<style lang="scss">
+<style lang="scss" scoped>
 aside {
     background: #23262F;
     display: flex;
-    width: 300px;
+    flex-direction: column;
     height: 100vh;
-
-    ul {
-        li {
-            width: 300px;
+    padding: 25px;
+    ul{
+        li{
+            padding: 25px 0;
         }
     }
 }

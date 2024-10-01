@@ -9,7 +9,8 @@ export const contactsModule = {
     state: (): ContactsState => ({
         contactsData: [
             {
-                id: 0,
+                id: 0,/*id клиники в ident и так далее */
+                clinicId: 1,
                 address: 'Москва, Кутузовский пр-кт, 45',
                 phone: '+74959889939',
                 timeStart: '10:00',

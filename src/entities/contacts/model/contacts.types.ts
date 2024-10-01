@@ -1,5 +1,6 @@
 export interface Contacts {
     id: number;
+    clinicId: number;
     address: string,
     phone: string,
     timeStart: string,

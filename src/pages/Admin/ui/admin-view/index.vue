@@ -17,6 +17,5 @@ const isAuthenticated = computed(() => store.state.auth.isAuthenticated);
 <style>
 .admin__content {
   display: flex;
-  gap: 100px;
 }
 </style>

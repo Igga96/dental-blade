@@ -13,7 +13,6 @@ const store = useStore();
 const doctorsData = computed(() => store.getters['doctors/formattedDoctors']);
 
 </script>
-
 <template>
   <Heading tagName="h2" regular size="xxl">
     наши специалисты

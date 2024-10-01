@@ -3,7 +3,7 @@ import { defineProps } from 'vue';
 
 interface Props {
     tagName: 'h1' | 'h2' | 'h3' | 'h4';
-    regular: boolean;
+    regular?: boolean;
     size: 'xs' | 's' | 'm' | 'l' | 'xl' | 'xxl';
 }
 const props = defineProps<Props>()
