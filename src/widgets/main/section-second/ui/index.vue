@@ -4,6 +4,7 @@ import { Heading } from '@/shared/ui/text/heading';
 import { Paragraph } from '@/shared/ui/text/paragraph';
 import { Icon } from '@/shared/ui/icons';
 import { Circle } from '@/shared/ui/circle';
+import { RouterLink } from 'vue-router';
 import { useTouchSwipe } from '@/shared/composables/useTouchSwipe';
 import { ref } from 'vue';
 
@@ -31,6 +32,7 @@ useTouchSwipe({ elementRef: itemsContainer });
 <template>
   <section class="section-second">
     <Container tagName="div" size="m">
+    <RouterLink to="/services">
       <Heading tagName="h2" regular size="xl">
         один визит в клинику приблизит вас к
         <Paragraph tagName="span" size="parent" color="gray">
@@ -38,6 +40,7 @@ useTouchSwipe({ elementRef: itemsContainer });
         </Paragraph>
         любой проблемы.
       </Heading>
+    </RouterLink>
       <div class="section-second__items" ref="itemsContainer">
         <div v-for="(item, index) in sectionSecondData.cards" :key="item.id" class="item" :id="`item-${index + 1}`">
           <div class="item__background" :style="{ backgroundImage: `url(${item.background})` }">

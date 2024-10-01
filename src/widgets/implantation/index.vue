@@ -2,12 +2,14 @@
 import { Container } from '@/shared/ui/container'
 import { Heading } from '@/shared/ui/text/heading'
 import { Paragraph } from '@/shared/ui/text/paragraph';
+import { RouterLink } from 'vue-router';
 import { ImplantationSlider } from '@/features/slider/ui/implantation-slider';
 </script>
 
 <template>
     <section class="section-implantation">
         <Container>
+        <RouterLink to="/promotions">
             <Heading tagName="h2" regular size="xl">
                 у нас имплантация
                 <Paragraph tagName="span" size="parent" color="gray">
@@ -15,6 +17,7 @@ import { ImplantationSlider } from '@/features/slider/ui/implantation-slider';
                 </Paragraph>
                 без мнимой экономии!
             </Heading>
+        </RouterLink>
         </Container>
         <ImplantationSlider />
     </section>

@@ -52,6 +52,12 @@ export const routes = [
         component: () => import('../../pages/admin/ui/admin-contacts/index.vue'),
         meta: { requiresAuth: true }  
       },
+      {
+        path: 'questions',
+        name: 'admin-questions',
+        component: () => import('../../pages/admin/ui/admin-questions/index.vue'),
+        meta: { requiresAuth: true }  
+      },
     ]
   },
   {

@@ -4,6 +4,7 @@ import { Heading } from '@/shared/ui/text/heading';
 import { Paragraph } from '@/shared/ui/text/paragraph';
 import { Button } from '@/shared/ui/button';
 import { Circle } from '@/shared/ui/circle';
+import { RouterLink } from 'vue-router';
 import { Icon } from '@/shared/ui/icons';
 import { useSwipe } from '@/shared/composables/useSwipe';
 import { useSolutionSelector } from '@/widgets/section-solution/model/solutions.model';
@@ -46,12 +47,14 @@ const {
 <template>
     <section class="section-solution">
         <Container>
+        <RouterLink to="cases">
             <Heading tagName="h2" regular size="xl" class="section-solution__title">
                 вне зависимости от состояния здоровья ваша проблема c зубами будет
                 <Paragraph tagName="span" size="parent" color="gray">
                     решена!
                 </Paragraph>
             </Heading>
+        </RouterLink>
         </Container>
         <Slider>
             <ul ref="itemsContainer" class="section-solution__list">

@@ -1,18 +1,23 @@
 <script setup lang="ts">
 import { RouterLink } from 'vue-router';
+import { Paragraph } from '../text/paragraph';
 </script>
 <template>
     <RouterLink to="/" class="logo">
-        logo
+        <Paragraph tag-name="span" size="xs" color="dark">
+            logo
+        </Paragraph>
     </RouterLink>
 </template>
-<style>
+<style lang="scss" scoped>
 .logo {
-    display: block;
+    display: flex;
+    height: 45px;
+    align-items: center;
+    justify-content: center;
     border: 1px solid rgba(0, 0, 0, 0.05);
     border-radius: 30px;
     background: #FFFF;
-    padding: 12px 30px;
     width: 115px;
     border-radius: 50px;
     color: rgb(35, 38, 47);
@@ -22,5 +27,9 @@ import { RouterLink } from 'vue-router';
     line-height: 19px;
     letter-spacing: 0%;
     text-align: center;
+
+    .text {
+        font-weight: 500;
+    }
 }
 </style>

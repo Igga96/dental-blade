@@ -31,6 +31,11 @@ import { Logo } from '@/shared/ui/logo';
                 </RouterLink>
             </li>
             <li>
+                <RouterLink to="/admin/questions">
+                    <Paragraph tagName="span" size="xxl" color="white">вопросы</Paragraph>
+                </RouterLink>
+            </li>
+            <li>
                 <RouterLink to="/admin/contacts">
                     <Paragraph tagName="span" size="xxl" color="white">контакты</Paragraph>
                 </RouterLink>

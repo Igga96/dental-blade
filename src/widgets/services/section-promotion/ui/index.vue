@@ -39,7 +39,7 @@ const { sectionPromotionData } = defineProps<Props>();
               </div>
               <div class="price">
                 <Paragraph tagName="span" color="dark-gray" size="xxl">{{item.oldPrice}}</Paragraph>
-                <Paragraph tagName="span" color="red" size="xxl">{{item.newPrice}}</Paragraph>
+                <Paragraph tagName="span" color="accent" size="xxl">{{item.newPrice}}</Paragraph>
               </div>
             </div>
             <Button tagName="button" size="xs" type="none" color="white" >

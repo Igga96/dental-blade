@@ -2,6 +2,9 @@
 import { ref } from 'vue';
 import { useRouter } from 'vue-router';
 import { useStore } from 'vuex';
+import { Circle } from '@/shared/ui/circle';
+import { Icon } from '@/shared/ui/icons';
+import { Logo } from '@/shared/ui/logo';
 
 const username = ref('');
 const password = ref('');
@@ -19,19 +22,28 @@ const login = () => {
 };
 </script>
 <template>
-    <div class="admin-login">
-        <h1>Вход в админ-панель</h1>
-        <form @submit.prevent="login">
-            <div>
-                <label for="username">Логин</label>
-                <input type="text" v-model="username" id="username" />
-            </div>
-            <div>
-                <label for="password">Пароль</label>
-                <input type="password" v-model="password" id="password" />
-            </div>
-            <button type="submit">Войти</button>
-        </form>
-        <p v-if="error">{{ error }}</p>
-    </div>
+    <section class="admin-panel">
+        <div class="maincontainer">
+            <Circle tagName="span" color="accent" size="s">
+                <Icon type="caries2" color="white"></Icon>
+            </Circle>
+            <form @submit.prevent="login">
+                <Logo />
+                <div class="input-field">
+                    <input type="text" v-model="username" id="username" required>
+                    <label for="username">Enter your username*</label>
+                </div>
+                <div class="input-field">
+                    <input type="password" v-model="password" id="password" required>
+                    <label for="password">Enter your Password*</label>
+                </div>
+                <button type="submit">Log In</button>
+                <p v-if="error">{{ error }}</p>
+
+            </form>
+        </div>
+    </section>
 </template>
+<style scoped lang="scss">
+@import './style.scss';
+</style>

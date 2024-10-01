@@ -3,18 +3,19 @@ import { Container } from '@/shared/ui/container';
 import { Heading } from '@/shared/ui/text/heading';
 import { Button } from '@/shared/ui/button';
 import { Icon } from '@/shared/ui/icons';
+import { RouterLink } from 'vue-router';
 import { ref } from 'vue';
 import { DoctorsSlider } from '@/features/slider/ui/doctors-slider';
 
 
-const doctorsSliderRef = ref(); 
+const doctorsSliderRef = ref();
 
 const handleSlideLeft = () => {
-  doctorsSliderRef.value?.slideLeft(); 
+  doctorsSliderRef.value?.slideLeft();
 };
 
 const handleSlideRight = () => {
-  doctorsSliderRef.value?.slideRight(); 
+  doctorsSliderRef.value?.slideRight();
 };
 </script>
 
@@ -22,7 +23,9 @@ const handleSlideRight = () => {
   <section class="doctors-slider">
     <Container>
       <div class="section__tittle-with-buttons">
-        <Heading tagName="h2" regular size="xl">наши врачи</Heading>
+        <RouterLink to="/doctors">
+          <Heading tagName="h2" regular size="xl">наши врачи</Heading>
+        </RouterLink>
         <div class="btn__slide">
           <Button tagName="button" size="s" color="white" type="circle" @click="handleSlideLeft">
             <Icon type="arrowLeft" color="none" />
