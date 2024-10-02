@@ -1,2 +1,0 @@
-"use strict";(self["webpackChunkdental_blade"]=self["webpackChunkdental_blade"]||[]).push([[915],{6915:function(n,e,u){u.r(e),u.d(e,{default:function(){return d}});var r=u(641);function t(n,e){return(0,r.uX)(),(0,r.CE)("h1",null,"231231")}var a=u(6262);const l={},c=(0,a.A)(l,[["render",t]]);var d=c}}]);
-//# sourceMappingURL=915.js.map
