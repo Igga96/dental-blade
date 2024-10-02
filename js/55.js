@@ -1,0 +1,2 @@
+"use strict";(self["webpackChunkdental_blade"]=self["webpackChunkdental_blade"]||[]).push([[55],{3055:function(e,n,u){u.r(n),u.d(n,{default:function(){return c}});var r=u(641);function t(e,n){return(0,r.uX)(),(0,r.CE)("h1",null,"users")}var a=u(6262);const l={},s=(0,a.A)(l,[["render",t]]);var c=s}}]);
+//# sourceMappingURL=55.js.map
