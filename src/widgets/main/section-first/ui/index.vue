@@ -26,7 +26,7 @@ import { Button } from '@/shared/ui/button';
           <Button tagName="button" size="s" color="accent" type="none">
             Узнать подробнее
           </Button>
-          <Circle tagName="button" color="accent" size="m">
+          <Circle tagName="span" color="accent" size="m">
             <icon type="arrow" color="white"></icon>
           </Circle>
         </div>

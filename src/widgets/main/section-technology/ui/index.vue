@@ -34,7 +34,7 @@ useSwipe({ elementRef: itemsContainer });
                 <Heading tagName="h2" regular size="xl">{{ sectionTechnologyData.title }}</Heading>
                 <div class="btn__not-slide">
                     <Button tagName="button" size="s" color="accent" type="none">Записаться на прием</Button>
-                    <Circle tagName="button" color="accent" size="s">
+                    <Circle tagName="span" color="accent" size="s">
                         <icon type="arrow" color="white"></icon>
                     </Circle>
                 </div>

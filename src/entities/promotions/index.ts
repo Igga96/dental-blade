@@ -1,0 +1,1 @@
+export {default as Promotions} from './ui/index.vue'

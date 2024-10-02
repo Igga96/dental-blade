@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { Slider } from '@/shared/ui/slider';
+import { Promotions } from '@/entities/promotions'
 import { useSwipe } from '@/shared/composables/useSwipe'
 import { ref } from 'vue';
 
@@ -10,15 +11,7 @@ useSwipe({ elementRef: itemsContainer });
 <template>
     <Slider>
         <div class="implantation-slider__container" ref="itemsContainer">
-            <div class="item">
-                <img src="@/assets/images/implantation_1.png" alt="">
-            </div>
-            <div class="item">
-                <img src="@/assets/images/implantation_2.png" alt="">
-            </div>
-            <div class="item">
-                <img src="@/assets/images/implantation_1.png" alt="">
-            </div>
+            <Promotions />
         </div>
     </Slider>
 </template>
@@ -32,7 +25,7 @@ useSwipe({ elementRef: itemsContainer });
     gap: 10px;
 
 
-    .item {
+    .promotion__item {
         touch-action: pan-y;
         transition: transform 0.3s ease;
     }
@@ -41,7 +34,7 @@ useSwipe({ elementRef: itemsContainer });
 
 @media screen and (max-width: 541px) {
     .implantation-slider__container {
-        .item {
+        .promotion__item {
             img {
                 height: 250px;
                 width: auto;

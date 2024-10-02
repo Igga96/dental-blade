@@ -62,8 +62,22 @@ export const routes = [
   },
   {
     path: '/services',
-    name: 'services',
-    component: () => import('../../pages/services/ui/index.vue')
+    name: 'Услуги',
+    component: () => import('../../pages/services/ui/services-view/index.vue'),
+    children: [
+      {
+        path: '',
+        name: 'Услуги',
+        component: () => import('../../pages/services/ui/services-list/index.vue'),
+
+      },
+      {
+        path: ':slug',
+        name: 'Имплантация',
+        component: () => import('../../pages/services/ui/services-implantatsiya/index.vue'),
+
+      },
+    ]
   },
   {
     path: '/prices',
@@ -107,5 +121,23 @@ export const routes = [
         props: true,
       }
     ]
-  }
+  },
+  {
+    path: '/promotions',
+    name: 'Акции',
+    component: () => import('@/pages/promotions/ui/promotions-view/index.vue'),
+    children: [
+      {
+        path: '',
+        name: 'Акции',
+        component: () => import('@/pages/promotions/ui/promotions-list/index.vue'),
+      },
+      {
+        path: ':slug',
+        name: 'promotionDetail',
+        component: () => import('@/pages/promotions/ui/promotion-info/index.vue'),
+        props: true,
+      }
+    ]
+  },
 ]

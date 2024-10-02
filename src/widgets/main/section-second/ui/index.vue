@@ -13,6 +13,7 @@ interface CardsItem {
   background: string;
   title: string;
   text: string;
+  slug: string;
 }
 
 interface Props {
@@ -42,7 +43,7 @@ useTouchSwipe({ elementRef: itemsContainer });
       </Heading>
     </RouterLink>
       <div class="section-second__items" ref="itemsContainer">
-        <div v-for="(item, index) in sectionSecondData.cards" :key="item.id" class="item" :id="`item-${index + 1}`">
+        <RouterLink :to="`/services/${item.slug}`"  v-for="(item, index) in sectionSecondData.cards" :key="item.id" class="item" :id="`item-${index + 1}`">
           <div class="item__background" :style="{ backgroundImage: `url(${item.background})` }">
             <div class="service__block">
               <Heading tagName="h3" regular size="l" color="dark" class="title">{{ item.title }}</Heading>
@@ -54,7 +55,7 @@ useTouchSwipe({ elementRef: itemsContainer });
               </Circle>
             </div>
           </div>
-        </div>
+        </RouterLink>
       </div>
     </Container>
   </section>

@@ -36,42 +36,53 @@
             .section-first__button {
                 margin-top: 50px;
                 display: flex;
+                cursor: pointer;
+                max-width: 300px;
 
                 .circle {
                     width: 60px;
                     height: 60px;
                 }
+
+                &:hover {
+                    .circle, .button {
+                        background: #3D4FB3;
+                    }
+                }
+
             }
         }
     }
 }
+
 @media screen and (max-width:1681px) {
     .section-first {
-        .section-first__content {   
+        .section-first__content {
             .container {
                 h2 {
                     margin: 120px 0 40px;
                     max-width: 608px;
                     color: #ffff;
-    
+
                 }
-             
+
             }
         }
-    } 
+    }
 }
+
 @media screen and (max-width:1441px) {
     .section-first {
-        .section-first__content {   
+        .section-first__content {
             .container {
                 h2 {
                     margin: 130px 0 40px;
                     max-width: 608px;
                     color: #ffff;
-    
+
                 }
-             
+
             }
         }
-    } 
+    }
 }

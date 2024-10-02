@@ -13,6 +13,7 @@ const navItems = reactive([
     { id: 2, name: 'Услуги', link: '/services' },
     { id: 3, name: 'Цены', link: '/prices' },
     { id: 4, name: 'Кейсы', link: '/cases' },
+    { id: 5, name: 'Акции', link: '/promotions' },
 ]);
 </script>
 

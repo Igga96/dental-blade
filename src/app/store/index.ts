@@ -6,6 +6,7 @@ import { doctorsModule } from '@/entities/doctors/model/doctors.store';
 import { questionsModule } from '@/entities/questions/model/questions.store';
 import { contactsModule } from '@/entities/contacts/model/contacts.store';
 import { authModule } from '@/entities/auth/model/auth.store';
+import { promotionsModule } from '@/entities/promotions/model/promotions.store';
 
 export const store = createStore({
   modules: {
@@ -16,6 +17,7 @@ export const store = createStore({
     questions: questionsModule,
     contacts: contactsModule,
     auth: authModule,
+    promotions: promotionsModule
   },
 });
 

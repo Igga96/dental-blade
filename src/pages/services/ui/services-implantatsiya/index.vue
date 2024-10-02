@@ -13,8 +13,6 @@ import { DoctorsSlider } from '@/widgets/doctors-slider'
 import { Solution } from '@/widgets/section-solution'
 import { Reviews } from '@/widgets/section-reviews'
 import { Questions } from '@/widgets/section-questions'
-import { Map } from '@/widgets/map'
-import { Footer } from '@/widgets/footer'
 
 import { reactive } from 'vue';
 
@@ -107,7 +105,6 @@ const sectionAllOnSecondData = reactive([
   },
 ])
 
-
 </script>
 <template>
   <SectionFirst />
@@ -124,7 +121,5 @@ const sectionAllOnSecondData = reactive([
   <Solution :sectionSolutionData="sectionSolutionData[0]" />
   <Reviews />
   <Questions />
-  <Map />
-  <Footer />
 </template>
 <style scoped lang="scss"></style>
