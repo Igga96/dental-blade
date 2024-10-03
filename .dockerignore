@@ -5,17 +5,12 @@ __pycache
 .idea
 .data
 /venv/
-app/project/static
-build/dev/.env
-*.log
-*.log.*
-.vscode
-*dev_logs*
+.env.dev
 
 # coverage
 htmlcov/
 .coverage
-.coverage*
+.coverage.*
 coverage.xml
 *.cover
-/app/flower*
+/app/flower
