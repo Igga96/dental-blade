@@ -232,9 +232,10 @@ MEDIA_URL = '/media/'
 FTP_USER = os.environ.get("FTP_USER")
 FTP_PASS = os.environ.get("FTP_PASS")
 FTP_PORT = os.environ.get("FTP_PORT")
+FTP_HOST = os.environ.get("FTP_HOST")
 
 DEFAULT_FILE_STORAGE = 'storages.backends.ftp.FTPStorage'
-FTP_STORAGE_LOCATION = 'ftp://' + FTP_USER + ':' + FTP_PASS + '@5.101.157.22:' + FTP_PORT + "/"
+FTP_STORAGE_LOCATION = 'ftp://' + FTP_USER + ':' + FTP_PASS + f'@{FTP_HOST}:' + FTP_PORT + "/"
 FTP_STORAGE_ENCODING = "utf-8"
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
