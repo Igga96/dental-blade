@@ -4,7 +4,7 @@ from django.utils.text import slugify
 
 from dental_source.managers import AccountManager
 from dental_source.utils import generate_uuid, LowercaseEmailField
-from dental_source.validators import validate_login, validate_name, validate_phone, validate_percent
+from dental_source.validators import validate_login, validate_name, validate_phone, validate_percent, validate_year
 
 from storages.backends.ftp import FTPStorage
 from django.conf import settings
@@ -478,10 +478,10 @@ class AdvancedTraining(models.Model):
         verbose_name="Название доп. обучения",
         help_text="Название доп. обучения"
     )
-    year = models.CharField(
-        max_length=4,
+    year = models.IntegerField(
         verbose_name="Год обучения",
-        help_text="Год обучения"
+        help_text="Год обучения",
+        validators=[validate_year]
     )
 
     class Meta:

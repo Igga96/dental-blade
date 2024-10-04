@@ -1,4 +1,5 @@
 import re
+import datetime
 
 from rest_framework.serializers import ValidationError
 
@@ -77,3 +78,13 @@ def validate_phone(value: str) -> None:
 def validate_percent(value: int) -> None:
     if value and (value > 100 or value < 0):
         raise ValidationError("Введенное число не может быть меньше 0 или больше 100.")
+
+
+def validate_year(value: int) -> None:
+    current_year = datetime.datetime.now().year
+
+    if value > current_year:
+        raise ValidationError("Год не может быть больше нынешнего.")
+
+    if value < 1950:
+        raise ValidationError("Год не может быть меньше 1950.")
