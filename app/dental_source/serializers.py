@@ -59,6 +59,23 @@ class ImageSerializer(serializers.ModelSerializer):
         fields = "__all__"
 
 
+class ResultSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = models.Result
+        fields = "__all__"
+
+
+class PromotionSerializer(serializers.ModelSerializer):
+    price = PriceSerializer(many=False, read_only=True)
+    price_id = serializers.PrimaryKeyRelatedField(
+        source="price", queryset=models.Price.objects.all(), many=False, write_only=True, required=True
+    )
+
+    class Meta:
+        model = models.Promotion
+        fields = "__all__"
+
+
 class DoctorSerializer(serializers.ModelSerializer):
     specialty = SpecialtySerializer(many=True, read_only=True)
     specialty_id = serializers.PrimaryKeyRelatedField(

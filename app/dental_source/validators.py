@@ -72,3 +72,8 @@ def validate_phone(value: str) -> None:
             "Уважаемый пользователь, укажите телефон правильно: до 12 цифр без пробелов; допускается "
             "символ + вначале строки."
         )
+
+
+def validate_percent(value: int) -> None:
+    if value and (value > 100 or value < 0):
+        raise ValidationError("Введенное число не может быть меньше 0 или больше 100.")

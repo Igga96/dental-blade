@@ -18,6 +18,8 @@ router.register(r"treatmentProfiles", views.TreatmentProfileViewSet, basename="a
 router.register(r"educations", views.EducationViewSet, basename="api-educations")
 router.register(r"advancedTrainings", views.AdvancedTrainingViewSet, basename="api-advancedTrainings")
 router.register(r"images", views.ImageViewSet, basename="api-images")
+router.register(r"results", views.ResultViewSet, basename="api-results")
+router.register(r"promotions", views.PromotionViewSet, basename="api-promotions")
 
 urlpatterns = [
     path("", include(router.urls)),

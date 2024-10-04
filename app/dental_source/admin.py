@@ -79,3 +79,15 @@ class AdvancedTrainingAdmin(admin.ModelAdmin):
 class ImageAdmin(admin.ModelAdmin):
     list_display = [field.name for field in models.Image._meta.fields]
     search_fields = [field.name for field in models.Image._meta.fields]
+
+
+@admin.register(models.Result)
+class ResultAdmin(admin.ModelAdmin):
+    list_display = [field.name for field in models.Result._meta.fields]
+    search_fields = [field.name for field in models.Result._meta.fields]
+
+
+@admin.register(models.Promotion)
+class PromotionAdmin(admin.ModelAdmin):
+    list_display = [field.name for field in models.Promotion._meta.fields]
+    search_fields = [field.name for field in models.Promotion._meta.fields]

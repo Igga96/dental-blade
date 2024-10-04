@@ -4,7 +4,7 @@ from django.utils.text import slugify
 
 from dental_source.managers import AccountManager
 from dental_source.utils import generate_uuid, LowercaseEmailField
-from dental_source.validators import validate_login, validate_name, validate_phone
+from dental_source.validators import validate_login, validate_name, validate_phone, validate_percent
 
 from storages.backends.ftp import FTPStorage
 from django.conf import settings
@@ -52,7 +52,7 @@ class Account(AbstractUser):
     )
     image_path = models.ImageField(
         storage=fs,
-        upload_to="media/",
+        upload_to="media/accounts/",
         help_text="Изображение",
         verbose_name="Изображение",
         blank=True,
@@ -98,7 +98,8 @@ class Doctor(models.Model):
     )
     experienceYears = models.IntegerField(
         verbose_name="Лет опыта",
-        help_text="Лет опыта"
+        help_text="Лет опыта",
+        validators=[validate_percent]
     )
     lengthInMinutes = models.IntegerField(
         verbose_name="Длина в минутах",
@@ -175,6 +176,10 @@ class Question(models.Model):
         verbose_name="Имя",
         help_text="Имя"
     )
+    slug = models.URLField(
+        blank=True,
+        null=True
+    )
 
     class Meta:
         verbose_name = "Вопросы"
@@ -236,6 +241,12 @@ class Price(models.Model):
 class Contact(models.Model):
     id = models.CharField(
         default=generate_uuid, primary_key=True, editable=False, max_length=40, verbose_name="GUID контакта"
+    )
+    clinicId = models.CharField(
+        max_length=40,
+        verbose_name="GUID клиники",
+        blank=True,
+        null=True
     )
     name = models.CharField(
         max_length=40,
@@ -395,9 +406,7 @@ class Case(models.Model):
         to=Doctor,
         on_delete=models.CASCADE,
     )
-    slug = models.CharField(
-        max_length=100,
-    )
+    slug = models.TextField()
 
     class Meta:
         verbose_name = "Случаи"
@@ -428,7 +437,8 @@ class TreatmentProfile(models.Model):
     )
     percent = models.IntegerField(
         verbose_name="Процент",
-        help_text="Процент"
+        help_text="Процент",
+        validators=[validate_percent]
     )
 
     class Meta:
@@ -453,10 +463,6 @@ class Education(models.Model):
         max_length=18,
         verbose_name="Год конца",
         help_text="Год конца"
-    )
-    university = models.TextField(
-        verbose_name="Университет",
-        help_text="Университет"
     )
 
     class Meta:
@@ -501,3 +507,64 @@ class Image(models.Model):
     class Meta:
         verbose_name = "Изображения"
         verbose_name_plural = "Изображения"
+
+
+class Result(models.Model):
+    id = models.CharField(
+        default=generate_uuid, primary_key=True, editable=False, max_length=40, verbose_name="GUID результата"
+    )
+    imageBefore = models.ImageField(
+        storage=fs,
+        upload_to="media/results/",
+        help_text="Изображение до",
+        verbose_name="Изображение до",
+    )
+    imageAfter = models.ImageField(
+        storage=fs,
+        upload_to="media/results/",
+        help_text="Изображение после",
+        verbose_name="Изображение после",
+    )
+    slug = models.URLField(
+        verbose_name="Ссылка на страницу",
+        help_text="Ссылка на страницу на которой будет отображаться"
+    )
+
+    class Meta:
+        verbose_name = "Результаты"
+        verbose_name_plural = "Результат"
+
+
+class Promotion(models.Model):
+    id = models.CharField(
+        default=generate_uuid, primary_key=True, editable=False, max_length=40, verbose_name="GUID акции"
+    )
+    price = models.ForeignKey(
+        verbose_name="Услуга",
+        help_text="Услуга",
+        to=Price,
+        on_delete=models.CASCADE,
+    )
+    discount = models.IntegerField(
+        verbose_name="Скидка",
+        help_text="Скидка",
+        blank=True,
+        null=True,
+        validators=[validate_percent]
+    )
+    slug = models.URLField(
+        verbose_name="Ссылка на страницу",
+        help_text="Ссылка на страницу на которой будет отображаться акция"
+    )
+    oldPrice = models.IntegerField(
+        verbose_name="Старая цена",
+        help_text="Старая цена",
+    )
+    newPrice = models.IntegerField(
+        verbose_name="Новая цена",
+        help_text="Новая цена",
+    )
+
+    class Meta:
+        verbose_name = "Акции"
+        verbose_name_plural = "Акция"

@@ -515,3 +515,81 @@ class ImageViewSet(viewsets.ModelViewSet):
         filters.OrderingFilter,
         filters.SearchFilter,
     ]
+
+
+# region
+@extend_schema_view(
+    list=extend_schema(
+        summary="Получить список всех результатов.",
+        tags=["Результаты"],
+    ),
+    retrieve=extend_schema(
+        summary="Получить информацию о результате по ID.",
+        tags=["Результаты"],
+    ),
+    create=extend_schema(
+        summary="Добавить новый результат.",
+        tags=["Результаты"],
+    ),
+    update=extend_schema(
+        summary="Обновить информацию о результате по ID.",
+        tags=["Результаты"],
+    ),
+    partial_update=extend_schema(
+        summary="Частичное обновить информацию о результате по ID.",
+        tags=["Результаты"],
+    ),
+    destroy=extend_schema(
+        summary="Удалить результат по ID.",
+        tags=["Результаты"],
+    ),
+)
+# endregion
+class ResultViewSet(viewsets.ModelViewSet):
+    permission_classes = (AllowAny,)
+    queryset = models.Result.objects.all()
+    serializer_class = auth_serializers.ResultSerializer
+    filter_backends = [
+        DjangoFilterBackend,
+        filters.OrderingFilter,
+        filters.SearchFilter,
+    ]
+
+
+# region
+@extend_schema_view(
+    list=extend_schema(
+        summary="Получить список всех акций.",
+        tags=["Акции"],
+    ),
+    retrieve=extend_schema(
+        summary="Получить информацию об акции по ID.",
+        tags=["Акции"],
+    ),
+    create=extend_schema(
+        summary="Добавить новую акцию.",
+        tags=["Акции"],
+    ),
+    update=extend_schema(
+        summary="Обновить информацию об акции по ID.",
+        tags=["Акции"],
+    ),
+    partial_update=extend_schema(
+        summary="Частичное обновить информацию об акции по ID.",
+        tags=["Акции"],
+    ),
+    destroy=extend_schema(
+        summary="Удалить акцию по ID.",
+        tags=["Акции"],
+    ),
+)
+# endregion
+class PromotionViewSet(viewsets.ModelViewSet):
+    permission_classes = (AllowAny,)
+    queryset = models.Promotion.objects.all()
+    serializer_class = auth_serializers.PromotionSerializer
+    filter_backends = [
+        DjangoFilterBackend,
+        filters.OrderingFilter,
+        filters.SearchFilter,
+    ]
