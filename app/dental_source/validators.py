@@ -68,11 +68,8 @@ def validate_phone(value: str) -> None:
     if not value:
         raise ValidationError("Уважаемый пользователь, укажите, пожайлуста, телефон.")
 
-    if len(value) > 13 or not re.match(r"^(?:\+|\d)[\d\-\(\)]{9,}\d", value):
-        raise ValidationError(
-            "Уважаемый пользователь, укажите телефон правильно: до 12 цифр без пробелов; допускается "
-            "символ + вначале строки."
-        )
+    if not re.match(r"^((8|\+7)[\- ]?)?(\(?\d{3}\)?[\- ]?)?[\d\- ]{7,10}$", value):
+        raise ValidationError("Уважаемый пользователь, неправильный формат номера телефона!")
 
 
 def validate_percent(value: int) -> None:
