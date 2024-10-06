@@ -149,7 +149,7 @@ class Doctor(models.Model):
     slug = models.SlugField()
 
     def save(self, *args, **kwargs):
-        fio = self.lastName + " " + self.firstName + " " + self.middleName
+        fio = self.firstName + " " + self.lastName + " " + self.middleName
         result = fio.translate(str.maketrans(
             "абвгдеёжзийклмнопрстуфхцчшщъыьэюяАБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯ",
             "abvgdeejzijklmnoprstufhzcss_y_euaABVGDEEJZIJKLMNOPRSTUFHZCSS_Y_EUA"
@@ -176,7 +176,7 @@ class Question(models.Model):
         verbose_name="Имя",
         help_text="Имя"
     )
-    slug = models.URLField(
+    slug = models.TextField(
         blank=True,
         null=True
     )
@@ -525,7 +525,7 @@ class Result(models.Model):
         help_text="Изображение после",
         verbose_name="Изображение после",
     )
-    slug = models.URLField(
+    slug = models.TextField(
         verbose_name="Ссылка на страницу",
         help_text="Ссылка на страницу на которой будет отображаться"
     )
@@ -552,7 +552,7 @@ class Promotion(models.Model):
         null=True,
         validators=[validate_percent]
     )
-    slug = models.URLField(
+    slug = models.TextField(
         verbose_name="Ссылка на страницу",
         help_text="Ссылка на страницу на которой будет отображаться акция"
     )
