@@ -101,10 +101,6 @@ class Doctor(models.Model):
         help_text="Лет опыта",
         validators=[validate_percent]
     )
-    lengthInMinutes = models.IntegerField(
-        verbose_name="Длина в минутах",
-        help_text="Длина в минутах"
-    )
     specialty = models.ManyToManyField(
         verbose_name="Специальности",
         help_text="Специальности",
@@ -145,6 +141,12 @@ class Doctor(models.Model):
         verbose_name="Изображение",
         blank=True,
         null=True
+    )
+    price = models.ManyToManyField(
+        verbose_name="Перечень услуг оказываемые доктором",
+        help_text="Перечень услуг оказываемые доктором",
+        to="Price",
+        related_name="doctor_prices",
     )
     slug = models.SlugField()
 
@@ -227,6 +229,11 @@ class Price(models.Model):
     price = models.IntegerField(
         verbose_name="Цена",
         help_text="Цена"
+    )
+    lengthInMinutes = models.IntegerField(
+        verbose_name="Длина в минутах",
+        help_text="Длина в минутах",
+        default=60
     )
 
     class Meta:

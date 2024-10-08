@@ -77,6 +77,10 @@ class PromotionSerializer(serializers.ModelSerializer):
 
 
 class DoctorSerializer(serializers.ModelSerializer):
+    price = PriceSerializer(many=True, read_only=True)
+    price_id = serializers.PrimaryKeyRelatedField(
+        source="price", queryset=models.Price.objects.all(), many=True, write_only=True, required=True
+    )
     specialty = SpecialtySerializer(many=True, read_only=True)
     specialty_id = serializers.PrimaryKeyRelatedField(
         source="specialty", queryset=models.Specialty.objects.all(), many=True, write_only=True, required=True
