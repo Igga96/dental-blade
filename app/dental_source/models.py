@@ -4,7 +4,7 @@ from django.utils.text import slugify
 
 from dental_source.managers import AccountManager
 from dental_source.utils import generate_uuid, LowercaseEmailField
-from dental_source.validators import validate_login, validate_name, validate_phone, validate_percent, validate_year
+from dental_source.validators import validate_login, validate_name, validate_phone, validate_percent
 
 from storages.backends.ftp import FTPStorage
 from django.conf import settings
@@ -149,7 +149,7 @@ class Doctor(models.Model):
     slug = models.SlugField()
 
     def save(self, *args, **kwargs):
-        fio = self.firstName + " " + self.lastName + " " + self.middleName
+        fio = self.lastName + " " + self.firstName + " " + self.middleName
         result = fio.translate(str.maketrans(
             "абвгдеёжзийклмнопрстуфхцчшщъыьэюяАБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯ",
             "abvgdeejzijklmnoprstufhzcss_y_euaABVGDEEJZIJKLMNOPRSTUFHZCSS_Y_EUA"
@@ -223,10 +223,6 @@ class Price(models.Model):
         max_length=40,
         verbose_name="Название",
         help_text="Название"
-    )
-    description = models.TextField(
-        verbose_name="Описание",
-        help_text="Описание"
     )
     price = models.IntegerField(
         verbose_name="Цена",
@@ -381,9 +377,23 @@ class Case(models.Model):
         to="Image",
         related_name="images",
     )
-    description = models.TextField(
-        verbose_name="Описание",
-        help_text="Описание"
+    introduction = models.TextField(
+        verbose_name="Первичный осмотри",
+        help_text="Первичный осмотри",
+        null=True,
+        blank=True,
+    )
+    diagnos = models.TextField(
+        verbose_name="Диагноз",
+        help_text="Диагноз",
+        null=True,
+        blank=True,
+    )
+    treatment = models.TextField(
+        verbose_name="Лечение",
+        help_text="Лечение",
+        null=True,
+        blank=True,
     )
     category = models.CharField(
         max_length=40,
@@ -455,12 +465,12 @@ class Education(models.Model):
         help_text="Название"
     )
     edStart = models.CharField(
-        max_length=4,
+        max_length=25,
         verbose_name="Год начала",
         help_text="Год начала"
     )
     edEnd = models.CharField(
-        max_length=18,
+        max_length=25,
         verbose_name="Год конца",
         help_text="Год конца"
     )
@@ -478,10 +488,10 @@ class AdvancedTraining(models.Model):
         verbose_name="Название доп. обучения",
         help_text="Название доп. обучения"
     )
-    year = models.IntegerField(
+    year = models.CharField(
+        max_length=25,
         verbose_name="Год обучения",
         help_text="Год обучения",
-        validators=[validate_year]
     )
 
     class Meta:
