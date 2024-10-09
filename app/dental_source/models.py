@@ -1,6 +1,7 @@
 from django.contrib.auth.models import AbstractUser
 from django.db import models
 from django.utils.text import slugify
+from rest_framework_simplejwt.tokens import RefreshToken
 
 from dental_source.managers import AccountManager
 from dental_source.utils import generate_uuid, LowercaseEmailField
@@ -62,8 +63,12 @@ class Account(AbstractUser):
     objects = AccountManager()
 
     @property
-    def full_name(self):
-        return f"{self.last_name} {self.first_name} {self.patronymic}"
+    def access_token(self) -> str:
+        return str(RefreshToken.for_user(self).access_token)
+
+    @property
+    def refresh_token(self) -> str:
+        return str(RefreshToken.for_user(self))
 
     def __str__(self):
         return self.login

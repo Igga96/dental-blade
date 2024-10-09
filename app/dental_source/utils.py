@@ -2,6 +2,8 @@ import uuid
 
 from django.db import models
 
+from django.core.mail import send_mail
+
 
 class LowercaseEmailField(models.EmailField):
     """
@@ -22,3 +24,19 @@ class LowercaseEmailField(models.EmailField):
 
 def generate_uuid() -> str:
     return uuid.uuid4().hex
+
+
+def is_superuser(user):
+    return user.is_superuser
+
+
+class Util:
+    @staticmethod
+    def send_email(data):
+        send_mail(
+            data['email_subject'],
+            data['email_body'],
+            "test@gmail.com",
+            [data['to_email']],
+            fail_silently=False,
+        )

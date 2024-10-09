@@ -4,11 +4,36 @@ from dental_source import models
 
 
 class AccountSerializer(serializers.ModelSerializer):
-    full_name = serializers.CharField(read_only=True, required=False)
-
     class Meta:
         model = models.Account
         fields = "__all__"
+
+
+class LoginSerializer(serializers.ModelSerializer):
+    password = serializers.CharField(
+        max_length=128,
+        min_length=8,
+        write_only=True,
+    )
+
+    class Meta:
+        model = models.Account
+        fields = ['login', 'password']
+
+
+class RegistrationSerializer(serializers.ModelSerializer):
+    password = serializers.CharField(
+        max_length=128,
+        min_length=8,
+        write_only=True
+    )
+
+    def create(self, validated_data):
+        return models.Account.objects.create_user(**validated_data)
+
+    class Meta:
+        model = models.Account
+        fields = ['email', 'login', 'password', "phone", "first_name", "last_name", "middleName"]
 
 
 class QuestionSerializer(serializers.ModelSerializer):

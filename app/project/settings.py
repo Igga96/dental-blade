@@ -29,6 +29,15 @@ ALLOWED_HOSTS = ["*"]
 # CELERY_TASK_SERIALIZER = "pickle"
 # CELERY_ACCEPT_CONTENT = ["json", "pickle"]
 
+# EMAIL
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_USE_TLS = True
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_HOST_USER = "vladmyr89@gmail.com"
+EMAIL_HOST_PASSWORD = "ovfs vhdv qhlz dbtr"
+
+
 # This can be dangerous, be aware!
 os.environ.setdefault("C_FORCE_ROOT", "true")
 
@@ -48,6 +57,8 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     "django.contrib.postgres",
     "django_db_comments",
+    "rest_framework_simplejwt",
+    "rest_framework_simplejwt.token_blacklist",
     # THIRD PARTY
     "django_filters",
     "rest_framework",
@@ -59,8 +70,7 @@ INSTALLED_APPS = [
 
 REST_FRAMEWORK = {
     "DEFAULT_AUTHENTICATION_CLASSES": [
-        "rest_framework.authentication.BasicAuthentication",
-        "rest_framework.authentication.SessionAuthentication",
+        'rest_framework_simplejwt.authentication.JWTAuthentication',
     ],
     "DEFAULT_PERMISSION_CLASSES": ["rest_framework.permissions.IsAuthenticated"],
     "DEFAULT_SCHEMA_CLASS": "drf_spectacular.openapi.AutoSchema",
@@ -203,8 +213,14 @@ DATA_UPLOAD_MAX_NUMBER_FIELDS = 100
 
 # AUTH CONFIGURATION
 SIMPLE_JWT = {
-    "ACCESS_TOKEN_LIFETIME": timedelta(days=20),
-    "REFRESH_TOKEN_LIFETIME": timedelta(days=10),
+    "ACCESS_TOKEN_LIFETIME": timedelta(minutes=1),
+    "REFRESH_TOKEN_LIFETIME": timedelta(minutes=60),
+    "SLIDING_TOKEN_REFRESH_LIFETIME": timedelta(days=1),
+    "SLIDING_TOKEN_LIFETIME": timedelta(days=1),
+    "SLIDING_TOKEN_REFRESH_LIFETIME_LATE_USER": timedelta(days=1),
+    "SLIDING_TOKEN_LIFETIME_LATE_USER": timedelta(days=30),
+    "ROTATE_REFRESH_TOKENS": True,
+    "BLACKLIST_AFTER_ROTATION": True,
 }
 
 AUTH_USER_MODEL = "dental_source.Account"

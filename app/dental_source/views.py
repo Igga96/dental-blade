@@ -1,12 +1,177 @@
-
+from django.db.models import Q
+from django.urls import reverse
+from django.contrib.auth import authenticate
+from django.contrib.auth.tokens import default_token_generator
+from django.contrib.sites.shortcuts import get_current_site
 from django_filters.rest_framework import DjangoFilterBackend
-from rest_framework import filters, status, viewsets
-from rest_framework.authentication import SessionAuthentication
+from rest_framework import filters, status, viewsets, serializers
+from rest_framework.exceptions import ValidationError
 from rest_framework.permissions import AllowAny, IsAuthenticated
-from drf_spectacular.utils import OpenApiResponse, extend_schema, extend_schema_view, inline_serializer
+from rest_framework.response import Response
+from rest_framework.views import APIView
+from rest_framework_simplejwt.tokens import RefreshToken
+from rest_framework_simplejwt.token_blacklist.models import OutstandingToken, BlacklistedToken
+
+from drf_spectacular.utils import extend_schema, extend_schema_view
 
 from dental_source import serializers as auth_serializers
 from dental_source import models
+from dental_source.utils import Util
+
+
+@extend_schema_view(
+    post=extend_schema(
+        description="Авторизоваться с помощью логина и пароля.",
+        tags=["Авторизация"],
+        summary="Авторизоваться с помощью логина и пароля.",
+    ),
+)
+class Login(APIView):
+    permission_classes = (AllowAny,)
+    serializer_class = auth_serializers.LoginSerializer
+
+    def post(self, request):
+        data = request.data
+        login = data.get("login")
+        password = data.get("password")
+
+        if not login:
+            raise ValidationError("Введите логин", code=status.HTTP_400_BAD_REQUEST)
+
+        if not password:
+            raise ValidationError("Введите пароль", code=status.HTTP_400_BAD_REQUEST)
+
+        user = authenticate(login=login, password=password)
+        if user is None:
+            return ValidationError("Такого пользователя не существует.", code=status.HTTP_401_UNAUTHORIZED)
+
+        refresh = RefreshToken.for_user(user)
+
+        return Response({
+            "refresh": str(refresh),
+            "access": str(refresh.access_token),
+        }, status=status.HTTP_200_OK)
+
+
+@extend_schema_view(
+    post=extend_schema(
+        description="Выйти из системы.",
+        tags=["Авторизация"],
+        summary="Выйти из системы.",
+    ),
+)
+class Logout(APIView):
+    permission_classes = (IsAuthenticated,)
+
+    def post(self, request):
+        tokens = OutstandingToken.objects.filter(user_id=request.user.id)
+
+        for token in tokens:
+            t, _ = BlacklistedToken.objects.get_or_create(token=token)
+
+        return Response(status=status.HTTP_205_RESET_CONTENT)
+
+
+@extend_schema_view(
+    post=extend_schema(
+        description="Зарегестрироваться.",
+        tags=["Авторизация"],
+        summary="Зарегестрироваться.",
+    ),
+)
+class Registration(APIView):
+    permission_classes = (AllowAny,)
+    serializer_class = auth_serializers.RegistrationSerializer
+
+    def post(self, request):
+        data = request.data
+        login = request.data.get("login")
+        email = request.data.get("email")
+
+        user = models.Account.objects.filter(Q(login=login) | Q(email=email)).first()
+
+        # 3 кейса
+        if user and user.is_active:
+            raise ValidationError(
+                detail="В системе уже существует пользователь с такими данными.",
+                code=status.HTTP_403_FORBIDDEN,
+            )
+        elif not user:
+            serializer = self.serializer_class(data=data)
+            serializer.is_valid(raise_exception=True)
+            user = serializer.save()
+
+            user.is_active = False
+            user.save()
+
+        confirmation_token = default_token_generator.make_token(user)
+
+        relative_link = reverse(
+            'confirm_email',
+            kwargs={"user_id": user.id, "confirmation_token": confirmation_token}
+        )
+
+        activation_link = 'http://' + get_current_site(request).domain + relative_link
+
+        email_body = f"Добрый день, {user.login}. + <br>" \
+                     f" Используйте ссылку ниже для подтверждения вашего аккаунта. <br> {activation_link}"
+
+        data = {'email_body': email_body, 'to_email': user.email,
+                'email_subject': 'Подтверждение почты'}
+
+        Util.send_email(data=data)
+
+        return Response(
+            data={"Success": "Проверьте почту для подтверждения регистрации."},
+            status=status.HTTP_201_CREATED
+        )
+
+
+@extend_schema_view(
+    get=extend_schema(
+        description="Подтверждение почты.",
+        tags=["Авторизация"],
+        summary="Подтверждение почты.",
+    ),
+)
+class EmailConfirmation(APIView):
+    permission_classes = (AllowAny,)
+
+    @staticmethod
+    def get(request, *args, **kwargs):
+        user_id = kwargs.get("user_id")
+        confirmation_token = kwargs.get("confirmation_token")
+
+        if not user_id:
+            raise ValidationError(
+                detail="Вы неверно указали пользователя для подтверждения email.",
+                code=status.HTTP_403_FORBIDDEN,
+            )
+
+        if not confirmation_token:
+            raise ValidationError(
+                detail="Вы неверно указали токен для подтверждения email.",
+                code=status.HTTP_403_FORBIDDEN,
+            )
+
+        user = models.Account.objects.filter(pk=user_id).first()
+
+        if user.is_active:
+            raise ValidationError("Пользователь уже подтвердил свою почту.", code=status.HTTP_400_BAD_REQUEST)
+
+        if not user:
+            raise ValidationError("Такого пользователя не существует", code=status.HTTP_400_BAD_REQUEST)
+
+        if not default_token_generator.check_token(user, confirmation_token):
+            raise ValidationError(
+                "Токен просрочен. Пожайлуста, переотправьте подтверждение для почты.",
+                code=status.HTTP_400_BAD_REQUEST
+            )
+
+        user.is_active = True
+        user.save()
+
+        return Response(data={"successMessage": "Ваш email подтверждён успешно."}, status=status.HTTP_200_OK)
 
 
 # region
@@ -38,7 +203,7 @@ from dental_source import models
 )
 # endregion
 class AccountViewSet(viewsets.ModelViewSet):
-    permission_classes = (AllowAny,)
+    permission_classes = (IsAuthenticated, )
     queryset = models.Account.objects.all()
     serializer_class = auth_serializers.AccountSerializer
     filter_backends = [
@@ -47,6 +212,49 @@ class AccountViewSet(viewsets.ModelViewSet):
         filters.SearchFilter,
     ]
     search_fields = ["login"]
+
+    def partial_update(self, request, *args, **kwargs):
+        instance = self.get_object()
+        data = request.data
+        is_superuser = data.get("is_superuser")
+
+        if not request.user.is_superuser:
+            if instance.is_superuser:
+                raise ValidationError("Вы не можете изменять супер-админа.")
+
+            if is_superuser is not None and is_superuser != instance.is_superuser:
+                raise ValidationError("Вы не можете сделать супер-админа.")
+
+        return super().partial_update(request, *args, **kwargs)
+
+    def update(self, request, *args, **kwargs):
+        instance = self.get_object()
+        data = request.data
+
+        if not request.user.is_superuser:
+            if instance.is_superuser:
+                raise ValidationError("Вы не можете изменять супер-админа.")
+
+            if data.get("is_superuser", False) != instance.is_superuser:
+                raise ValidationError("Вы не можете сделать супер-админа.")
+
+        return super().update(request, *args, **kwargs)
+
+    def create(self, request, *args, **kwargs):
+        data = request.data
+
+        if not request.user.is_superuser and data.get("is_superuser"):
+            raise ValidationError("Вы не можете создать супер-админа.")
+
+        return super().create(request, *args, **kwargs)
+
+    def destroy(self, request, *args, **kwargs):
+        instance = self.get_object()
+
+        if instance.is_superuser:
+            raise ValidationError("Супер-админ не может быть удалён из системы.")
+
+        return super().destroy(request, *args, **kwargs)
 
 
 # region
@@ -78,7 +286,7 @@ class AccountViewSet(viewsets.ModelViewSet):
 )
 # endregion
 class DoctorViewSet(viewsets.ModelViewSet):
-    permission_classes = (AllowAny,)
+    permission_classes = (IsAuthenticated,)
     queryset = models.Doctor.objects.all()
     serializer_class = auth_serializers.DoctorSerializer
     filter_backends = [
@@ -117,7 +325,7 @@ class DoctorViewSet(viewsets.ModelViewSet):
 )
 # endregion
 class QuestionViewSet(viewsets.ModelViewSet):
-    permission_classes = (AllowAny,)
+    permission_classes = (IsAuthenticated,)
     queryset = models.Question.objects.all()
     serializer_class = auth_serializers.QuestionSerializer
     filter_backends = [
@@ -156,7 +364,7 @@ class QuestionViewSet(viewsets.ModelViewSet):
 )
 # endregion
 class ScheduleViewSet(viewsets.ModelViewSet):
-    permission_classes = (AllowAny,)
+    permission_classes = (IsAuthenticated,)
     queryset = models.Schedule.objects.all()
     serializer_class = auth_serializers.ScheduleSerializer
     filter_backends = [
@@ -195,7 +403,7 @@ class ScheduleViewSet(viewsets.ModelViewSet):
 )
 # endregion
 class PriceViewSet(viewsets.ModelViewSet):
-    permission_classes = (AllowAny,)
+    permission_classes = (IsAuthenticated,)
     queryset = models.Price.objects.all()
     serializer_class = auth_serializers.PriceSerializer
     filter_backends = [
@@ -234,7 +442,7 @@ class PriceViewSet(viewsets.ModelViewSet):
 )
 # endregion
 class ContactViewSet(viewsets.ModelViewSet):
-    permission_classes = (AllowAny,)
+    permission_classes = (IsAuthenticated,)
     queryset = models.Contact.objects.all()
     serializer_class = auth_serializers.ContactSerializer
     filter_backends = [
@@ -273,7 +481,7 @@ class ContactViewSet(viewsets.ModelViewSet):
 )
 # endregion
 class AppointmentViewSet(viewsets.ModelViewSet):
-    permission_classes = (AllowAny,)
+    permission_classes = (IsAuthenticated,)
     queryset = models.Appointment.objects.all()
     serializer_class = auth_serializers.AppointmentSerializer
     filter_backends = [
@@ -312,7 +520,7 @@ class AppointmentViewSet(viewsets.ModelViewSet):
 )
 # endregion
 class CaseViewSet(viewsets.ModelViewSet):
-    permission_classes = (AllowAny,)
+    permission_classes = (IsAuthenticated,)
     queryset = models.Case.objects.all()
     serializer_class = auth_serializers.CaseSerializer
     filter_backends = [
@@ -351,7 +559,7 @@ class CaseViewSet(viewsets.ModelViewSet):
 )
 # endregion
 class SpecialtyViewSet(viewsets.ModelViewSet):
-    permission_classes = (AllowAny,)
+    permission_classes = (IsAuthenticated,)
     queryset = models.Specialty.objects.all()
     serializer_class = auth_serializers.SpecialtySerializer
     filter_backends = [
@@ -390,7 +598,7 @@ class SpecialtyViewSet(viewsets.ModelViewSet):
 )
 # endregion
 class TreatmentProfileViewSet(viewsets.ModelViewSet):
-    permission_classes = (AllowAny,)
+    permission_classes = (IsAuthenticated,)
     queryset = models.TreatmentProfile.objects.all()
     serializer_class = auth_serializers.TreatmentProfileSerializer
     filter_backends = [
@@ -429,7 +637,7 @@ class TreatmentProfileViewSet(viewsets.ModelViewSet):
 )
 # endregion
 class EducationViewSet(viewsets.ModelViewSet):
-    permission_classes = (AllowAny,)
+    permission_classes = (IsAuthenticated,)
     queryset = models.Education.objects.all()
     serializer_class = auth_serializers.EducationSerializer
     filter_backends = [
@@ -468,7 +676,7 @@ class EducationViewSet(viewsets.ModelViewSet):
 )
 # endregion
 class AdvancedTrainingViewSet(viewsets.ModelViewSet):
-    permission_classes = (AllowAny,)
+    permission_classes = (IsAuthenticated,)
     queryset = models.AdvancedTraining.objects.all()
     serializer_class = auth_serializers.AdvancedTrainingSerializer
     filter_backends = [
@@ -507,7 +715,7 @@ class AdvancedTrainingViewSet(viewsets.ModelViewSet):
 )
 # endregion
 class ImageViewSet(viewsets.ModelViewSet):
-    permission_classes = (AllowAny,)
+    permission_classes = (IsAuthenticated,)
     queryset = models.Image.objects.all()
     serializer_class = auth_serializers.ImageSerializer
     filter_backends = [
@@ -546,7 +754,7 @@ class ImageViewSet(viewsets.ModelViewSet):
 )
 # endregion
 class ResultViewSet(viewsets.ModelViewSet):
-    permission_classes = (AllowAny,)
+    permission_classes = (IsAuthenticated,)
     queryset = models.Result.objects.all()
     serializer_class = auth_serializers.ResultSerializer
     filter_backends = [
@@ -585,7 +793,7 @@ class ResultViewSet(viewsets.ModelViewSet):
 )
 # endregion
 class PromotionViewSet(viewsets.ModelViewSet):
-    permission_classes = (AllowAny,)
+    permission_classes = (IsAuthenticated,)
     queryset = models.Promotion.objects.all()
     serializer_class = auth_serializers.PromotionSerializer
     filter_backends = [
