@@ -115,8 +115,8 @@ class Registration(APIView):
 
         activation_link = 'http://' + get_current_site(request).domain + relative_link
 
-        email_body = f"Добрый день, {user.login}. + <br>" \
-                     f" Используйте ссылку ниже для подтверждения вашего аккаунта. <br> {activation_link}"
+        email_body = f"<p> Добрый день, {user.login}.</p> <br>" \
+                     f" <p>Используйте ссылку ниже для подтверждения вашего аккаунта.</p> <br> <link href='{activation_link}' rel='stylesheet'/>"
 
         data = {'email_body': email_body, 'to_email': user.email,
                 'email_subject': 'Подтверждение почты'}
