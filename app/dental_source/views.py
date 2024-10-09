@@ -11,7 +11,6 @@ from rest_framework.response import Response
 from rest_framework.views import APIView
 from rest_framework_simplejwt.tokens import RefreshToken
 from rest_framework_simplejwt.token_blacklist.models import OutstandingToken, BlacklistedToken
-
 from drf_spectacular.utils import extend_schema, extend_schema_view
 
 from dental_source import serializers as auth_serializers
