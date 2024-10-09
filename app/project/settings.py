@@ -7,36 +7,11 @@ from pathlib import Path
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-# SUPPORT INFO
-SOURCE_VER = "zero"
-SOURCE_DATE = "0001-01-01 00:00:00"
-BUILD_DATE = "0001-01-01 00:00:00"
-
-SERVER_START_TIME = time.time()
-
 SECRET_KEY = os.getenv("SECRET_KEY")
 
-DEBUG = 1
+DEBUG = int(os.environ.get("DEBUG", 1))
 
 ALLOWED_HOSTS = ["*"]
-
-# Celery Configuration Options
-# CELERY_BROKER_URL = f"{REDIS_URL}/0"
-# CELERY_RESULT_BACKEND = CELERY_BROKER_URL
-# CELERY_TIMEZONE = "Europe/Minsk"
-# CELERY_TASK_TRACK_STARTED = True
-# CELERY_TASK_TIME_LIMIT = 30 * 60
-# CELERY_TASK_SERIALIZER = "pickle"
-# CELERY_ACCEPT_CONTENT = ["json", "pickle"]
-
-# EMAIL
-EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-EMAIL_USE_TLS = True
-EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_PORT = 587
-EMAIL_HOST_USER = "vladmyr89@gmail.com"
-EMAIL_HOST_PASSWORD = "ovfs vhdv qhlz dbtr"
-
 
 # This can be dangerous, be aware!
 os.environ.setdefault("C_FORCE_ROOT", "true")
@@ -70,7 +45,7 @@ INSTALLED_APPS = [
 
 REST_FRAMEWORK = {
     "DEFAULT_AUTHENTICATION_CLASSES": [
-        'rest_framework_simplejwt.authentication.JWTAuthentication',
+        "rest_framework_simplejwt.authentication.JWTAuthentication",
     ],
     "DEFAULT_PERMISSION_CLASSES": ["rest_framework.permissions.IsAuthenticated"],
     "DEFAULT_SCHEMA_CLASS": "drf_spectacular.openapi.AutoSchema",
@@ -148,6 +123,23 @@ LOGGING = {
 
 logging.config.dictConfig(LOGGING)
 
+# Celery Configuration Options
+# CELERY_BROKER_URL = f"{REDIS_URL}/0"
+# CELERY_RESULT_BACKEND = CELERY_BROKER_URL
+# CELERY_TIMEZONE = "Europe/Minsk"
+# CELERY_TASK_TRACK_STARTED = True
+# CELERY_TASK_TIME_LIMIT = 30 * 60
+# CELERY_TASK_SERIALIZER = "pickle"
+# CELERY_ACCEPT_CONTENT = ["json", "pickle"]
+
+# EMAIL
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_USE_TLS = bool(os.environ.get("SMTP_USE_TLS", False))
+EMAIL_HOST = os.environ.get("SMTP_HOST")
+EMAIL_PORT = int(os.environ.get("SMTP_PORT"))
+EMAIL_HOST_USER = os.environ.get("SMTP_USER")
+EMAIL_HOST_PASSWORD = os.environ.get("SMTP_PASSWORD")
+
 # CONFIG CORS
 CORS_ALLOW_ALL_ORIGINS = True
 CORS_ALLOW_CREDENTIALS = True
@@ -155,10 +147,6 @@ CORS_ALLOW_CREDENTIALS = True
 # CSRF_FAILURE_VIEW = "core.csrf.csrf_failure"
 # CSRF_TRUSTED_ORIGINS = os.environ.get("CSRF_TRUSTED", "").split(",")
 # CSRF_HEADER_NAME = "CSRF_COOKIE"
-
-# CONFIG SESSION COOKIE
-if not os.environ.get("TEST"):
-    SESSION_ENGINE = "django.contrib.sessions.backends.cache"
 
 # SESSION_EXPIRE_AT_BROWSER_CLOSE = False
 # SESSION_SAVE_EVERY_REQUEST = True
@@ -169,8 +157,8 @@ if not os.environ.get("TEST"):
 
 # CONFIG PROD SECURE
 if not DEBUG:
-    # SECURE_SSL_REDIRECT = True
-    CSRF_COOKIE_SECURE = True
+    SECURE_SSL_REDIRECT = True
+    #CSRF_COOKIE_SECURE = True
     SESSION_COOKIE_SECURE = True
 
 
@@ -213,8 +201,8 @@ DATA_UPLOAD_MAX_NUMBER_FIELDS = 100
 
 # AUTH CONFIGURATION
 SIMPLE_JWT = {
-    "ACCESS_TOKEN_LIFETIME": timedelta(minutes=1),
-    "REFRESH_TOKEN_LIFETIME": timedelta(minutes=60),
+    "ACCESS_TOKEN_LIFETIME": timedelta(minutes=int(os.environ.get("ACCESS_TOKEN_LIFETIME", 10))),
+    "REFRESH_TOKEN_LIFETIME": timedelta(minutes=int(os.environ.get("REFRESH_TOKEN_LIFETIME", 60))),
     "SLIDING_TOKEN_REFRESH_LIFETIME": timedelta(days=1),
     "SLIDING_TOKEN_LIFETIME": timedelta(days=1),
     "SLIDING_TOKEN_REFRESH_LIFETIME_LATE_USER": timedelta(days=1),

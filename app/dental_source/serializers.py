@@ -1,12 +1,26 @@
 from rest_framework import serializers
 
 from dental_source import models
+from rest_framework.exceptions import ValidationError
 
 
 class AccountSerializer(serializers.ModelSerializer):
+    def create(self, validated_data):
+        user = models.Account.objects.create_user(**validated_data)
+        user.is_active = True
+        user.save()
+
+        return user
+
     class Meta:
         model = models.Account
-        fields = "__all__"
+        exclude = ("groups", "role", "is_superuser", "is_staff")
+
+
+class AppointmentAccountSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = models.Account
+        fields = ["first_name", "last_name", "middleName", "email", "phone"]
 
 
 class LoginSerializer(serializers.ModelSerializer):
@@ -18,7 +32,7 @@ class LoginSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = models.Account
-        fields = ['login', 'password']
+        fields = ["login", "password"]
 
 
 class RegistrationSerializer(serializers.ModelSerializer):
@@ -101,6 +115,12 @@ class PromotionSerializer(serializers.ModelSerializer):
         fields = "__all__"
 
 
+class CaseDoctorSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = models.Doctor
+        fields = ["firstName", "lastName", "middleName", "id"]
+
+
 class DoctorSerializer(serializers.ModelSerializer):
     price = PriceSerializer(many=True, read_only=True)
     price_id = serializers.PrimaryKeyRelatedField(
@@ -144,6 +164,19 @@ class AppointmentSerializer(serializers.ModelSerializer):
     doctor_id = serializers.PrimaryKeyRelatedField(
         source="doctor", queryset=models.Doctor.objects.all(), many=False, write_only=True, required=True
     )
+    patient = AppointmentAccountSerializer(many=False, read_only=True)
+    patient_id = serializers.PrimaryKeyRelatedField(
+        source="patient", queryset=models.Account.objects.all(), many=False, write_only=True, required=True
+    )
+
+    def create(self, validated_data: dict):
+        user = self.context["request"].user
+        patient_id = validated_data.get("patient_id")
+
+        if user.is_user and patient_id != user.id:
+            raise ValidationError("Вы можете записывать на приём только себя.")
+
+        return super().create(validated_data)
 
     class Meta:
         model = models.Appointment
@@ -151,7 +184,7 @@ class AppointmentSerializer(serializers.ModelSerializer):
 
 
 class CaseSerializer(serializers.ModelSerializer):
-    doctor = DoctorSerializer(many=False, read_only=True)
+    doctor = CaseDoctorSerializer(many=False, read_only=True)
     doctor_id = serializers.PrimaryKeyRelatedField(
         source="doctor", queryset=models.Doctor.objects.all(), many=False, write_only=True, required=True
     )

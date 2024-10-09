@@ -4,7 +4,7 @@ from django.contrib.auth import authenticate
 from django.contrib.auth.tokens import default_token_generator
 from django.contrib.sites.shortcuts import get_current_site
 from django_filters.rest_framework import DjangoFilterBackend
-from rest_framework import filters, status, viewsets, serializers
+from rest_framework import filters, status, viewsets
 from rest_framework.exceptions import ValidationError
 from rest_framework.permissions import AllowAny, IsAuthenticated
 from rest_framework.response import Response
@@ -17,6 +17,8 @@ from drf_spectacular.utils import extend_schema, extend_schema_view
 from dental_source import serializers as auth_serializers
 from dental_source import models
 from dental_source.utils import Util
+from dental_source.permissions import AccessRoleScopePermission, CustomDjangoModelPermission, AppointmentPermission
+from dental_source.filters import RoleBasedAccountFilter
 
 
 @extend_schema_view(
@@ -43,7 +45,7 @@ class Login(APIView):
 
         user = authenticate(login=login, password=password)
         if user is None:
-            return ValidationError("Такого пользователя не существует.", code=status.HTTP_401_UNAUTHORIZED)
+            raise ValidationError("Такого пользователя не существует.", code=status.HTTP_401_UNAUTHORIZED)
 
         refresh = RefreshToken.for_user(user)
 
@@ -203,23 +205,23 @@ class EmailConfirmation(APIView):
 )
 # endregion
 class AccountViewSet(viewsets.ModelViewSet):
-    permission_classes = (IsAuthenticated, )
+    permission_classes = (IsAuthenticated, AccessRoleScopePermission, CustomDjangoModelPermission,)
     queryset = models.Account.objects.all()
     serializer_class = auth_serializers.AccountSerializer
     filter_backends = [
+        RoleBasedAccountFilter,
         DjangoFilterBackend,
         filters.OrderingFilter,
         filters.SearchFilter,
     ]
-    search_fields = ["login"]
 
     def partial_update(self, request, *args, **kwargs):
         instance = self.get_object()
         data = request.data
         is_superuser = data.get("is_superuser")
 
-        if not request.user.is_superuser:
-            if instance.is_superuser:
+        if not request.user.is_super_admin:
+            if instance.is_super_admin:
                 raise ValidationError("Вы не можете изменять супер-админа.")
 
             if is_superuser is not None and is_superuser != instance.is_superuser:
@@ -243,7 +245,7 @@ class AccountViewSet(viewsets.ModelViewSet):
     def create(self, request, *args, **kwargs):
         data = request.data
 
-        if not request.user.is_superuser and data.get("is_superuser"):
+        if data.get("is_superuser"):
             raise ValidationError("Вы не можете создать супер-админа.")
 
         return super().create(request, *args, **kwargs)
@@ -286,7 +288,7 @@ class AccountViewSet(viewsets.ModelViewSet):
 )
 # endregion
 class DoctorViewSet(viewsets.ModelViewSet):
-    permission_classes = (IsAuthenticated,)
+    permission_classes = (IsAuthenticated, CustomDjangoModelPermission,)
     queryset = models.Doctor.objects.all()
     serializer_class = auth_serializers.DoctorSerializer
     filter_backends = [
@@ -325,7 +327,7 @@ class DoctorViewSet(viewsets.ModelViewSet):
 )
 # endregion
 class QuestionViewSet(viewsets.ModelViewSet):
-    permission_classes = (IsAuthenticated,)
+    permission_classes = (IsAuthenticated, CustomDjangoModelPermission,)
     queryset = models.Question.objects.all()
     serializer_class = auth_serializers.QuestionSerializer
     filter_backends = [
@@ -364,7 +366,7 @@ class QuestionViewSet(viewsets.ModelViewSet):
 )
 # endregion
 class ScheduleViewSet(viewsets.ModelViewSet):
-    permission_classes = (IsAuthenticated,)
+    permission_classes = (IsAuthenticated, CustomDjangoModelPermission,)
     queryset = models.Schedule.objects.all()
     serializer_class = auth_serializers.ScheduleSerializer
     filter_backends = [
@@ -403,7 +405,7 @@ class ScheduleViewSet(viewsets.ModelViewSet):
 )
 # endregion
 class PriceViewSet(viewsets.ModelViewSet):
-    permission_classes = (IsAuthenticated,)
+    permission_classes = (IsAuthenticated, CustomDjangoModelPermission,)
     queryset = models.Price.objects.all()
     serializer_class = auth_serializers.PriceSerializer
     filter_backends = [
@@ -442,7 +444,7 @@ class PriceViewSet(viewsets.ModelViewSet):
 )
 # endregion
 class ContactViewSet(viewsets.ModelViewSet):
-    permission_classes = (IsAuthenticated,)
+    permission_classes = (IsAuthenticated, CustomDjangoModelPermission,)
     queryset = models.Contact.objects.all()
     serializer_class = auth_serializers.ContactSerializer
     filter_backends = [
@@ -481,7 +483,7 @@ class ContactViewSet(viewsets.ModelViewSet):
 )
 # endregion
 class AppointmentViewSet(viewsets.ModelViewSet):
-    permission_classes = (IsAuthenticated,)
+    permission_classes = (IsAuthenticated, CustomDjangoModelPermission, AppointmentPermission, )
     queryset = models.Appointment.objects.all()
     serializer_class = auth_serializers.AppointmentSerializer
     filter_backends = [
@@ -489,6 +491,15 @@ class AppointmentViewSet(viewsets.ModelViewSet):
         filters.OrderingFilter,
         filters.SearchFilter,
     ]
+
+    def get_queryset(self):
+        queryset_ = self.queryset
+        user = self.request.user
+
+        if user.is_user:
+            queryset_ = queryset_.filter(patient=user)
+
+        return queryset_
 
 
 # region
@@ -520,7 +531,7 @@ class AppointmentViewSet(viewsets.ModelViewSet):
 )
 # endregion
 class CaseViewSet(viewsets.ModelViewSet):
-    permission_classes = (IsAuthenticated,)
+    permission_classes = (IsAuthenticated, CustomDjangoModelPermission,)
     queryset = models.Case.objects.all()
     serializer_class = auth_serializers.CaseSerializer
     filter_backends = [
@@ -559,7 +570,7 @@ class CaseViewSet(viewsets.ModelViewSet):
 )
 # endregion
 class SpecialtyViewSet(viewsets.ModelViewSet):
-    permission_classes = (IsAuthenticated,)
+    permission_classes = (IsAuthenticated, CustomDjangoModelPermission,)
     queryset = models.Specialty.objects.all()
     serializer_class = auth_serializers.SpecialtySerializer
     filter_backends = [
@@ -598,7 +609,7 @@ class SpecialtyViewSet(viewsets.ModelViewSet):
 )
 # endregion
 class TreatmentProfileViewSet(viewsets.ModelViewSet):
-    permission_classes = (IsAuthenticated,)
+    permission_classes = (IsAuthenticated, CustomDjangoModelPermission,)
     queryset = models.TreatmentProfile.objects.all()
     serializer_class = auth_serializers.TreatmentProfileSerializer
     filter_backends = [
@@ -637,7 +648,7 @@ class TreatmentProfileViewSet(viewsets.ModelViewSet):
 )
 # endregion
 class EducationViewSet(viewsets.ModelViewSet):
-    permission_classes = (IsAuthenticated,)
+    permission_classes = (IsAuthenticated, CustomDjangoModelPermission,)
     queryset = models.Education.objects.all()
     serializer_class = auth_serializers.EducationSerializer
     filter_backends = [
@@ -676,7 +687,7 @@ class EducationViewSet(viewsets.ModelViewSet):
 )
 # endregion
 class AdvancedTrainingViewSet(viewsets.ModelViewSet):
-    permission_classes = (IsAuthenticated,)
+    permission_classes = (IsAuthenticated, CustomDjangoModelPermission,)
     queryset = models.AdvancedTraining.objects.all()
     serializer_class = auth_serializers.AdvancedTrainingSerializer
     filter_backends = [
@@ -715,7 +726,7 @@ class AdvancedTrainingViewSet(viewsets.ModelViewSet):
 )
 # endregion
 class ImageViewSet(viewsets.ModelViewSet):
-    permission_classes = (IsAuthenticated,)
+    permission_classes = (IsAuthenticated, CustomDjangoModelPermission,)
     queryset = models.Image.objects.all()
     serializer_class = auth_serializers.ImageSerializer
     filter_backends = [
@@ -754,7 +765,7 @@ class ImageViewSet(viewsets.ModelViewSet):
 )
 # endregion
 class ResultViewSet(viewsets.ModelViewSet):
-    permission_classes = (IsAuthenticated,)
+    permission_classes = (IsAuthenticated, CustomDjangoModelPermission,)
     queryset = models.Result.objects.all()
     serializer_class = auth_serializers.ResultSerializer
     filter_backends = [
@@ -793,7 +804,7 @@ class ResultViewSet(viewsets.ModelViewSet):
 )
 # endregion
 class PromotionViewSet(viewsets.ModelViewSet):
-    permission_classes = (IsAuthenticated,)
+    permission_classes = (IsAuthenticated, CustomDjangoModelPermission,)
     queryset = models.Promotion.objects.all()
     serializer_class = auth_serializers.PromotionSerializer
     filter_backends = [

@@ -1,8 +1,9 @@
-from django.contrib.auth.models import AbstractUser
+from django.contrib.auth.models import AbstractUser, Group
 from django.db import models
 from django.utils.text import slugify
 from rest_framework_simplejwt.tokens import RefreshToken
 
+from dental_source.constants import AccountRole
 from dental_source.managers import AccountManager
 from dental_source.utils import generate_uuid, LowercaseEmailField
 from dental_source.validators import validate_login, validate_name, validate_phone, validate_percent
@@ -59,8 +60,26 @@ class Account(AbstractUser):
         blank=True,
         null=True
     )
+    role = models.ForeignKey(
+        to=Group,
+        on_delete=models.PROTECT,
+        verbose_name="Роль",
+        default=Group.objects.get(name=AccountRole.USER.value).id
+    )
 
     objects = AccountManager()
+
+    @property
+    def is_super_admin(self) -> bool:
+        return self.role.name == AccountRole.SUPER_ADMIN.value
+
+    @property
+    def is_admin(self) -> bool:
+        return self.role.name == AccountRole.ADMIN.value
+
+    @property
+    def is_user(self) -> bool:
+        return self.role.name == AccountRole.USER.value
 
     @property
     def access_token(self) -> str:
@@ -349,21 +368,13 @@ class Appointment(models.Model):
         blank=True,
         validators=[validate_phone]
     )
-    patientName = models.CharField(
-        verbose_name="Имя пациента",
-        help_text="Имя пациента",
-        max_length=128,
-        blank=True
-    )
-    patientPhone = models.CharField(
-        verbose_name="Телефон пациента",
-        max_length=13,
+    patient = models.ForeignKey(
+        to=Account,
+        on_delete=models.CASCADE,
+        verbose_name="Пациент",
+        help_text="Пациент",
         null=True,
         blank=True,
-        validators=[validate_phone]
-    )
-    patientEmail = models.CharField(
-        verbose_name="Email пациента",
     )
     serviceType = models.TextField(
         verbose_name="Услуга",

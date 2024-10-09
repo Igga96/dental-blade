@@ -1,0 +1,18 @@
+[
+  {
+    "model": "dental_source.account",
+    "pk": "228007346dad4693abade7ea1dcbe3b9",
+    "fields": {
+      "login": "main_admin",
+      "password": "argon2$argon2id$v=19$m=102400,t=2,p=8$aGtXbGs5TGtLanJsbUxZSkxMZW95MQ$/ZVvFTdjFHRsh5vhScrhP4dNAYGrPhGlOr/WqMf2lP0",
+      "is_superuser": true,
+      "is_active": true,
+      "is_staff": true,
+      "email": "main_admin@gmail.com",
+      "first_name": "Админов",
+      "last_name": "Админ",
+      "middleName": "Админович",
+      "role_id": 3
+    }
+  }
+]

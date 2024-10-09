@@ -1,4 +1,3 @@
-
 from django.contrib.auth.base_user import BaseUserManager
 from rest_framework.exceptions import ValidationError
 
@@ -10,6 +9,7 @@ class AccountManager(BaseUserManager):
 
         user = self.model(login=login, **extra_fields)
         user.set_password(password)
+        user.is_active = False
         user.save(using=self._db)
 
         return user

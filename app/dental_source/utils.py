@@ -1,3 +1,4 @@
+import os
 import uuid
 
 from django.db import models
@@ -26,17 +27,13 @@ def generate_uuid() -> str:
     return uuid.uuid4().hex
 
 
-def is_superuser(user):
-    return user.is_superuser
-
-
 class Util:
     @staticmethod
     def send_email(data):
         send_mail(
             data['email_subject'],
             data['email_body'],
-            "test@gmail.com",
+            os.environ.get("SMTP_FROM_EMAIL", "test@gmail.com"),
             [data['to_email']],
-            fail_silently=False,
+            fail_silently=True,
         )
