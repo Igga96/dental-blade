@@ -38,7 +38,7 @@ class Command(BaseCommand):
 
     @staticmethod
     def load_base_profile():
-        management.call_command("loaddata", "base/data/group", database="target")
         management.call_command("loaddata", "base/data/content_type", database="target")
         management.call_command("loaddata", "base/data/permissions", database="target")
+        management.call_command("loaddata", "base/data/group", database="target")
         management.call_command("loaddata", "base/data/group_permissions", database="target")
