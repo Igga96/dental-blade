@@ -1,5 +1,8 @@
 from django.contrib.auth.base_user import BaseUserManager
+from django.contrib.auth.models import Group
+
 from rest_framework.exceptions import ValidationError
+from dental_source.constants import AccountRole
 
 
 class AccountManager(BaseUserManager):
@@ -11,6 +14,8 @@ class AccountManager(BaseUserManager):
         user.set_password(password)
         user.is_active = False
         user.save(using=self._db)
+        user.groups.add(user.role.pk)
+        user.save()
 
         return user
 
@@ -19,5 +24,7 @@ class AccountManager(BaseUserManager):
         user.is_superuser = True
         user.is_staff = True
         user.save(using=self._db)
+        user.groups.add(Group.objects.get(name=AccountRole.SUPER_ADMIN.value).pk)
+        user.save()
 
         return user

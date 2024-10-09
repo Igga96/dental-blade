@@ -8,6 +8,12 @@ class AccountAdmin(admin.ModelAdmin):
     list_display = [field.name for field in models.Account._meta.fields]
     search_fields = [field.name for field in models.Account._meta.fields]
 
+    def save_model(self, request, obj, form, change):
+        if "argon2" not in obj.password:
+            obj.set_password(obj.password)
+
+        obj.save()
+
 
 @admin.register(models.Doctor)
 class DoctorAdmin(admin.ModelAdmin):
