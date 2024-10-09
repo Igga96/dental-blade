@@ -32,6 +32,7 @@ class Util:
     @staticmethod
     def send_email(data):
         send_mail(
+            message="",
             subject=data['email_subject'],
             from_email=os.environ.get("SMTP_FROM_EMAIL", "test@gmail.com"),
             recipient_list=[data['to_email']],
