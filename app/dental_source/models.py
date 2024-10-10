@@ -60,26 +60,30 @@ class Account(AbstractUser):
         blank=True,
         null=True
     )
-    role = models.ForeignKey(
-        to=Group,
-        on_delete=models.PROTECT,
-        verbose_name="Роль",
-        default=Group.objects.get(name=AccountRole.USER.value).id
-    )
 
     objects = AccountManager()
 
     @property
+    def full_name(self):
+        return f"{self.last_name} {self.first_name} {self.middleName}"
+
+    @property
     def is_super_admin(self) -> bool:
-        return self.role.name == AccountRole.SUPER_ADMIN.value
+        current_group = self.groups.first()
+
+        return current_group.name == AccountRole.SUPER_ADMIN.value
 
     @property
     def is_admin(self) -> bool:
-        return self.role.name == AccountRole.ADMIN.value
+        current_group = self.groups.first()
+
+        return current_group.name == AccountRole.ADMIN.value
 
     @property
     def is_user(self) -> bool:
-        return self.role.name == AccountRole.USER.value
+        current_group = self.groups.first()
+
+        return current_group.name == AccountRole.USER.value
 
     @property
     def access_token(self) -> str:

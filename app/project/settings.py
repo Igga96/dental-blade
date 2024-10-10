@@ -133,7 +133,7 @@ logging.config.dictConfig(LOGGING)
 # CELERY_ACCEPT_CONTENT = ["json", "pickle"]
 
 # EMAIL
-EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
 EMAIL_USE_TLS = bool(os.environ.get("SMTP_USE_TLS", False))
 EMAIL_HOST = os.environ.get("SMTP_HOST")
 EMAIL_PORT = int(os.environ.get("SMTP_PORT"))

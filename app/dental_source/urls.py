@@ -25,6 +25,8 @@ urlpatterns = [
     path("registration/", views.Registration.as_view()),
     path("login/", views.Login.as_view()),
     path("logout/", views.Logout.as_view()),
-    path("confirm-email/<str:user_id>/<str:confirmation_token>", views.EmailConfirmation.as_view(), name="confirm_email"),
+    path(
+        "confirm-email/<str:user_id>/<str:confirmation_token>", views.EmailConfirmation.as_view(), name="confirm_email"
+    ),
     path("", include(router.urls)),
 ]

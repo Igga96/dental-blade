@@ -14,7 +14,7 @@ class AccountSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = models.Account
-        exclude = ("groups", "role", "is_superuser", "is_staff")
+        exclude = ("groups", "is_superuser", "is_staff")
 
 
 class AppointmentAccountSerializer(serializers.ModelSerializer):

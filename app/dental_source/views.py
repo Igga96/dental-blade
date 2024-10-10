@@ -45,7 +45,7 @@ class Login(APIView):
             raise ValidationError("Введите пароль", code=status.HTTP_400_BAD_REQUEST)
 
         user = authenticate(login=login, password=password)
-        if user is None:
+        if not user:
             raise ValidationError("Такого пользователя не существует.", code=status.HTTP_401_UNAUTHORIZED)
 
         refresh = RefreshToken.for_user(user)
