@@ -17,12 +17,18 @@ django-filter = {version = "==24.*", index="pypi"}
 django-db-comments = {version = "==0.4.*", index="pypi"}
 django-ipware = {version = "==7.0.*", index="pypi"}
 pillow = {version = "*", index="pypi"}
+celery = {version = "==5.4.*", index="pypi", extras=["redis"]}
+django-redis = {version = "==5.4.*", index="pypi"}
 # Databases
 psycopg2-binary = {version = "==2.9.*", index="pypi"}
 # Crypto
 argon2-cffi = {version = "==23.1.*", index="pypi"}
 # Other tools
 PyJWT = {version = "==2.9.*", index="pypi"}
+
+[dev-packages]
+# Auto-reload celery workers
+watchdog = {version = "==5.0.*", index="pypi", extras=["watchmedo"]}
 
 [requires]
 python_version = "3.12"

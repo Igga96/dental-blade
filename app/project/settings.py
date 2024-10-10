@@ -16,13 +16,6 @@ ALLOWED_HOSTS = ["*"]
 # This can be dangerous, be aware!
 os.environ.setdefault("C_FORCE_ROOT", "true")
 
-CACHES = {
-    "default": {
-        "BACKEND": "django.core.cache.backends.db.DatabaseCache",
-        "LOCATION": "django_cache",
-    }
-}
-
 INSTALLED_APPS = [
     "django.contrib.admin",
     "django.contrib.auth",
@@ -32,9 +25,9 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     "django.contrib.postgres",
     "django_db_comments",
+    # THIRD PARTY
     "rest_framework_simplejwt",
     "rest_framework_simplejwt.token_blacklist",
-    # THIRD PARTY
     "django_filters",
     "rest_framework",
     "drf_spectacular",
@@ -72,7 +65,6 @@ MIDDLEWARE = [
     "django.contrib.sessions.middleware.SessionMiddleware",
     "corsheaders.middleware.CorsMiddleware",
     "django.middleware.common.CommonMiddleware",
-    "django.middleware.csrf.CsrfViewMiddleware",
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
@@ -123,14 +115,30 @@ LOGGING = {
 
 logging.config.dictConfig(LOGGING)
 
+CACHES = {
+    "default": {
+        "BACKEND": "django_redis.cache.RedisCache",
+        "LOCATION": "redis://redis:6379/1",
+        "OPTIONS": {
+            "COMPRESSOR": "django_redis.compressors.zlib.ZlibCompressor",
+            "CLIENT_CLASS": "django_redis.client.HerdClient",
+            "CONNECTION_POOL_KWARGS": {"max_connections": 100, "retry_on_timeout": True},
+            "IGNORE_EXCEPTIONS": True,
+        },
+        "KEY_PREFIX": "Session",
+        'MAX_ENTRIES': 10000
+    }
+}
+
 # Celery Configuration Options
-# CELERY_BROKER_URL = f"{REDIS_URL}/0"
-# CELERY_RESULT_BACKEND = CELERY_BROKER_URL
-# CELERY_TIMEZONE = "Europe/Minsk"
-# CELERY_TASK_TRACK_STARTED = True
-# CELERY_TASK_TIME_LIMIT = 30 * 60
-# CELERY_TASK_SERIALIZER = "pickle"
-# CELERY_ACCEPT_CONTENT = ["json", "pickle"]
+CELERY_BROKER_URL = "redis://redis:6379/0"
+CELERY_RESULT_BACKEND = CELERY_BROKER_URL
+CELERY_TIMEZONE = "Europe/Minsk"
+CELERY_TASK_TRACK_STARTED = True
+CELERY_TASK_TIME_LIMIT = 30 * 60
+CELERY_TASK_SERIALIZER = "pickle"
+CELERY_ACCEPT_CONTENT = ["json", "pickle"]
+CELERY_BROKER_CONNECTION_RETRY_ON_STARTUP = True
 
 # EMAIL
 EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
@@ -147,13 +155,6 @@ CORS_ALLOW_CREDENTIALS = True
 # CSRF_FAILURE_VIEW = "core.csrf.csrf_failure"
 # CSRF_TRUSTED_ORIGINS = os.environ.get("CSRF_TRUSTED", "").split(",")
 # CSRF_HEADER_NAME = "CSRF_COOKIE"
-
-# SESSION_EXPIRE_AT_BROWSER_CLOSE = False
-# SESSION_SAVE_EVERY_REQUEST = True
-# SESSION_EXPIRE_AFTER_LAST_ACTIVITY = True
-# SESSION_COOKIE_HTTPONLY = True
-# SESSION_COOKIE_AGE = 1200
-# SESSION_CACHE_ALIAS = "default"
 
 # CONFIG PROD SECURE
 if not DEBUG:
