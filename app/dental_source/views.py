@@ -1,3 +1,5 @@
+import os
+
 from django.db.models import Q
 from django.urls import reverse
 from django.contrib.auth import authenticate
@@ -75,9 +77,9 @@ class Logout(APIView):
 
 @extend_schema_view(
     post=extend_schema(
-        description="Зарегестрироваться.",
+        description="Зарегистрироваться.",
         tags=["Авторизация"],
-        summary="Зарегестрироваться.",
+        summary="Зарегистрироваться.",
     ),
 )
 class Registration(APIView):
@@ -108,19 +110,21 @@ class Registration(APIView):
         confirmation_token = default_token_generator.make_token(user)
 
         relative_link = reverse(
-            'confirm_email',
+            "confirm_email",
             kwargs={"user_id": user.id, "confirmation_token": confirmation_token}
         )
 
-        activation_link = 'http://' + get_current_site(request).domain + relative_link
+        url_security = os.environ.get("URL_SECURITY", "http")
+        activation_link = f"{url_security}://" + get_current_site(request).domain + relative_link
 
-        email_body = f"<p> Добрый день, {user.login}.</p> <br>" \
-                     f" <p>Используйте ссылку ниже для подтверждения вашего аккаунта.</p> <br> <link href='{activation_link}' rel='stylesheet'/>"
+        email_body = f"<p> Добрый день, {user.login}.</p>" \
+                     f" <p>Используйте ссылку ниже для подтверждения вашего аккаунта.</p> {activation_link}"
 
-        data = {'email_body': email_body, 'to_email': user.email,
-                'email_subject': 'Подтверждение почты'}
-
-        Util.send_email(data=data)
+        Util.send_email({
+            'email_body': email_body,
+            'to_email': user.email,
+            'email_subject': 'Подтверждение почты'
+        })
 
         return Response(
             data={"Success": "Проверьте почту для подтверждения регистрации."},
