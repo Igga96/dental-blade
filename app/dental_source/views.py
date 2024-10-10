@@ -90,6 +90,7 @@ class Registration(APIView):
         data = request.data
         login = request.data.get("login")
         email = request.data.get("email")
+        password = request.data.get("password")
 
         user = models.Account.objects.filter(Q(login=login) | Q(email=email)).first()
 
@@ -117,7 +118,8 @@ class Registration(APIView):
         url_security = os.environ.get("URL_SECURITY", "http")
         activation_link = f"{url_security}://" + get_current_site(request).domain + relative_link
 
-        email_body = f"<p> Добрый день, {user.login}.</p>" \
+        email_body = f"<p> Добрый день, {user.full_name}.</p>" \
+                     f"<p> Ваш логин: {user.login} и ваш пароль: {password} </p>" \
                      f" <p>Используйте ссылку ниже для подтверждения вашего аккаунта.</p> {activation_link}"
 
         Util.send_email({

@@ -14,7 +14,7 @@ class AccountManager(BaseUserManager):
         user.set_password(password)
         user.is_active = False
         user.save(using=self._db)
-        user.groups.add(user.role.pk)
+        user.groups.add(Group.objects.get(name=AccountRole.USER.value).pk)
         user.save()
 
         return user
