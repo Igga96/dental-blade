@@ -19,7 +19,7 @@ class RoleBasedAccountFilter(BaseFilterBackend):
                 return queryset_
             elif request.user.is_admin:
                 return queryset_.filter(
-                    Q(pk=user.pk) | Q(role__name=AccountRole.USER.value)
+                    Q(pk=user.pk) | Q(groups__name__in=[AccountRole.USER.value])
                 )
             elif request.user.is_user:
                 return queryset_.filter(pk=user.pk)
