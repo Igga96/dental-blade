@@ -302,6 +302,12 @@ class DoctorViewSet(viewsets.ModelViewSet):
         filters.SearchFilter,
     ]
 
+    def get_permissions(self):
+        if self.action in ["list", "retrieve"]:
+            self.permission_classes = (AllowAny, )
+
+        return super(self.__class__, self).get_permissions()
+
 
 # region
 @extend_schema_view(
@@ -340,6 +346,12 @@ class QuestionViewSet(viewsets.ModelViewSet):
         filters.OrderingFilter,
         filters.SearchFilter,
     ]
+
+    def get_permissions(self):
+        if self.action in ["list", "retrieve"]:
+            self.permission_classes = (AllowAny, )
+
+        return super(self.__class__, self).get_permissions()
 
 
 # region
@@ -419,6 +431,12 @@ class PriceViewSet(viewsets.ModelViewSet):
         filters.SearchFilter,
     ]
 
+    def get_permissions(self):
+        if self.action in ["list", "retrieve"]:
+            self.permission_classes = (AllowAny, )
+
+        return super(self.__class__, self).get_permissions()
+
 
 # region
 @extend_schema_view(
@@ -457,6 +475,12 @@ class ContactViewSet(viewsets.ModelViewSet):
         filters.OrderingFilter,
         filters.SearchFilter,
     ]
+
+    def get_permissions(self):
+        if self.action in ["list", "retrieve"]:
+            self.permission_classes = (AllowAny, )
+
+        return super(self.__class__, self).get_permissions()
 
 
 # region
@@ -544,6 +568,12 @@ class CaseViewSet(viewsets.ModelViewSet):
         filters.OrderingFilter,
         filters.SearchFilter,
     ]
+
+    def get_permissions(self):
+        if self.action in ["list", "retrieve"]:
+            self.permission_classes = (AllowAny, )
+
+        return super(self.__class__, self).get_permissions()
 
 
 # region
@@ -779,6 +809,12 @@ class ResultViewSet(viewsets.ModelViewSet):
         filters.SearchFilter,
     ]
 
+    def get_permissions(self):
+        if self.action in ["list", "retrieve"]:
+            self.permission_classes = (AllowAny, )
+
+        return super(self.__class__, self).get_permissions()
+
 
 # region
 @extend_schema_view(
@@ -817,3 +853,9 @@ class PromotionViewSet(viewsets.ModelViewSet):
         filters.OrderingFilter,
         filters.SearchFilter,
     ]
+
+    def get_permissions(self):
+        if self.action in ["list", "retrieve"]:
+            self.permission_classes = (AllowAny, )
+
+        return super(self.__class__, self).get_permissions()
