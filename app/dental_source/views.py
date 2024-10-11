@@ -6,8 +6,9 @@ from django.contrib.auth import authenticate
 from django.contrib.auth.tokens import default_token_generator
 from django.contrib.sites.shortcuts import get_current_site
 from django_filters.rest_framework import DjangoFilterBackend
-from rest_framework import filters, status, viewsets
+from rest_framework import filters, status, viewsets, parsers
 from rest_framework.exceptions import ValidationError
+from rest_framework.parsers import JSONParser
 from rest_framework.permissions import AllowAny, IsAuthenticated
 from rest_framework.response import Response
 from rest_framework.views import APIView
@@ -219,6 +220,7 @@ class AccountViewSet(viewsets.ModelViewSet):
         filters.OrderingFilter,
         filters.SearchFilter,
     ]
+    parser_classes = (parsers.MultiPartParser, JSONParser)
 
     def partial_update(self, request, *args, **kwargs):
         instance = self.get_object()
@@ -301,6 +303,7 @@ class DoctorViewSet(viewsets.ModelViewSet):
         filters.OrderingFilter,
         filters.SearchFilter,
     ]
+    parser_classes = (parsers.MultiPartParser, JSONParser)
 
     def get_permissions(self):
         if self.action in ["list", "retrieve"]:
@@ -568,6 +571,7 @@ class CaseViewSet(viewsets.ModelViewSet):
         filters.OrderingFilter,
         filters.SearchFilter,
     ]
+    parser_classes = (parsers.MultiPartParser, JSONParser)
 
     def get_permissions(self):
         if self.action in ["list", "retrieve"]:
@@ -769,6 +773,7 @@ class ImageViewSet(viewsets.ModelViewSet):
         filters.OrderingFilter,
         filters.SearchFilter,
     ]
+    parser_classes = (parsers.MultiPartParser, JSONParser)
 
 
 # region
@@ -808,6 +813,7 @@ class ResultViewSet(viewsets.ModelViewSet):
         filters.OrderingFilter,
         filters.SearchFilter,
     ]
+    parser_classes = (parsers.MultiPartParser, JSONParser)
 
     def get_permissions(self):
         if self.action in ["list", "retrieve"]:
