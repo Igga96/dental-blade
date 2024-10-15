@@ -244,13 +244,11 @@ class Price(models.Model):
     id = models.CharField(
         default=generate_uuid, primary_key=True, editable=False, max_length=40, verbose_name="GUID услуги"
     )
-    category = models.CharField(
-        max_length=40,
+    category = models.TextField(
         verbose_name="Категория",
         help_text="Категория"
     )
-    name = models.CharField(
-        max_length=40,
+    name = models.TextField(
         verbose_name="Название",
         help_text="Название"
     )
@@ -593,11 +591,11 @@ class Promotion(models.Model):
         verbose_name="Ссылка на страницу",
         help_text="Ссылка на страницу на которой будет отображаться акция"
     )
-    oldPrice = models.IntegerField(
+    oldPrice = models.TextField(
         verbose_name="Старая цена",
         help_text="Старая цена",
     )
-    newPrice = models.IntegerField(
+    newPrice = models.TextField(
         verbose_name="Новая цена",
         help_text="Новая цена",
     )
